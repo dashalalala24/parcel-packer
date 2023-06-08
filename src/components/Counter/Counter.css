@@ -4,9 +4,9 @@
   max-width: 134px;
   background: linear-gradient(to right, var(--green-color) 50%, var(--beige-color) 50%);
   background-repeat: no-repeat;
-  /* background-position: 100%; */
   transition: background-position 0.4s, color 0.4s;
   background-size: 200%;
+  /* background-position: 100%; */
 }
 
 .counter__text {

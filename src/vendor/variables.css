@@ -1,0 +1,33 @@
+:root {
+  --black-color: #212121;
+  --beige-color: #f3f0e9;
+  --gray-color: #dedede;
+  --white-color: #fff;
+  --yellow-color: #fed42b;
+  --dark-yellow-color: #f5c400;
+  --green-color: #2aad2e;
+  --red-color: #f00;
+  --blue-color: #04e;
+  --light-blue-color: #e0eeff;
+
+  --font-2xl: 72px/90px 700 'Yandex Sans Display', 'Arial', sans-serif;
+  --font-xl: 48px/60px 700 'Yandex Sans Display', 'Arial', sans-serif;
+  --font-l: 40px/36px 700 'Yandex Sans Display', 'Arial', sans-serif;
+  --font-m: 40px/44px 400 'Yandex Sans Display', 'Arial', sans-serif;
+  --font-s: 28px/35px 700 'Yandex Sans Display', 'Arial', sans-serif;
+  --font-button-l: 32px/40px 700 'Yandex Sans Display', 'Arial', sans-serif;
+  --font-button-s: 24px/30px 700 'Yandex Sans Display', 'Arial', sans-serif;
+  --font-xs: 28px/35px 400 'Yandex Sans Display', 'Arial', sans-serif;
+  --font-2xs: 24px/32px 400 'Yandex Sans Display', 'Arial', sans-serif;
+
+  --letter-spacing: -0.02em;
+  --font-feature: 'pnum' on, 'lnum' on;
+
+  --border-radius-2xs: 12px;
+  --border-radius-xs: 16px;
+  --border-radius-s: 20px;
+  --border-radius-m: 24px;
+  --border-radius-l: 40px;
+  --border-radius-xl: 48px;
+  --border-radius-2xl: 100px;
+}

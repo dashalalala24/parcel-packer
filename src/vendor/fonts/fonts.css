@@ -1,41 +1,41 @@
 @font-face {
   font-family: 'YS Text';
-  src: url('./fonts/YS Text-Regular.ttf') format('ttf');
+  src: url('./YS Text-Regular.ttf') format('ttf');
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'YS Text';
-  src: url('./fonts/YS Text-Regular.woff') format('woff');
+  src: url('./YS Text-Regular.woff') format('woff');
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'YS Text';
-  src: url('./fonts/YS Text-Regular.woff2') format('woff2');
+  src: url('./YS Text-Regular.woff2') format('woff2');
   font-weight: 400;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'YS Display';
-  src: url('./fonts/YS Display-Bold.ttf') format('ttf');
+  src: url('./YS Display-Bold.ttf') format('ttf');
   font-weight: 700;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'YS Display';
-  src: url('./fonts/YS Display-Bold.woff') format('woff');
+  src: url('./YS Display-Bold.woff') format('woff');
   font-weight: 700;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'YS Display';
-  src: url('./fonts/YS Display-Bold.woff2') format('woff2');
+  src: url('./YS Display-Bold.woff2') format('woff2');
   font-weight: 700;
   font-display: swap;
 }

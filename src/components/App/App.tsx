@@ -6,7 +6,7 @@ function App() {
     <div className='page'>
       <Counter
         itemsScanned={0}
-        itemsTotal={10}
+        itemsTotal={2}
       />
     </div>
   );

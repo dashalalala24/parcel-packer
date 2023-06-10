@@ -7,15 +7,11 @@ interface ICounter {
 }
 
 const Counter: FC<ICounter> = ({ itemsTotal, itemsScanned }) => {
-  const counterClassName = (
-    className: string,
-    itemsTotal: number,
-    itemsScanned: number
-  ): string => {
+  const counterClassName = (className: string): string => {
     return itemsTotal === itemsScanned ? `${className} ${className}_full` : className;
   };
 
-  const counterStyle =
+  const counterStyle: React.CSSProperties | undefined =
     itemsTotal === itemsScanned
       ? undefined
       : { backgroundPosition: `${100 - (itemsScanned / itemsTotal) * 100}%` };
@@ -27,9 +23,9 @@ const Counter: FC<ICounter> = ({ itemsTotal, itemsScanned }) => {
 
   return (
     <div
-      className={counterClassName('counter', itemsTotal, itemsScanned)}
+      className={counterClassName('counter')}
       style={counterStyle}>
-      <p className={counterClassName('counter__text', itemsTotal, itemsScanned)}>{counterText}</p>
+      <p className={counterClassName('counter__text')}>{counterText}</p>
     </div>
   );
 };

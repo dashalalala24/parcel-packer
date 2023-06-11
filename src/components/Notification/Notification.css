@@ -1,0 +1,32 @@
+.notification {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  min-height: 112px;
+  border: 4px solid;
+  padding: 36px;
+  box-sizing: border-box;
+  border-radius: 40px;
+}
+
+.notification__messageContainer {
+  display: flex;
+  align-items: center;
+  font: var(--font-button-s)
+}
+
+.notification__message {
+  margin: 0;
+}
+
+.notification__messageDetails {
+  margin: 0;
+  margin: 5px 0 0;
+  font: var(--font-2xs);
+}
+
+.notification__closeButtonContainer {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+}

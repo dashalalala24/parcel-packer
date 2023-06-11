@@ -8,11 +8,14 @@ import { IconImages } from '../Icon/types';
 import ActionButton from '../ActionButton/ActionButton';
 import Navbar, { navbarStatuses } from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import Checkbox from '../Checkbox/Checkbox';
 
 function App() {
   return (
     <div className='page'>
       <Header />
+      <br />
+      <Checkbox />
       <br />
       <Counter
         itemsScanned={0}

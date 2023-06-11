@@ -5,6 +5,7 @@
   --gray-color: #dedede;
   --gray-color-2: #ebebeb;
   --white-color: #fff;
+  --orange-color: #ffa200;
   --dark-yellow-color: #f5c400;
   --yellow-color: #fed42b;
   --yellowish-color: #ffeccc;
@@ -22,6 +23,7 @@
   --font-2xs: 400 24px/32px 'YS Display', 'Arial', sans-serif;
   --font-3xs: 400 14px/20px 'YS Display', 'Arial', sans-serif;
   --font-4xs: 400 20px/26px 'YS Text', 'Arial', sans-serif;
+
 
   --font-button-xl: 700 48px/60px 'YS Display', 'Arial', sans-serif;
   --font-button-l: 400 40px/44px 'YS Display', 'Arial', sans-serif;

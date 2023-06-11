@@ -5,6 +5,7 @@
   --gray-color: #dedede;
   --gray-color-2: #ebebeb;
   --white-color: #fff;
+  --orange-color: #ffa200;
   --dark-yellow-color: #f5c400;
   --yellow-color: #fed42b;
   --yellowish-color: #ffeccc;
@@ -21,7 +22,7 @@
   --font-xs: 400 28px/35px 'Yandex Sans Display', 'Arial', sans-serif;
   --font-2xs: 400 24px/32px 'Yandex Sans Display', 'Arial', sans-serif;
   --font-3xs: 400 14px/20px 'Yandex Sans Display', 'Arial', sans-serif;
-  
+
   --font-button-xl: 700 48px/60px 'Yandex Sans Display', 'Arial', sans-serif;
   --font-button-l: 400 40px/44px 'Yandex Sans Display', 'Arial', sans-serif;
   --font-button-m: 700 32px/40px 'Yandex Sans Display', 'Arial', sans-serif;

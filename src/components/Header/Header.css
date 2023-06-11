@@ -46,6 +46,7 @@
   margin: 0;
   padding: 0;
   letter-spacing: var(--letter-spacing-s);
+  font: var(--font-4xs);
 }
 
 .header__efficiency {

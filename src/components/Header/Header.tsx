@@ -1,23 +1,24 @@
 import { FC } from 'react';
 import './Header.css';
 import Icon from '../Icon/Icon';
+import IconImages from '../Icon/types';
 
 const Header: FC = () => {
   return (
     <header className='header'>
       <div className='header__burger-nav'>
         <Icon
-          imgName={'burger'}
+          imgName={IconImages.burger}
           width={72}
         />
         <div className='header__logo'>
           <Icon
-            imgName={'yaLogo'}
+            imgName={IconImages.yaLogo}
             width={92}
             height={44}
           />
           <Icon
-            imgName={'yaLogoname'}
+            imgName={IconImages.yaLogoname}
             width={93}
             height={46}
           />
@@ -29,14 +30,15 @@ const Header: FC = () => {
           <p className='header__username'>sof-natgemokee</p>
           <div className='header__efficiency'>
             <Icon
-              imgName={'rocket'}
+              imgName={IconImages.rocket}
               width={32}
+              color='white'
             />
             <p className='header__efficiency-percentage'>71%</p>
           </div>
         </div>
         <Icon
-          imgName={'kebab'}
+          imgName={IconImages.kebab}
           width={72}
         />
       </div>

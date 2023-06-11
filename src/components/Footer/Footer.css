@@ -1,0 +1,23 @@
+.footer {
+  background-color: var(--black-color);
+  font: var(--font-3xs);
+  font-feature-settings: var(--font-feature);
+  color: var(--dark-gray-color);
+  display: flex;
+  padding: 4px 24px;
+}
+
+.footer__secret {
+  padding: 0;
+  margin: 0 auto 0 0;
+}
+
+.footer__number {
+  padding: 0;
+  margin: 0 auto 0 0;
+}
+
+.footer__copyright {
+  padding: 0;
+  margin: 0 0 0 auto;
+}

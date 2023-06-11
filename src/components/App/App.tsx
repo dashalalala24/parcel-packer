@@ -1,5 +1,6 @@
 import './App.css';
 import Tag from '../Tag/Tag';
+import Header from '../Header/Header';
 import Counter from '../Counter/Counter';
 import Icon from '../Icon/Icon';
 import Button, { ButtonColors, ButtonSizes } from '../Button/Button';
@@ -11,26 +12,46 @@ import Footer from '../Footer/Footer';
 function App() {
   return (
     <div className='page'>
+      <Header />
       <br />
       <Counter
         itemsScanned={0}
         itemsTotal={2}
       />
       <br />
+      <Counter
+        itemsScanned={6}
+        itemsTotal={8}
+      />
+      <br />
+      <Counter
+        itemsScanned={10}
+        itemsTotal={10}
+      />
+      <br />
       <Tag
-        type='YMA'
-        // value='5 товаров'
+        type='info'
+        value='5 товаров'
+      />
+      <br />
+      <Tag
+        type='info'
+        value='Очень длинное название Очень длинное название Очень длинное название Очень длинное название'
       />
       <br />
       <Tag type='YMA' />
-      {/* Для проверки всех видов тегов: 'YMA' - коробка, 'MYA' - пакет, 'NONPACK' - другие упаковки,
-      1234567823432 - штриход, 'IMEI', 'chestnyy_znak', 'cancel', 'info'. 
-      value только для 'info' */}
       <br />
-      <Counter
-        itemsScanned={3}
-        itemsTotal={5}
-      />
+      <Tag type='MYA' />
+      <br />
+      <Tag type='NONPACK' />
+      <br />
+      <Tag type={1234567823432} />
+      <br />
+      <Tag type='IMEI' />
+      <br />
+      <Tag type='chestnyy_znak' />
+      <br />
+      <Tag type='cancel' />
       <br />
       <Icon
         imgName={IconImages.burger}

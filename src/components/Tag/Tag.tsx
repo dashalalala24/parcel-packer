@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Icon from '../Icon/Icon';
 import './Tag.css';
+import IconImages from '../Icon/types';
 
 interface IPacks {
   box: string[];
@@ -68,8 +69,8 @@ const Tag: FC<ITag> = ({ type, value = type }) => {
       ? value
       : type;
 
-  const iconName = (): string => {
-    return type === 'IMEI' ? 'barcode' : type === 'chestnyy_znak' ? 'qrCode' : tagType();
+  const iconName = (): IconImages => {
+    return type === 'IMEI' ? IconImages.barcode : type === 'chestnyy_znak' ? IconImages.qrCode : tagType() as IconImages;
   };
 
   const tagClassName = (className: string): string => {

@@ -43,7 +43,7 @@
 }
 
 .tag__text {
-  font: var(--font-button-s);
+  font: var(--font-button-xs);
   font-feature-settings: var(--font-feature);
   text-align: center;
   margin: 0;

@@ -2,13 +2,17 @@
   --black-color: #212121;
   --beige-color: #f3f0e9;
   --gray-color: #dedede;
+  --gray-color-2: #ebebeb;
   --white-color: #fff;
-  --yellow-color: #fed42b;
   --dark-yellow-color: #f5c400;
+  --yellow-color: #fed42b;
+  --yellowish-color: #ffeccc;
   --green-color: #2aad2e;
   --red-color: #f00;
   --blue-color: #04e;
-  --light-blue-color: #e0eeff;
+  --light-blue-color: #25add6;
+  --bluish-color: #e0eeff;
+  --violet-color: #8a35b3;
 
   --font-2xl: 700 72px/90px 'Yandex Sans Display', 'Arial', sans-serif;
   --font-l: 700 40px/36px 'Yandex Sans Display', 'Arial', sans-serif;

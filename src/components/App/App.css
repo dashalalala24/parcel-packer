@@ -1,4 +1,11 @@
-.page {
-  background-color: rgb(162, 162, 182);
-  min-height: 100vh;
+.app {
+  background-color: var(--white-color);
+  color: var(--black-color);
+  font-family: 'Yandex Sans Display', 'Arial', sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }

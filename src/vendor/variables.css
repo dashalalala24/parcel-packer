@@ -15,19 +15,19 @@
   --bluish-color: #e0eeff;
   --violet-color: #8a35b3;
 
-  --font-2xl: 700 72px/90px 'Yandex Sans Display', 'Arial', sans-serif;
-  --font-l: 700 40px/36px 'Yandex Sans Display', 'Arial', sans-serif;
-  --font-m: 400 40px/44px 'Yandex Sans Display', 'Arial', sans-serif;
-  --font-xs: 400 28px/35px 'Yandex Sans Display', 'Arial', sans-serif;
-  --font-2xs: 400 24px/32px 'Yandex Sans Display', 'Arial', sans-serif;
-  --font-3xs: 400 14px/20px 'Yandex Sans Display', 'Arial', sans-serif;
-  --font-4xs: 400 20px/26px 'Yandex Sans Display', 'Arial', sans-serif;
+  --font-2xl: 700 72px/90px 'YS Display', 'Arial', sans-serif;
+  --font-l: 700 40px/36px 'YS Display', 'Arial', sans-serif;
+  --font-m: 400 40px/44px 'YS Display', 'Arial', sans-serif;
+  --font-xs: 400 28px/35px 'YS Display', 'Arial', sans-serif;
+  --font-2xs: 400 24px/32px 'YS Display', 'Arial', sans-serif;
+  --font-3xs: 400 14px/20px 'YS Display', 'Arial', sans-serif;
+  --font-4xs: 400 20px/26px 'YS Text', 'Arial', sans-serif;
 
-  --font-button-xl: 700 48px/60px 'Yandex Sans Display', 'Arial', sans-serif;
-  --font-button-l: 400 40px/44px 'Yandex Sans Display', 'Arial', sans-serif;
-  --font-button-m: 700 32px/40px 'Yandex Sans Display', 'Arial', sans-serif;
-  --font-button-s: 700 28px/35px 'Yandex Sans Display', 'Arial', sans-serif;
-  --font-button-xs: 700 24px/30px 'Yandex Sans Display', 'Arial', sans-serif;
+  --font-button-xl: 700 48px/60px 'YS Display', 'Arial', sans-serif;
+  --font-button-l: 400 40px/44px 'YS Display', 'Arial', sans-serif;
+  --font-button-m: 700 32px/40px 'YS Display', 'Arial', sans-serif;
+  --font-button-s: 700 28px/35px 'YS Display', 'Arial', sans-serif;
+  --font-button-xs: 700 24px/30px 'YS Display', 'Arial', sans-serif;
 
   --letter-spacing-s: -0.01em;
   --letter-spacing-m: -0.02em;

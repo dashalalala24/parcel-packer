@@ -5,6 +5,7 @@ import Icon from "../Icon/Icon";
 import Button, { ButtonColors, ButtonSizes } from "../Button/Button";
 import { IconImages } from "../Icon/types";
 import ActionButton from "../ActionButton/ActionButton";
+import Footer from '../Footer/Footer';
 
 function App() {
   return (
@@ -16,15 +17,15 @@ function App() {
       />
       <br />
       <Tag
-        type='info'
-        value='5 товаров'
+        type='YMA'
+        // value='5 товаров'
       />
       <br />
       <Tag
         type='YMA'
       />
       {/* Для проверки всех видов тегов: 'YMA' - коробка, 'MYA' - пакет, 'NONPACK' - другие упаковки,
-      1234 5678 234 32 - штриход, 'IMEI', 'chestnyy_znak', 'cancel', 'info'. 
+      1234567823432 - штриход, 'IMEI', 'chestnyy_znak', 'cancel', 'info'. 
       value только для 'info' */}
       <br />
       <Counter itemsScanned={3} itemsTotal={5} />
@@ -80,6 +81,9 @@ function App() {
       <ActionButton icon={IconImages.cross} onClick={() => {console.log("Hello")}} />
       <br />
       <ActionButton icon={IconImages.backArrow} onClick={() => {console.log("Hello")}} />
+
+      <Footer />
+
     </div>
   );
 }

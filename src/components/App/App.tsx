@@ -19,6 +19,10 @@ function App() {
         type='info'
         value='5 товаров'
       />
+      <br />
+      <Tag
+        type='YMA'
+      />
       {/* Для проверки всех видов тегов: 'YMA' - коробка, 'MYA' - пакет, 'NONPACK' - другие упаковки,
       1234 5678 234 32 - штриход, 'IMEI', 'chestnyy_znak', 'cancel', 'info'. 
       value только для 'info' */}

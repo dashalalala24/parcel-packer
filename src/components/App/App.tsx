@@ -1,15 +1,18 @@
 import "./App.css";
 import Tag from '../Tag/Tag';
+
+import Header from '../Header/Header';
 import Counter from "../Counter/Counter";
 import Icon from "../Icon/Icon";
 import Button, { ButtonColors, ButtonSizes } from "../Button/Button";
 import { IconImages } from "../Icon/types";
 import ActionButton from "../ActionButton/ActionButton";
 import Footer from '../Footer/Footer';
-
+        
 function App() {
   return (
-    <div className="page">
+    <div className='page'>
+      <Header />
       <br />
       <Counter
         itemsScanned={0}

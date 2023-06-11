@@ -1,6 +1,7 @@
 :root {
   --black-color: #212121;
   --beige-color: #f3f0e9;
+  --dark-gray-color: #7e7e7e;
   --gray-color: #dedede;
   --gray-color-2: #ebebeb;
   --white-color: #fff;
@@ -23,6 +24,7 @@
   --font-button-s: 700 24px/30px 'Yandex Sans Display', 'Arial', sans-serif;
   --font-xs: 400 28px/35px 'Yandex Sans Display', 'Arial', sans-serif;
   --font-2xs: 400 24px/32px 'Yandex Sans Display', 'Arial', sans-serif;
+  --font-3xs: 400 14px/20px 'Yandex Sans Display', 'Arial', sans-serif;
 
   --letter-spacing: -0.02em;
   --font-feature: 'pnum' on, 'lnum' on;

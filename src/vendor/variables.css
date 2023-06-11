@@ -24,7 +24,8 @@
   --font-xs: 400 28px/35px 'Yandex Sans Display', 'Arial', sans-serif;
   --font-2xs: 400 24px/32px 'Yandex Sans Display', 'Arial', sans-serif;
 
-  --letter-spacing: -0.02em;
+  --letter-spacing-s: -0.01em;
+  --letter-spacing-m: -0.02em;
   --font-feature: 'pnum' on, 'lnum' on;
 
   --border-radius-2xs: 12px;

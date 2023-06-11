@@ -1,10 +1,12 @@
 import './App.css';
 import Counter from '../Counter/Counter';
 import Tag from '../Tag/Tag';
+import Header from '../Header/Header';
 
 function App() {
   return (
     <div className='app'>
+      <Header />
       <Counter
         itemsScanned={0}
         itemsTotal={2}

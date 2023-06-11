@@ -1,0 +1,65 @@
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* max-width: 56px; */
+  padding: 9px 24px;
+  max-width: fit-content;
+  border-radius: var(--border-radius-2xl);
+}
+
+.tag_type_box {
+  background-color: var(--yellow-color);
+}
+
+.tag_type_bag {
+  background-color: var(--light-blue-color);
+}
+
+.tag_type_other {
+  background-color: var(--violet-color);
+  padding: 13px 24px;
+}
+
+.tag_type_cancel {
+  gap: 4px;
+  padding: 0;
+}
+
+.tag_type_barcode {
+  gap: 12px;
+  padding: 0;
+}
+
+.tag_type_additional-code {
+  background-color: var(--yellowish-color);
+  border-radius: var(--border-radius-2xs);
+  padding: 9px 16px;
+}
+
+.tag_type_info {
+  background-color: var(--gray-color-2);
+  padding: 13px 24px;
+}
+
+.tag__text {
+  font: var(--font-button-s);
+  font-feature-settings: var(--font-feature);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.tag__text_color_white {
+  color: var(--white-color);
+}
+
+.tag__text_color_blue {
+  font: var(--font-2xs);
+  color: var(--blue-color);
+}
+
+.tag__text_color_red {
+  font: var(--font-2xs);
+  color: var(--red-color);
+}

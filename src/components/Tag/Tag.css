@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  /* max-width: 56px; */
   padding: 9px 24px;
   max-width: fit-content;
   border-radius: var(--border-radius-2xl);
@@ -40,6 +39,8 @@
 .tag_type_info {
   background-color: var(--gray-color-2);
   padding: 13px 24px;
+  width: fit-content;
+  max-width: 390px;
 }
 
 .tag__text {
@@ -48,6 +49,9 @@
   text-align: center;
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .tag__text_color_white {

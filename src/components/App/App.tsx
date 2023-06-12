@@ -147,7 +147,7 @@ function App() {
       <Notification
         message='Ошибка 505'
         messageDetails='Сервер не смог обработать полученный запрос'
-        type={NotificationType.systemError}
+        type={NotificationType.systemError} />
       <br />
       <ItemImage
         itemImg={'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png'}

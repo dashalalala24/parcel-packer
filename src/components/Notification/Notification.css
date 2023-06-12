@@ -12,7 +12,6 @@
 .notification__message-container {
   display: flex;
   align-items: center;
-  width: 299px;
   font: var(--font-button-s)
 }
 
@@ -24,7 +23,6 @@
   margin: 0;
   margin: 5px 0 0;
   font: var(--font-2xs);
-  width: 299px;
 }
 
 .notification__close-button-container {

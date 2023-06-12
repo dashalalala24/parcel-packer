@@ -12,6 +12,18 @@
   --green-color: #2aad2e;
   --red-color: #f00;
   --blue-color: #04e;
+
+  --popup-blue-border: #7195F1;
+  --popup-green-border: #68BB7C;
+  --popup-red-border: #FF6A6A;
+  --popup-yellow-border: #FDC25C;
+
+  --popup-blue-background: #E7EEFA;
+  --popup-green-background: #F1F9F4;
+  --popup-light-red-background: #FFEDED;
+  --popup-yellow-background: #FFF8ED;
+  --popup-red-background: #FF0000;
+
   --light-blue-color: #25add6;
   --bluish-color: #e0eeff;
   --violet-color: #8a35b3;

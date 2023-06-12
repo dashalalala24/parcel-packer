@@ -1,0 +1,34 @@
+.notification {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  min-height: 112px;
+  border: 4px solid;
+  padding: 36px;
+  box-sizing: border-box;
+  border-radius: var(--border-radius-l);
+}
+
+.notification__message-container {
+  display: flex;
+  align-items: center;
+  width: 299px;
+  font: var(--font-button-s)
+}
+
+.notification__message {
+  margin: 0;
+}
+
+.notification__message-details {
+  margin: 0;
+  margin: 5px 0 0;
+  font: var(--font-2xs);
+  width: 299px;
+}
+
+.notification__close-button-container {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+}

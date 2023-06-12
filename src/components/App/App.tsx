@@ -5,7 +5,10 @@ import Counter from '../Counter/Counter';
 import Icon from '../Icon/Icon';
 import Button, { ButtonColors, ButtonSizes } from '../Button/Button';
 import { IconImages } from '../Icon/types';
-import ActionButton from '../ActionButton/ActionButton';
+import ActionButton, {
+  ActionButtonBackground,
+} from '../ActionButton/ActionButton';
+import Notification, { NotificationType } from '../Notification/Notification';
 import Navbar, { navbarStatuses } from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import Checkbox from '../Checkbox/Checkbox';
@@ -18,10 +21,7 @@ function App() {
       <br />
       <Checkbox />
       <br />
-      <Counter
-        itemsScanned={0}
-        itemsTotal={2}
-      />
+      <Counter itemsScanned={0} itemsTotal={2} />
       <br />
       <Counter
         itemsScanned={6}
@@ -110,6 +110,8 @@ function App() {
       <br />
       <ActionButton
         icon={IconImages.cross}
+        iconColor='black'
+        backgroundColor={ActionButtonBackground.transparent}
         onClick={() => {
           console.log('Hello');
         }}
@@ -117,10 +119,35 @@ function App() {
       <br />
       <ActionButton
         icon={IconImages.backArrow}
+        backgroundColor={ActionButtonBackground.beige}
+        iconColor='white'
         onClick={() => {
           console.log('Hello');
         }}
       />
+      <br />
+      <Notification
+        message='Бригадир скоро подойдёт'
+        type={NotificationType.info}
+      />
+      <br />
+      <Notification
+        message='Штрихкод скопирован'
+        type={NotificationType.success}
+      />
+      <br />
+      <Notification message='Товар не найден' type={NotificationType.fault} />
+      <br />
+      <Notification
+        message='Сканируйте IMEI товара'
+        child={<p>ТУТ БУДЕТ КОМПОНЕНТ АЙТЕМА</p>}
+        type={NotificationType.warning}
+      />
+      <br />
+      <Notification
+        message='Ошибка 505'
+        messageDetails='Сервер не смог обработать полученный запрос'
+        type={NotificationType.systemError}
       <br />
       <ItemImage
         itemImg={'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png'}

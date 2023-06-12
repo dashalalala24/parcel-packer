@@ -13,6 +13,10 @@
   margin: 20px;
 }
 
+.item-image__pic_deleted {
+  filter: grayscale(1);
+}
+
 .item-image__label {
   position: absolute;
   top: 8px;

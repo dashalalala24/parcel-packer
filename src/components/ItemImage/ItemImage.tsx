@@ -6,6 +6,7 @@ interface IItemImage {
   itemName: string;
   itemQuantity: number;
   deleted?: boolean;
+  itemsNumber?: number;
 }
 
 const ItemImage: FC<IItemImage> = ({ itemImg, itemName, itemQuantity, deleted = false }) => {

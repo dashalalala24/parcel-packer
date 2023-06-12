@@ -95,20 +95,11 @@ function App() {
         itemsTotal={2}
       />
       <br />
-      <Counter
-        itemsScanned={6}
-        itemsTotal={8}
-      />
+      <Counter itemsScanned={6} itemsTotal={8} />
       <br />
-      <Counter
-        itemsScanned={10}
-        itemsTotal={10}
-      />
+      <Counter itemsScanned={10} itemsTotal={10} />
       <br />
-      <Tag
-        type='info'
-        value='5 товаров'
-      />
+      <Tag type='info' value='5 товаров' />
       <br />
       <Tag
         type='info'
@@ -129,10 +120,7 @@ function App() {
       <br />
       <Tag type='cancel' />
       <br />
-      <Icon
-        imgName={IconImages.burger}
-        width={70}
-      />
+      <Icon imgName={IconImages.burger} width={70} />
       <br />
       <Button
         onClick={() => {
@@ -198,15 +186,9 @@ function App() {
         }}
       />
       <br />
-      <Notification
-        message='Бригадир скоро подойдёт'
-        type={NotificationType.info}
-      />
+      <Notification message='Бригадир скоро подойдёт' type={NotificationType.info} />
       <br />
-      <Notification
-        message='Штрихкод скопирован'
-        type={NotificationType.success}
-      />
+      <Notification message='Штрихкод скопирован' type={NotificationType.success} />
       <br />
       <Notification
         message='Товар не найден'
@@ -215,7 +197,28 @@ function App() {
       <br />
       <Notification
         message='Сканируйте IMEI товара'
-        child={<p>ТУТ БУДЕТ КОМПОНЕНТ АЙТЕМА</p>}
+        child={
+          <div style={{ display: 'flex', gap: '20px', margin: '18px 0 0' }}>
+            <ItemImage
+              itemImg={'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png'}
+              itemName={'Ожидаемо брокколи'}
+            />
+            <div>
+              <p
+                style={{
+                  font: 'var(--font-2xs)',
+                  margin: '0 0 17px',
+                  maxHeight: 96,
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                }}
+              >
+                Умные часы Apple Watch Series 7 45 мм Aluminium Case, (PRODUCT)RED
+              </p>
+              <Tag type={1234567823432} />
+            </div>
+          </div>
+        }
         type={NotificationType.warning}
       />
       <br />
@@ -228,7 +231,6 @@ function App() {
       <ItemImage
         itemImg={'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png'}
         itemName={'Внезапно брокколи'}
-        itemQuantity={1}
       />
       <br />
       <ItemImage

@@ -92,19 +92,19 @@ const Notification: FC<INotificationProps> = ({
 
   return (
     <div className='notification' style={notificationStyles}>
-      <div className='notification__messageContainer'>
+      <div className='notification__message-container'>
         {type === NotificationType.systemError ? null : iconComponent}
         <p className='notification__message'>{message}</p>
       </div>
 
       {messageDetails ? (
-        <p className='notification__messageDetails'>{messageDetails}</p>
+        <p className='notification__message-details'>{messageDetails}</p>
       ) : null}
 
       {child}
 
       {type === NotificationType.systemError ? (
-        <div className='notification__closeButtonContainer'>
+        <div className='notification__close-button-container'>
           <ActionButton
             icon={IconImages.cross}
             iconColor='white'

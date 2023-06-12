@@ -6,12 +6,13 @@
   border: 4px solid;
   padding: 36px;
   box-sizing: border-box;
-  border-radius: 40px;
+  border-radius: var(--border-radius-l);
 }
 
-.notification__messageContainer {
+.notification__message-container {
   display: flex;
   align-items: center;
+  width: 299px;
   font: var(--font-button-s)
 }
 
@@ -19,13 +20,14 @@
   margin: 0;
 }
 
-.notification__messageDetails {
+.notification__message-details {
   margin: 0;
   margin: 5px 0 0;
   font: var(--font-2xs);
+  width: 299px;
 }
 
-.notification__closeButtonContainer {
+.notification__close-button-container {
   position: absolute;
   top: 7px;
   right: 7px;

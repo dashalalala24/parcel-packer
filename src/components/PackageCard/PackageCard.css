@@ -1,0 +1,22 @@
+.package-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 316px;
+  height: 316px;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: var(--border-radius-s);
+  background-color: var(--gray-color);
+}
+
+.package-card__left {
+  background-color: var(--beige-color);
+  border-radius: var(--border-radius-xs);
+  font: var(--font-l);
+  text-align: center;
+  width: 140px;
+  height: 140px;
+  padding: 52px 0 0;
+  box-sizing: border-box;
+}

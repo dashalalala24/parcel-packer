@@ -5,14 +5,83 @@ import Counter from '../Counter/Counter';
 import Icon from '../Icon/Icon';
 import Button, { ButtonColors, ButtonSizes } from '../Button/Button';
 import { IconImages } from '../Icon/types';
-import ActionButton, {
-  ActionButtonBackground,
-} from '../ActionButton/ActionButton';
+import ActionButton, { ActionButtonBackground } from '../ActionButton/ActionButton';
 import Notification, { NotificationType } from '../Notification/Notification';
 import Navbar, { navbarStatuses } from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import Checkbox from '../Checkbox/Checkbox';
 import ItemImage from '../ItemImage/ItemImage';
+import PackageCard from '../PackageCard/PackageCard';
+
+export interface IItem {
+  id: string;
+  name: string;
+  pic: string;
+  quantity: number;
+  barcode: number;
+}
+
+const package1: IItem[] = [
+  {
+    id: '4',
+    name: 'лимон',
+    pic: 'https://pngimg.com/uploads/lemon/lemon_PNG25276.png',
+    quantity: 3,
+    barcode: 1234567890123,
+  },
+  {
+    id: '5',
+    name: 'шаверма',
+    pic: 'https://pngimg.com/uploads/kebab/kebab_PNG36.png',
+    quantity: 2,
+    barcode: 1234567890124,
+  },
+];
+
+const package2: IItem[] = [
+  {
+    id: '1',
+    name: 'брокколи',
+    pic: 'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png',
+    quantity: 1,
+    barcode: 1234567890125,
+  },
+  {
+    id: '2',
+    name: 'кубик рубика',
+    pic: 'https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG21.png',
+    quantity: 2,
+    barcode: 1234567890126,
+  },
+  {
+    id: '3',
+    name: 'якорь',
+    pic: 'https://pngimg.com/uploads/anchor/anchor_PNG5.png',
+    quantity: 146,
+    barcode: 1234567890127,
+  },
+  {
+    id: '4',
+    name: 'лимон',
+    pic: 'https://pngimg.com/uploads/lemon/lemon_PNG25276.png',
+    quantity: 1,
+    barcode: 1234567890123,
+  },
+  {
+    id: '5',
+    name: 'шаверма',
+    pic: 'https://pngimg.com/uploads/kebab/kebab_PNG36.png',
+    quantity: 1,
+    barcode: 1234567890124,
+  },
+  // {
+  //   id: '6',
+  //   name: 'битая фотка',
+  //   pic: 'https://pngimg.com/uploads.png',
+  //   quantity: 1000,
+  //   barcode: 1234567890128,
+  // },
+];
 
 function App() {
   return (
@@ -21,7 +90,10 @@ function App() {
       <br />
       <Checkbox />
       <br />
-      <Counter itemsScanned={0} itemsTotal={2} />
+      <Counter
+        itemsScanned={0}
+        itemsTotal={2}
+      />
       <br />
       <Counter
         itemsScanned={6}
@@ -136,7 +208,10 @@ function App() {
         type={NotificationType.success}
       />
       <br />
-      <Notification message='Товар не найден' type={NotificationType.fault} />
+      <Notification
+        message='Товар не найден'
+        type={NotificationType.fault}
+      />
       <br />
       <Notification
         message='Сканируйте IMEI товара'
@@ -147,25 +222,37 @@ function App() {
       <Notification
         message='Ошибка 505'
         messageDetails='Сервер не смог обработать полученный запрос'
-        type={NotificationType.systemError} />
+        type={NotificationType.systemError}
+      />
       <br />
       <ItemImage
         itemImg={'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png'}
         itemName={'Внезапно брокколи'}
-        itemsNumber={0}
+        itemQuantity={1}
       />
       <br />
       <ItemImage
         itemImg={'https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG21.png'}
         itemName={'Кубик Рубика'}
-        itemsNumber={2}
+        itemQuantity={2}
       />
       <br />
       <ItemImage
         itemImg={'https://pngimg.com/uploads/anchor/anchor_PNG5.png'}
         itemName={'Длинная горизонтальная картинка'}
-        itemsNumber={100}
+        itemQuantity={100}
       />
+      <br />
+      <ItemImage
+        itemImg={'https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG21.png'}
+        itemName={'Кубик Рубика'}
+        itemQuantity={1}
+        deleted={true}
+      />
+      <br />
+      <PackageCard items={package1} />
+      <br />
+      <PackageCard items={package2} />
       <br />
       <Navbar status={navbarStatuses.default} />
       <Footer />

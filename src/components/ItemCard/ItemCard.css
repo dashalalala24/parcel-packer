@@ -1,0 +1,77 @@
+.item-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 1112px;
+}
+
+.item-card__container {
+  display: flex;
+  align-items: center;
+}
+
+.item-card_deleted {
+  color: var(--dark-gray-color-2);
+}
+
+.item-card__main-info {
+  padding: 0 29px 0 20px;
+  margin: 0 auto 0 0;
+  width: 680px;
+  display: flex;
+  flex-direction: column;
+  min-height: 140px;
+  justify-content: space-between;
+}
+
+.item-card__name {
+  font: var(--font-2xs);
+  margin: 0;
+  padding: 0;
+  max-height: 96px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.item-card__tags-container {
+  display: flex;
+  gap: 20px;
+}
+
+.item-card__barcode-container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font: var(--font-2xs);
+  color: var(--blue-color);
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.item-card__barcode-button {
+  margin: 0;
+  padding: 0;
+}
+
+.item-card__actions-container {
+  display: flex;
+  gap: 29px;
+}
+
+.item-card__barcodes-list {
+  padding: 32px 0 0 160px;
+  display: none;
+}
+
+.item-card__barcodes-list_opened {
+  display: block;
+}
+
+.item-card__barcode-item {
+  gap: 20px;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,7 +1,7 @@
 .counter {
   border-radius: var(--border-radius-2xl);
   max-height: 80px;
-  max-width: 134px;
+  width: 134px;
   background: linear-gradient(to right, #c4e4c2 50%, var(--beige-color) 50%);
   background-repeat: no-repeat;
   transition: background-position 0.4s, color 0.4s;

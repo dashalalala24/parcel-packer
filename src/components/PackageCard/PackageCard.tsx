@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './PackageCard.css';
 import ItemImage from '../ItemImage/ItemImage';
-import { IItem } from '../App/App';
+import { IItem } from '../../utils/orderExamples';
 
 interface IPackageCard {
   items: IItem[];
@@ -11,7 +11,7 @@ const PackageCard: FC<IPackageCard> = ({ items }) => {
   return (
     <div className='package-card'>
       {items.length < 5 ? (
-        items.map((item) => (
+        items.map(item => (
           <ItemImage
             key={item.id}
             itemImg={item.pic}
@@ -21,7 +21,7 @@ const PackageCard: FC<IPackageCard> = ({ items }) => {
         ))
       ) : (
         <>
-          {items.slice(0, 3).map((item) => (
+          {items.slice(0, 3).map(item => (
             <ItemImage
               key={item.id}
               itemImg={item.pic}

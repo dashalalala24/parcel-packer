@@ -12,76 +12,8 @@ import Footer from '../Footer/Footer';
 import Checkbox from '../Checkbox/Checkbox';
 import ItemImage from '../ItemImage/ItemImage';
 import PackageCard from '../PackageCard/PackageCard';
-
-export interface IItem {
-  id: string;
-  name: string;
-  pic: string;
-  quantity: number;
-  barcode: number;
-}
-
-const package1: IItem[] = [
-  {
-    id: '4',
-    name: 'лимон',
-    pic: 'https://pngimg.com/uploads/lemon/lemon_PNG25276.png',
-    quantity: 3,
-    barcode: 1234567890123,
-  },
-  {
-    id: '5',
-    name: 'шаверма',
-    pic: 'https://pngimg.com/uploads/kebab/kebab_PNG36.png',
-    quantity: 2,
-    barcode: 1234567890124,
-  },
-];
-
-const package2: IItem[] = [
-  {
-    id: '1',
-    name: 'брокколи',
-    pic: 'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png',
-    quantity: 1,
-    barcode: 1234567890125,
-  },
-  {
-    id: '2',
-    name: 'кубик рубика',
-    pic: 'https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG21.png',
-    quantity: 2,
-    barcode: 1234567890126,
-  },
-  {
-    id: '3',
-    name: 'якорь',
-    pic: 'https://pngimg.com/uploads/anchor/anchor_PNG5.png',
-    quantity: 146,
-    barcode: 1234567890127,
-  },
-  {
-    id: '4',
-    name: 'лимон',
-    pic: 'https://pngimg.com/uploads/lemon/lemon_PNG25276.png',
-    quantity: 1,
-    barcode: 1234567890123,
-  },
-  {
-    id: '5',
-    name: 'шаверма',
-    pic: 'https://pngimg.com/uploads/kebab/kebab_PNG36.png',
-    quantity: 1,
-    barcode: 1234567890124,
-  },
-  // {
-  //   id: '6',
-  //   name: 'битая фотка',
-  //   pic: 'https://pngimg.com/uploads.png',
-  //   quantity: 1000,
-  //   barcode: 1234567890128,
-  // },
-];
+import ItemCard from '../ItemCard/ItemCard';
+import { package1, package2 } from '../../utils/orderExamples';
 
 function App() {
   return (
@@ -238,16 +170,31 @@ function App() {
         itemName={'Длинная горизонтальная картинка'}
         itemQuantity={100}
       />
-      <br />
+      {/* <br />
       <ItemImage
         itemImg={'https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG21.png'}
         itemName={'Кубик Рубика'}
         deleted={true}
-      />
+      /> */}
       <br />
       <PackageCard items={package1} />
       <br />
       <PackageCard items={package2} />
+      <br />
+      <ItemCard item={package1[1]} />
+      <br />
+      <br />
+      <br />
+      <ItemCard item={package1[0]} />
+      <br />
+      <br />
+      <br />
+      <ItemCard item={package2[1]} />
+      <br />
+      <br />
+      <br />
+      <ItemCard item={package2[0]} toDelete />
+      {/* вместо toDelete в компоненте будет условие отрисовки в зависимости от роута */}
       <br />
       <Navbar status={navbarStatuses.default} />
       <Footer />

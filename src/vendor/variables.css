@@ -2,6 +2,7 @@
   --black-color: #212121;
   --beige-color: #f3f0e9;
   --dark-gray-color: #7e7e7e;
+  --dark-gray-color-2: #808080;
   --gray-color: #dedede;
   --gray-color-2: #ebebeb;
   --white-color: #fff;
@@ -13,16 +14,16 @@
   --red-color: #f00;
   --blue-color: #04e;
 
-  --popup-blue-border: #7195F1;
-  --popup-green-border: #68BB7C;
-  --popup-red-border: #FF6A6A;
-  --popup-yellow-border: #FDC25C;
+  --popup-blue-border: #7195f1;
+  --popup-green-border: #68bb7c;
+  --popup-red-border: #ff6a6a;
+  --popup-yellow-border: #fdc25c;
 
-  --popup-blue-background: #E7EEFA;
-  --popup-green-background: #F1F9F4;
-  --popup-light-red-background: #FFEDED;
-  --popup-yellow-background: #FFF8ED;
-  --popup-red-background: #FF0000;
+  --popup-blue-background: #e7eefa;
+  --popup-green-background: #f1f9f4;
+  --popup-light-red-background: #ffeded;
+  --popup-yellow-background: #fff8ed;
+  --popup-red-background: #ff0000;
 
   --light-blue-color: #25add6;
   --bluish-color: #e0eeff;
@@ -35,7 +36,6 @@
   --font-2xs: 400 24px/32px 'YS Display', 'Arial', sans-serif;
   --font-3xs: 400 14px/20px 'YS Display', 'Arial', sans-serif;
   --font-4xs: 400 20px/26px 'YS Text', 'Arial', sans-serif;
-
 
   --font-button-xl: 700 48px/60px 'YS Display', 'Arial', sans-serif;
   --font-button-l: 400 40px/44px 'YS Display', 'Arial', sans-serif;

@@ -4,7 +4,7 @@ import './ItemImage.css';
 interface IItemImage {
   itemImg: string;
   itemName: string;
-  itemsNumber: number;
+  itemsNumber?: number;
 }
 
 const ItemImage: FC<IItemImage> = ({ itemImg, itemName, itemsNumber }) => {

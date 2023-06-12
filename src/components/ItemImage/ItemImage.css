@@ -1,0 +1,30 @@
+.item-image {
+  position: relative;
+  background-color: var(--beige-color);
+  border-radius: var(--border-radius-xs);
+  max-width: 140px;
+  max-height: 140px;
+}
+
+.item-image__pic {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 20px;
+}
+
+.item-image__label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font: var(--font-button-xs);
+  font-feature-settings: var(--font-feature);
+  border-radius: var(--border-radius-2xl);
+  background-color: var(--green-color);
+  color: var(--white-color);
+  text-align: center;
+  box-sizing: border-box;
+  padding: 5px;
+  min-width: 41px;
+  min-height: 40px;
+}

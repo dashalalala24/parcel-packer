@@ -12,6 +12,7 @@ import Notification, { NotificationType } from '../Notification/Notification';
 import Navbar, { navbarStatuses } from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import Checkbox from '../Checkbox/Checkbox';
+import ItemImage from '../ItemImage/ItemImage';
 
 function App() {
   return (
@@ -147,6 +148,23 @@ function App() {
         message='Ошибка 505'
         messageDetails='Сервер не смог обработать полученный запрос'
         type={NotificationType.systemError}
+      <br />
+      <ItemImage
+        itemImg={'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png'}
+        itemName={'Внезапно брокколи'}
+        itemsNumber={0}
+      />
+      <br />
+      <ItemImage
+        itemImg={'https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG21.png'}
+        itemName={'Кубик Рубика'}
+        itemsNumber={2}
+      />
+      <br />
+      <ItemImage
+        itemImg={'https://pngimg.com/uploads/anchor/anchor_PNG5.png'}
+        itemName={'Длинная горизонтальная картинка'}
+        itemsNumber={100}
       />
       <br />
       <Navbar status={navbarStatuses.default} />

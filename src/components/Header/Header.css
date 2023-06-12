@@ -1,0 +1,69 @@
+.header {
+  display: flex;
+  padding: 20px 24px;
+  font-feature-settings: var(--font-feature);
+  align-items: center;
+  border-bottom: 1px solid var(--gray-color);
+}
+
+.header__burger-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0 auto 0 0;
+}
+
+.header__logo {
+  display: flex;
+  gap: 10px;
+}
+
+.header__name {
+  font: var(--font-button-l);
+  margin: 0 auto;
+  padding: 0 0 0 104px;
+  align-self: center;
+}
+
+.header__kebab-nav {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 auto;
+  gap: 16px;
+}
+
+.header__userbar {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 4px 12px 4px 24px;
+  border: 4px solid var(--yellow-color);
+  border-radius: var(--border-radius-m);
+  box-sizing: border-box;
+}
+
+.header__username {
+  margin: 0;
+  padding: 0;
+  letter-spacing: var(--letter-spacing-s);
+  font: var(--font-4xs);
+}
+
+.header__efficiency {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  max-width: fit-content;
+  max-height: 56px;
+  border-radius: var(--border-radius-2xl);
+  background-color: var(--green-color);
+}
+
+.header__efficiency-percentage {
+  font: var(--font-button-s);
+  color: var(--white-color);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}

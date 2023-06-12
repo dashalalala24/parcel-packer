@@ -90,10 +90,7 @@ function App() {
       <br />
       <Checkbox />
       <br />
-      <Counter
-        itemsScanned={0}
-        itemsTotal={2}
-      />
+      <Counter itemsScanned={0} itemsTotal={2} />
       <br />
       <Counter itemsScanned={6} itemsTotal={8} />
       <br />
@@ -190,10 +187,7 @@ function App() {
       <br />
       <Notification message='Штрихкод скопирован' type={NotificationType.success} />
       <br />
-      <Notification
-        message='Товар не найден'
-        type={NotificationType.fault}
-      />
+      <Notification message='Товар не найден' type={NotificationType.fault} />
       <br />
       <Notification
         message='Сканируйте IMEI товара'
@@ -248,7 +242,6 @@ function App() {
       <ItemImage
         itemImg={'https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG21.png'}
         itemName={'Кубик Рубика'}
-        itemQuantity={1}
         deleted={true}
       />
       <br />

@@ -4,9 +4,8 @@ import './ItemImage.css';
 interface IItemImage {
   itemImg: string;
   itemName: string;
-  itemQuantity: number;
+  itemQuantity?: number;
   deleted?: boolean;
-  itemsNumber?: number;
 }
 
 const ItemImage: FC<IItemImage> = ({ itemImg, itemName, itemQuantity, deleted = false }) => {
@@ -17,7 +16,7 @@ const ItemImage: FC<IItemImage> = ({ itemImg, itemName, itemQuantity, deleted = 
         alt={itemName}
         src={itemImg}
       />
-      {itemQuantity > 1 ? <span className='item-image__label'>{itemQuantity}</span> : null}
+      {itemQuantity ? <span className='item-image__label'>{itemQuantity}</span> : null}
     </div>
   );
 };

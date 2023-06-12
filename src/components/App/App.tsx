@@ -11,11 +11,27 @@ import Navbar, { navbarStatuses } from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import Checkbox from '../Checkbox/Checkbox';
 import ItemImage from '../ItemImage/ItemImage';
+import { useAppDispatch, useAppSelector } from '../../utils/hooks';
+import { increment, incrementAsync } from '../../services/redux/slices/example/example';
 
 function App() {
+  const count = useAppSelector(state => state.example.value);
+  const dispatch = useAppDispatch();
+
+  console.log(count);
+
   return (
     <div className='page'>
       <Header />
+      <br />
+      <Button
+        onClick={() => {
+          dispatch(incrementAsync(4));
+        }}
+        color={ButtonColors.black}
+        size={ButtonSizes.m}
+        text='Назад'
+      />
       <br />
       <Checkbox />
       <br />

@@ -3,17 +3,12 @@ import ActionButton, { ActionButtonBackground } from '../../components/ActionBut
 import Button, { ButtonColors, ButtonSizes } from '../../components/Button/Button';
 import Checkbox from '../../components/Checkbox/Checkbox';
 import Counter from '../../components/Counter/Counter';
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Header/Header';
 import Icon from '../../components/Icon/Icon';
 import IconImages from '../../components/Icon/types';
 import ItemImage from '../../components/ItemImage/ItemImage';
-import Navbar, { navbarStatuses } from '../../components/Navbar/Navbar';
 import Notification, { NotificationType } from '../../components/Notification/Notification';
 import PackageCard from '../../components/PackageCard/PackageCard';
 import Tag from '../../components/Tag/Tag';
-import { incrementAsync } from '../../services/redux/slices/example/example';
-import { useAppDispatch, useAppSelector } from '../../utils/hooks';
 
 export interface IItem {
   id: string;
@@ -86,13 +81,10 @@ const package2: IItem[] = [
 ];
 
 const Storybook = () => {
-  const count = useAppSelector(state => state.example.value);
-
   const navigate = useNavigate();
-
-  console.log(count);
   return (
     <div>
+      <br />
       <Button
         onClick={() => {
           navigate(-1);

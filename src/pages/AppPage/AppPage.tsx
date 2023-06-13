@@ -4,20 +4,7 @@ import Header from '../../components/Header/Header';
 import Navbar, { navbarStatuses } from '../../components/Navbar/Navbar';
 import './AppPage.css';
 import { Routes, Route, Outlet, Link } from 'react-router-dom';
-
-export const AppPage = () => {
-  return (
-    <div className='Page'>
-      <Routes>
-        <Route path='/' element={<Layout />}>
-          <Route index element={<DevNavigation />} />
-          <Route path='/storybook' element={<Storybook />} />
-          <Route path='*' element={<NoMatch />} />
-        </Route>
-      </Routes>
-    </div>
-  );
-};
+import ErrorPage from '../ErrorPage/Error-page';
 
 function Layout() {
   return (
@@ -49,22 +36,29 @@ function Layout() {
 function DevNavigation() {
   return (
     <div>
-      <Link to={'/storybook'}>storybook</Link>
+      <Link style={{ font: 'var(--font-m)' }} to={'/storybook'}>
+        storybook
+      </Link>
       <br />
-      <Link to={'/13423'}>nomatch</Link>
+      <Link style={{ font: 'var(--font-m)' }} to={'/13423'}>
+        nomatch
+      </Link>
     </div>
   );
 }
 
-function NoMatch() {
+export const AppPage = () => {
   return (
-    <div>
-      <h2>Nothing to see here!</h2>
-      <p>
-        <Link to='/'>Go to the home page</Link>
-      </p>
+    <div className='Page'>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<DevNavigation />} />
+          <Route path='/storybook' element={<Storybook />} />
+          <Route path='*' element={<ErrorPage />} />
+        </Route>
+      </Routes>
     </div>
   );
-}
+};
 
 export default AppPage;

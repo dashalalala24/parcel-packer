@@ -14,6 +14,7 @@ import ItemImage from '../ItemImage/ItemImage';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks';
 import { increment, incrementAsync } from '../../services/redux/slices/example/example';
 import PackageCard from '../PackageCard/PackageCard';
+import Input from '../Input/Input';
 
 export interface IItem {
   id: string;
@@ -103,6 +104,8 @@ function App() {
         size={ButtonSizes.m}
         text='Назад'
       />
+      <br />
+      <Input />
       <br />
       <Checkbox />
       <br />

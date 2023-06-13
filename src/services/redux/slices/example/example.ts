@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../../store';
 import { fetchCount } from './exampleAPI';
 
 export interface ExapmleState {
@@ -25,7 +24,7 @@ export const exampleSlice = createSlice({
   // Поле "reducers" позволяет нам определять редьюсеры и генерировать связанные с ними экшены
   reducers: {
     increment: state => {
-      // Redux Toolkit позволяет нам писать "мутирующую" логику в редьюсерах. 
+      // Redux Toolkit позволяет нам писать "мутирующую" логику в редьюсерах.
       // На самом деле это не мутирует состояние, потому что тулкит использует библиотеку Immer,
       // которая обнаруживает изменения и создает новое немутированное состояние на основе этих изменений
       state.value += 1;

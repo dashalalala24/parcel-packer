@@ -4,9 +4,9 @@ import IconImages from '../Icon/types';
 import Icon from '../Icon/Icon';
 
 export enum KeyboardButtonColors {
-  white = 'var(--white-color)',
-  beige = 'var(--beige-color)',
-  yellow = 'var(--yellow-color)',
+  white = 'white',
+  beige = 'beige',
+  yellow = 'yellow',
 }
 export enum KeyboardButtonWidths {
   numberWidth = 184,
@@ -24,6 +24,7 @@ interface IKeyboardButton {
   width: KeyboardButtonWidths;
   color: KeyboardButtonColors;
   onKeyboardButtonClick?: MouseEventHandler<HTMLButtonElement>;
+  actionSubmit?: boolean;
 }
 
 const KeyboardButton: FC<IKeyboardButton> = ({
@@ -32,14 +33,22 @@ const KeyboardButton: FC<IKeyboardButton> = ({
   width,
   color,
   onKeyboardButtonClick,
+  actionSubmit,
 }) => {
+  const keyboardButtonClassname = `keyboard-button ${
+    color === KeyboardButtonColors.beige
+      ? 'keyboard-button_color_beige'
+      : color === KeyboardButtonColors.yellow
+      ? 'keyboard-button_color_yellow'
+      : ''
+  }`;
+
   return (
     <button
-      type='button'
+      type={actionSubmit ? 'submit' : 'button'}
       onClick={onKeyboardButtonClick}
-      className='keyboard-button'
+      className={keyboardButtonClassname}
       style={{
-        backgroundColor: color,
         width: width,
         height: width === KeyboardButtonWidths.numberWidth ? 94 : 92,
         borderRadius:

@@ -1,47 +1,34 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import './Keyboard.css';
 import KeyboardButton, {
   KeyboardButtonColors,
   KeyboardButtonIcons,
   KeyboardButtonWidths,
 } from '../KeyboardButton/KeyboardButton';
+import {
+  firstRowLetters,
+  secondRowLetters,
+  thirdRowLetters,
+  firstRowNumbers,
+  secondRowNumbers,
+  thirdRowNumbers,
+} from '../../utils/constants';
+import { InputPopupTypes } from '../InputPopup/InputPopup';
 
-const firstRowLetters = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
-const secondRowLetters = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
-const thirdRowLetters = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
-
-const firstRowNumbers = ['1', '2', '3'];
-const secondRowNumbers = ['4', '5', '6'];
-const thirdRowNumbers = ['7', '8', '9'];
-
-type Keyboard = 'letters' | 'numbers';
+// export enum KeyboardTypes {
+//   letters = 'letters',
+//   numbers = 'numbers',
+// }
 
 interface IKeyboard {
-  type: Keyboard;
+  type: InputPopupTypes;
+  handleInputAddSign: any;
+  handleInputDeleteSign: any;
 }
 
-const Keyboard: FC<IKeyboard> = ({ type }) => {
-  const [input, setInput] = useState('');
-
-  function handleInputChange(e: { target: { value: any } }) {
-    setInput(e.target.value);
-  }
-
+const Keyboard: FC<IKeyboard> = ({ type, handleInputAddSign, handleInputDeleteSign }) => {
   return (
     <>
-      <input
-        className='input__element'
-        id='code-input'
-        type='code'
-        name='code'
-        autoComplete='off'
-        minLength={3}
-        maxLength={15}
-        value={input}
-        // onChange={handleChange}
-        required
-        style={{ fontSize: 50 }}
-      />
       <div className={`keyboard keyboard_type_${type}`}>
         <div className={`keyboard__row keyboard__row_type_${type}`}>
           {type === 'letters'
@@ -49,11 +36,10 @@ const Keyboard: FC<IKeyboard> = ({ type }) => {
                 return (
                   <KeyboardButton
                     sign={i}
+                    key={i}
                     width={KeyboardButtonWidths.letterWidth}
                     color={KeyboardButtonColors.white}
-                    onKeyboardButtonClick={() => {
-                      setInput(input.concat(i));
-                    }}
+                    onKeyboardButtonClick={() => handleInputAddSign(i)}
                   />
                 );
               })
@@ -61,11 +47,10 @@ const Keyboard: FC<IKeyboard> = ({ type }) => {
                 return (
                   <KeyboardButton
                     sign={i}
+                    key={i}
                     width={KeyboardButtonWidths.numberWidth}
                     color={KeyboardButtonColors.beige}
-                    onKeyboardButtonClick={() => {
-                      setInput(input + i);
-                    }}
+                    onKeyboardButtonClick={() => handleInputAddSign(i)}
                   />
                 );
               })}
@@ -76,11 +61,10 @@ const Keyboard: FC<IKeyboard> = ({ type }) => {
                 return (
                   <KeyboardButton
                     sign={i}
+                    key={i}
                     width={KeyboardButtonWidths.letterWidth}
                     color={KeyboardButtonColors.white}
-                    onKeyboardButtonClick={() => {
-                      setInput(input + i);
-                    }}
+                    onKeyboardButtonClick={() => handleInputAddSign(i)}
                   />
                 );
               })
@@ -88,11 +72,10 @@ const Keyboard: FC<IKeyboard> = ({ type }) => {
                 return (
                   <KeyboardButton
                     sign={i}
+                    key={i}
                     width={KeyboardButtonWidths.numberWidth}
                     color={KeyboardButtonColors.beige}
-                    onKeyboardButtonClick={() => {
-                      setInput(input + i);
-                    }}
+                    onKeyboardButtonClick={() => handleInputAddSign(i)}
                   />
                 );
               })}
@@ -103,11 +86,10 @@ const Keyboard: FC<IKeyboard> = ({ type }) => {
               return (
                 <KeyboardButton
                   sign={i}
+                  key={i}
                   width={KeyboardButtonWidths.numberWidth}
                   color={KeyboardButtonColors.beige}
-                  onKeyboardButtonClick={() => {
-                    setInput(input + i);
-                  }}
+                  onKeyboardButtonClick={() => handleInputAddSign(i)}
                 />
               );
             })}
@@ -116,6 +98,7 @@ const Keyboard: FC<IKeyboard> = ({ type }) => {
         <div className={`keyboard__row keyboard__row_type_${type}`}>
           <KeyboardButton
             icon={KeyboardButtonIcons.delete}
+            key={'deleteLetter'}
             width={
               type === 'numbers'
                 ? KeyboardButtonWidths.numberWidth
@@ -123,7 +106,7 @@ const Keyboard: FC<IKeyboard> = ({ type }) => {
             }
             color={KeyboardButtonColors.beige}
             onKeyboardButtonClick={() => {
-              setInput(input.slice(0, -1));
+              handleInputDeleteSign();
             }}
           />
           {type === 'letters' ? (
@@ -131,36 +114,32 @@ const Keyboard: FC<IKeyboard> = ({ type }) => {
               return (
                 <KeyboardButton
                   sign={i}
+                  key={i}
                   width={KeyboardButtonWidths.letterWidth}
                   color={KeyboardButtonColors.white}
-                  onKeyboardButtonClick={() => {
-                    setInput(input + i);
-                  }}
+                  onKeyboardButtonClick={() => handleInputAddSign(i)}
                 />
               );
             })
           ) : (
             <KeyboardButton
               sign={'0'}
+              key={'0'}
               width={KeyboardButtonWidths.numberWidth}
               color={KeyboardButtonColors.beige}
-              onKeyboardButtonClick={() => {
-                setInput(input + '0');
-              }}
+              onKeyboardButtonClick={() => handleInputAddSign('0')}
             />
           )}
           <KeyboardButton
             icon={KeyboardButtonIcons.enter}
+            key={'enterNumber'}
             width={
               type === 'numbers'
                 ? KeyboardButtonWidths.numberWidth
                 : KeyboardButtonWidths.letterActionWidth
             }
             color={KeyboardButtonColors.yellow}
-            onKeyboardButtonClick={() => {
-              setInput('');
-              alert('SUBMIT');
-            }}
+            actionSubmit={true}
           />
         </div>
       </div>
@@ -169,14 +148,3 @@ const Keyboard: FC<IKeyboard> = ({ type }) => {
 };
 
 export default Keyboard;
-// function useState(arg0: string): [any, any] {
-//   throw new Error('Function not implemented.');
-// }
-
-// function useEffect(arg0: () => void, arg1: never[]) {
-//   throw new Error('Function not implemented.');
-// }
-
-// function onUpdateUser(arg0: { name: void; about: any }) {
-//   throw new Error('Function not implemented.');
-// }

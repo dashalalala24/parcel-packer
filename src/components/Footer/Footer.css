@@ -5,6 +5,11 @@
   color: var(--dark-gray-color);
   display: flex;
   padding: 4px 24px;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  z-index: 5;
 }
 
 .footer__secret {

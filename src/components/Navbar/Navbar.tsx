@@ -1,4 +1,4 @@
-import { CSSProperties, FC } from 'react';
+import { CSSProperties, FC, MouseEventHandler } from 'react';
 import './Navbar.css';
 import Button, { ButtonColors, ButtonSizes } from '../Button/Button';
 import IconImages from '../Icon/types';
@@ -23,38 +23,45 @@ const navbarStyle = (status: navbarStatuses): CSSProperties => ({
 
 interface INavbar {
   status: navbarStatuses;
+  onOpenKeyboard: MouseEventHandler<HTMLButtonElement>;
+  isKeyboardOpened: boolean;
 }
-const Navbar: FC<INavbar> = ({ status }) => {
+
+const Navbar: FC<INavbar> = ({ status, onOpenKeyboard, isKeyboardOpened }) => {
   return (
-    <nav
-      className='navbar'
-      style={navbarStyle(status)}>
+    <nav className='navbar' style={navbarStyle(status)}>
       <Button
-        onClick={() => {
-          console.log('Hello');
-        }}
+        onClick={
+          isKeyboardOpened
+            ? onOpenKeyboard
+            : () => {
+                console.log('Hello');
+              }
+        }
         color={status === 'default' ? ButtonColors.black : ButtonColors.white}
         size={ButtonSizes.m}
         text='Назад'
       />
-      <Button
-        onClick={() => {
-          console.log('Hello');
-        }}
-        size={ButtonSizes.s}
-        color={status === 'default' ? ButtonColors.white : ButtonColors.transparent}
-        text='Ввести с клавиатуры'
-        icon={IconImages.keyboard}
-      />
-      <Button
-        onClick={() => {
-          console.log('Hello');
-        }}
-        size={ButtonSizes.xs}
-        color={status === 'default' ? ButtonColors.white : ButtonColors.transparent}
-        text='Изменить состав'
-        icon={IconImages.edit}
-      />
+      {isKeyboardOpened ? null : (
+        <Button
+          onClick={onOpenKeyboard}
+          size={ButtonSizes.s}
+          color={status === 'default' ? ButtonColors.white : ButtonColors.transparent}
+          text='Ввести с клавиатуры'
+          icon={IconImages.keyboard}
+        />
+      )}
+      {isKeyboardOpened ? null : (
+        <Button
+          onClick={() => {
+            console.log('Hello');
+          }}
+          size={ButtonSizes.xs}
+          color={status === 'default' ? ButtonColors.white : ButtonColors.transparent}
+          text='Изменить состав'
+          icon={IconImages.edit}
+        />
+      )}
     </nav>
   );
 };

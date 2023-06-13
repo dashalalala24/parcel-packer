@@ -29,13 +29,9 @@ const Tag: FC<ITag> = ({ type, value = '' }) => {
       ? 'Cканировать марку'
       : value;
 
-  const iconName = (): IconImages => {
-    return type === 'IMEI' ? IconImages.barcode : (type as unknown as IconImages);
-  };
+  const iconName = type === 'IMEI' ? IconImages.barcode : (type as unknown as IconImages);
 
-  const iconWidth = (): number => {
-    return type === 'bag' || type === 'box' ? 38 : 32;
-  };
+  const iconWidth = type === 'bag' || type === 'box' ? 38 : 32;
 
   const tagClassName = (className: string): string => {
     return type === 'IMEI' || type === 'qrCode'
@@ -55,9 +51,7 @@ const Tag: FC<ITag> = ({ type, value = '' }) => {
 
   return (
     <div className={tagClassName('tag')}>
-      {type === 'another' || type === 'info' ? null : (
-        <Icon imgName={iconName()} width={iconWidth()} />
-      )}
+      {type === 'another' || type === 'info' ? null : <Icon imgName={iconName} width={iconWidth} />}
       <p className={tagTextClassName('tag__text')}>{tagText}</p>
     </div>
   );

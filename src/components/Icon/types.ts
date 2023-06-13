@@ -1,4 +1,6 @@
 export enum IconImages {
+
+  arrow = 'arrow',
   backArrow = 'backArrow',
   bag = 'bag',
   barcode = 'barcode',
@@ -11,13 +13,13 @@ export enum IconImages {
   info = 'info',
   kebab = 'kebab',
   keyboard = 'keyboard',
+  keyboardDelete = 'keyboardDelete',
   market = 'market',
   qrCode = 'qrCode',
   rocket = 'rocket',
   success = 'success',
   warningFilled = 'warningFilled',
   warningOutline = 'warningOutline',
-  wrapArrow = 'wrapArrow',
   yaLogo = 'yaLogo',
   yaLogoname = 'yaLogoname',
 }

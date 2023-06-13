@@ -1,0 +1,37 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.keyboard_type_letters {
+  gap: 16px;
+  width: 1152px;
+  height: 356px;
+  background-color: var(--gray-color);
+  border-radius: var(--border-radius-s);
+  padding: 24px;
+}
+
+.keyboard_type_numbers {
+  gap: 20px;
+  width: 592px;
+  height: 436;
+  border-radius: var(--border-radius-s);
+  padding: 24px;
+}
+
+.keyboard__row {
+  display: flex;
+}
+
+.keyboard__row_type_letters {
+  gap: 16px;
+}
+.keyboard__row_type_letters:nth-of-type(2) {
+  padding: 0 56px;
+}
+
+.keyboard__row_type_numbers {
+  gap: 20px;
+}

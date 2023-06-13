@@ -14,6 +14,12 @@ import ItemImage from '../ItemImage/ItemImage';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks';
 import { increment, incrementAsync } from '../../services/redux/slices/example/example';
 import PackageCard from '../PackageCard/PackageCard';
+import Keyboard from '../Keyboard/Keyboard';
+import KeyboardButton, {
+  KeyboardButtonColors,
+  KeyboardButtonIcons,
+  KeyboardButtonWidths,
+} from '../KeyboardButton/KeyboardButton';
 import Input from '../Input/Input';
 
 export interface IItem {
@@ -95,6 +101,10 @@ function App() {
   return (
     <div className='page'>
       <Header />
+      <br />
+      <Keyboard type='letters' />
+      <br />
+      <Keyboard type='numbers' />
       <br />
       <Button
         onClick={() => {

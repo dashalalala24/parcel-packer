@@ -20,6 +20,7 @@ import KeyboardButton, {
   KeyboardButtonIcons,
   KeyboardButtonWidths,
 } from '../KeyboardButton/KeyboardButton';
+import Input from '../Input/Input';
 
 export interface IItem {
   id: string;
@@ -113,6 +114,8 @@ function App() {
         size={ButtonSizes.m}
         text='Назад'
       />
+      <br />
+      <Input />
       <br />
       <Checkbox />
       <br />

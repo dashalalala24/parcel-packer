@@ -1,0 +1,16 @@
+.input__element {
+  font: var(--font-button-l);
+  border-radius: var(--border-radius-m);
+  width: 596px;
+  height: 124p;
+  padding: 36px;
+  text-align: center;
+  text-transform: uppercase;
+  outline: 8px var(--yellow-color) solid;
+  border: none;
+  box-sizing: border-box;
+}
+
+.input__element:focus {
+  /* outline: 8px var(--red-color) solid; */
+}

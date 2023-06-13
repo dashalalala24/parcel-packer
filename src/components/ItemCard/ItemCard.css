@@ -1,16 +1,7 @@
 .item-card {
   display: flex;
-  flex-direction: column;
-  max-width: 1112px;
-}
-
-.item-card__container {
-  display: flex;
   align-items: center;
-}
-
-.item-card_deleted {
-  color: var(--dark-gray-color-2);
+  max-width: 1112px;
 }
 
 .item-card__main-info {
@@ -35,43 +26,12 @@
   -webkit-box-orient: vertical;
 }
 
-.item-card__tags-container {
+.item-card__tags {
   display: flex;
   gap: 20px;
 }
 
-.item-card__barcode-container {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font: var(--font-2xs);
-  color: var(--blue-color);
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-
-.item-card__barcode-button {
-  margin: 0;
-  padding: 0;
-}
-
-.item-card__actions-container {
+.item-card__actions {
   display: flex;
   gap: 29px;
-}
-
-.item-card__barcodes-list {
-  padding: 32px 0 0 160px;
-  display: none;
-}
-
-.item-card__barcodes-list_opened {
-  display: block;
-}
-
-.item-card__barcode-item {
-  gap: 20px;
-  display: flex;
-  justify-content: space-between;
 }

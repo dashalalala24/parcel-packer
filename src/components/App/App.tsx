@@ -1,5 +1,5 @@
 import './App.css';
-import Tag from '../Tag/Tag';
+import Tag, { tagTypes } from '../Tag/Tag';
 import Header from '../Header/Header';
 import Counter from '../Counter/Counter';
 import Icon from '../Icon/Icon';
@@ -28,26 +28,26 @@ function App() {
       <br />
       <Counter itemsScanned={10} itemsTotal={10} />
       <br />
-      <Tag type='info' value='5 товаров' />
+      <Tag type={tagTypes.info} value='5 товаров' />
       <br />
       <Tag
-        type='info'
+        type={tagTypes.info}
         value='Очень длинное название Очень длинное название Очень длинное название Очень длинное название'
       />
       <br />
-      <Tag type='YMA' />
+      <Tag type={tagTypes.box} value='YMA' />
       <br />
-      <Tag type='MYA' />
+      <Tag type={tagTypes.bag} value='MYA' />
       <br />
-      <Tag type='NONPACK' />
+      <Tag type={tagTypes.another} value='NONPACK' />
       <br />
-      <Tag type={1234567823432} />
+      <Tag type={tagTypes.barcode} value={1234567823432} />
       <br />
-      <Tag type='IMEI' />
+      <Tag type={tagTypes.IMEI} />
       <br />
-      <Tag type='chestnyy_znak' />
+      <Tag type={tagTypes.qrCode} />
       <br />
-      <Tag type='cancel' />
+      <Tag type={tagTypes.cancel} />
       <br />
       <Icon imgName={IconImages.burger} width={70} />
       <br />
@@ -124,26 +124,27 @@ function App() {
       <Notification
         message='Сканируйте IMEI товара'
         child={
-          <div style={{ display: 'flex', gap: '20px', margin: '18px 0 0' }}>
-            <ItemImage
-              itemImg={'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png'}
-              itemName={'Ожидаемо брокколи'}
-            />
-            <div>
-              <p
-                style={{
-                  font: 'var(--font-2xs)',
-                  margin: '0 0 17px',
-                  maxHeight: 96,
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                }}
-              >
-                Умные часы Apple Watch Series 7 45 мм Aluminium Case, (PRODUCT)RED
-              </p>
-              <Tag type={1234567823432} />
-            </div>
-          </div>
+          // <div style={{ display: 'flex', gap: '20px', margin: '18px 0 0' }}>
+          //   <ItemImage
+          //     itemImg={'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png'}
+          //     itemName={'Ожидаемо брокколи'}
+          //   />
+          //   <div>
+          //     <p
+          //       style={{
+          //         font: 'var(--font-2xs)',
+          //         margin: '0 0 17px',
+          //         maxHeight: 96,
+          //         overflow: 'hidden',
+          //         textOverflow: 'ellipsis',
+          //       }}
+          //     >
+          //       Умные часы Apple Watch Series 7 45 мм Aluminium Case, (PRODUCT)RED
+          //     </p>
+          //     <Tag type={tagTypes.barcode} value={1234567823432} />
+          //   </div>
+          // </div>
+          <ItemCard item={package1[0]} hasCounter={false} />
         }
         type={NotificationType.warning}
       />

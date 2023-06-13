@@ -5,8 +5,8 @@ export interface IItem {
   quantity: number;
   barcode: number;
   IMEI_required?: boolean;
-  chestnyy_znak_required?: boolean;
-  canceled?: boolean;
+  qrCode_required?: boolean;
+  cancel?: boolean;
 }
 
 export const package1: IItem[] = [
@@ -24,6 +24,7 @@ export const package1: IItem[] = [
     quantity: 1,
     barcode: 1234567890124,
     IMEI_required: true,
+    cancel: true,
   },
 ];
 

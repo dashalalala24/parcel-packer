@@ -1,4 +1,5 @@
 export enum IconImages {
+
   arrow = 'arrow',
   backArrow = 'backArrow',
   bag = 'bag',

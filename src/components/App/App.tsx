@@ -1,5 +1,5 @@
 import './App.css';
-import Tag from '../Tag/Tag';
+import Tag, { tagTypes } from '../Tag/Tag';
 import Header from '../Header/Header';
 import Counter from '../Counter/Counter';
 import Icon from '../Icon/Icon';
@@ -14,6 +14,8 @@ import ItemImage from '../ItemImage/ItemImage';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks';
 import { increment, incrementAsync } from '../../services/redux/slices/example/example';
 import PackageCard from '../PackageCard/PackageCard';
+import ItemCard from '../ItemCard/ItemCard';
+import { package1, package2 } from '../../utils/orderExamples';
 import Keyboard from '../Keyboard/Keyboard';
 import KeyboardButton, {
   KeyboardButtonColors,
@@ -22,75 +24,6 @@ import KeyboardButton, {
 } from '../KeyboardButton/KeyboardButton';
 import Input from '../Input/Input';
 
-export interface IItem {
-  id: string;
-  name: string;
-  pic: string;
-  quantity: number;
-  barcode: number;
-}
-
-const package1: IItem[] = [
-  {
-    id: '4',
-    name: 'лимон',
-    pic: 'https://pngimg.com/uploads/lemon/lemon_PNG25276.png',
-    quantity: 3,
-    barcode: 1234567890123,
-  },
-  {
-    id: '5',
-    name: 'шаверма',
-    pic: 'https://pngimg.com/uploads/kebab/kebab_PNG36.png',
-    quantity: 2,
-    barcode: 1234567890124,
-  },
-];
-
-const package2: IItem[] = [
-  {
-    id: '1',
-    name: 'брокколи',
-    pic: 'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png',
-    quantity: 1,
-    barcode: 1234567890125,
-  },
-  {
-    id: '2',
-    name: 'кубик рубика',
-    pic: 'https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG21.png',
-    quantity: 2,
-    barcode: 1234567890126,
-  },
-  {
-    id: '3',
-    name: 'якорь',
-    pic: 'https://pngimg.com/uploads/anchor/anchor_PNG5.png',
-    quantity: 146,
-    barcode: 1234567890127,
-  },
-  {
-    id: '4',
-    name: 'лимон',
-    pic: 'https://pngimg.com/uploads/lemon/lemon_PNG25276.png',
-    quantity: 1,
-    barcode: 1234567890123,
-  },
-  {
-    id: '5',
-    name: 'шаверма',
-    pic: 'https://pngimg.com/uploads/kebab/kebab_PNG36.png',
-    quantity: 1,
-    barcode: 1234567890124,
-  },
-  // {
-  //   id: '6',
-  //   name: 'битая фотка',
-  //   pic: 'https://pngimg.com/uploads.png',
-  //   quantity: 1000,
-  //   barcode: 1234567890128,
-  // },
-];
 
 function App() {
   const count = useAppSelector(state => state.example.value);
@@ -125,26 +58,26 @@ function App() {
       <br />
       <Counter itemsScanned={10} itemsTotal={10} />
       <br />
-      <Tag type='info' value='5 товаров' />
+      <Tag type={tagTypes.info} value='5 товаров' />
       <br />
       <Tag
-        type='info'
+        type={tagTypes.info}
         value='Очень длинное название Очень длинное название Очень длинное название Очень длинное название'
       />
       <br />
-      <Tag type='YMA' />
+      <Tag type={tagTypes.box} value='YMA' />
       <br />
-      <Tag type='MYA' />
+      <Tag type={tagTypes.bag} value='MYA' />
       <br />
-      <Tag type='NONPACK' />
+      <Tag type={tagTypes.another} value='NONPACK' />
       <br />
-      <Tag type={1234567823432} />
+      <Tag type={tagTypes.barcode} value={1234567823432} />
       <br />
-      <Tag type='IMEI' />
+      <Tag type={tagTypes.IMEI} />
       <br />
-      <Tag type='chestnyy_znak' />
+      <Tag type={tagTypes.qrCode} />
       <br />
-      <Tag type='cancel' />
+      <Tag type={tagTypes.cancel} />
       <br />
       <Icon imgName={IconImages.burger} width={70} />
       <br />
@@ -221,26 +154,27 @@ function App() {
       <Notification
         message='Сканируйте IMEI товара'
         child={
-          <div style={{ display: 'flex', gap: '20px', margin: '18px 0 0' }}>
-            <ItemImage
-              itemImg={'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png'}
-              itemName={'Ожидаемо брокколи'}
-            />
-            <div>
-              <p
-                style={{
-                  font: 'var(--font-2xs)',
-                  margin: '0 0 17px',
-                  maxHeight: 96,
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                }}
-              >
-                Умные часы Apple Watch Series 7 45 мм Aluminium Case, (PRODUCT)RED
-              </p>
-              <Tag type={1234567823432} />
-            </div>
-          </div>
+          // <div style={{ display: 'flex', gap: '20px', margin: '18px 0 0' }}>
+          //   <ItemImage
+          //     itemImg={'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png'}
+          //     itemName={'Ожидаемо брокколи'}
+          //   />
+          //   <div>
+          //     <p
+          //       style={{
+          //         font: 'var(--font-2xs)',
+          //         margin: '0 0 17px',
+          //         maxHeight: 96,
+          //         overflow: 'hidden',
+          //         textOverflow: 'ellipsis',
+          //       }}
+          //     >
+          //       Умные часы Apple Watch Series 7 45 мм Aluminium Case, (PRODUCT)RED
+          //     </p>
+          //     <Tag type={tagTypes.barcode} value={1234567823432} />
+          //   </div>
+          // </div>
+          <ItemCard item={package1[0]} hasCounter={false} />
         }
         type={NotificationType.warning}
       />
@@ -267,16 +201,31 @@ function App() {
         itemName={'Длинная горизонтальная картинка'}
         itemQuantity={100}
       />
-      <br />
+      {/* <br />
       <ItemImage
         itemImg={'https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG21.png'}
         itemName={'Кубик Рубика'}
         deleted={true}
-      />
+      /> */}
       <br />
       <PackageCard items={package1} />
       <br />
       <PackageCard items={package2} />
+      <br />
+      <ItemCard item={package1[1]} />
+      <br />
+      <br />
+      <br />
+      <ItemCard item={package1[0]} />
+      <br />
+      <br />
+      <br />
+      <ItemCard item={package2[1]} />
+      <br />
+      <br />
+      <br />
+      <ItemCard item={package2[0]} toDelete />
+      {/* вместо toDelete в компоненте будет условие отрисовки в зависимости от роута */}
       <br />
       <Navbar status={navbarStatuses.default} />
       <Footer />

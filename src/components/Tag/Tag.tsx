@@ -1,161 +1,60 @@
 import { FC } from 'react';
 import Icon from '../Icon/Icon';
-import './Tag.css';
 import IconImages from '../Icon/types';
+import './Tag.css';
 
-interface IPacks {
-  box: string[];
-  bag: string[];
-  other: string[];
+export enum tagTypes {
+  box = 'box',
+  bag = 'bag',
+  another = 'another',
+  barcode = 'barcode',
+  IMEI = 'IMEI',
+  qrCode = 'qrCode',
+  cancel = 'cancel',
+  info = 'info',
 }
-
-const packNames: IPacks = {
-  box: [
-    'YMA',
-    'YMC',
-    'YME',
-    'YMF',
-    'YMG',
-    'YMH',
-    'YMJ',
-    'YML',
-    'YMN',
-    'YMO',
-    'YMP',
-    'YMQ',
-    'YMP',
-    'YMR',
-    'YMS',
-    'YMU',
-    'YMV',
-    'YMW',
-    'YMX',
-    'YMY',
-  ],
-  bag: ['MYA', 'MYB', 'MYC', 'MYD', 'MYE'],
-  other: ['KSD', 'NONPACK', 'STRETCH'],
-};
-
-const tagsWithIcon: string[] = ['box', 'bag', 'barcode', 'IMEI', 'chestnyy_znak', 'cancel'];
 
 interface ITag {
-  type: string | number;
-  value?: string;
+  type: tagTypes;
+  value?: string | number;
 }
 
-const Tag: FC<ITag> = ({ type, value = type }) => {
-  const tagType = (): string => {
-    if (typeof type === 'number') {
-      return 'barcode';
-    } else if (packNames.box.includes(type)) {
-      return 'box';
-    } else if (packNames.bag.includes(type)) {
-      return 'bag';
-    } else if (packNames.other.includes(type)) {
-      return 'other';
-    } else {
-      return type;
-    }
-  };
-
+const Tag: FC<ITag> = ({ type, value = '' }) => {
   const tagText: string | number =
     type === 'cancel'
       ? 'Товар отменён'
       : type === 'IMEI'
       ? 'Сканировать IMEI'
-      : type === 'chestnyy_znak'
+      : type === 'qrCode'
       ? 'Cканировать марку'
-      : type === 'info'
-      ? value
-      : type;
+      : value;
 
-  const iconName = (): IconImages => {
-    return type === 'IMEI' ? IconImages.barcode : type === 'chestnyy_znak' ? IconImages.qrCode : tagType() as IconImages;
-  };
+  const iconName = type === 'IMEI' ? IconImages.barcode : (type as unknown as IconImages);
+
+  const iconWidth = type === 'bag' || type === 'box' ? 38 : 32;
 
   const tagClassName = (className: string): string => {
-    return tagType() === 'IMEI' || tagType() === 'chestnyy_znak'
+    return type === 'IMEI' || type === 'qrCode'
       ? `${className} ${className}_type_additional-code`
-      : `${className} ${className}_type_${tagType()}`;
+      : `${className} ${className}_type_${type}`;
   };
 
   const tagTextClassName = (className: string): string => {
-    return tagType() === 'bag' || tagType() === 'other'
+    return type === 'bag' || type === 'another'
       ? `${className} ${className}_color_white`
-      : tagType() === 'barcode'
+      : type === 'barcode'
       ? `${className} ${className}_color_blue`
-      : tagType() === 'cancel'
+      : type === 'cancel'
       ? `${className} ${className}_color_red`
       : className;
   };
 
-  const iconWidth = (): number => {
-    return tagType() === 'bag' || tagType() === 'box' ? 38 : 32;
-  };
-
   return (
-    <div
-      // className={tagClassName('tag')}>
-      className={tagClassName('tag')}>
-      {tagsWithIcon.includes(tagType()) ? (
-        <Icon
-          imgName={iconName()}
-          width={iconWidth()}
-        />
-      ) : null}
-      {/* <p className='tag__text'>{tagText}</p> */}
+    <div className={tagClassName('tag')}>
+      {type === 'another' || type === 'info' ? null : <Icon imgName={iconName} width={iconWidth} />}
       <p className={tagTextClassName('tag__text')}>{tagText}</p>
     </div>
   );
 };
 
 export default Tag;
-
-// const boxNames: string[] = [
-//   'YMA',
-//   'YMC',
-//   'YME',
-//   'YMF',
-//   'YMG',
-//   'YMH',
-//   'YMJ',
-//   'YML',
-//   'YMN',
-//   'YMO',
-//   'YMP',
-//   'YMQ',
-//   'YMP',
-//   'YMR',
-//   'YMS',
-//   'YMU',
-//   'YMV',
-//   'YMW',
-//   'YMX',
-//   'YMY',
-// ];
-// const bagNames: string[] = ['MYA', 'MYB', 'MYC', 'MYD', 'MYE'];
-// const anotherPackNames: string[] = ['KSD', 'NONPACK', 'STRETCH'];
-
-// const tagType: string[] = ['pack', 'box', 'other' 'barcode', 'IMEI', 'chestnyy_znak', 'cancel', 'info'];
-
-// const tagsLib = {
-//   pack: {
-//     box: {
-//       img: 'box',
-//       text: type,
-//     },
-//     bag: {
-//       img: 'bag',
-//       text: type,
-//     },
-//     other: {
-//       img: null,
-//       text: type,
-//     },
-//   },
-//   barcode: { img: type, text: type },
-//   IMEI: { img: 'barcode', text: 'Сканировать IMEI' },
-//   chestnyy_znak: { img: 'qrCode', text: 'Cканировать марку' },
-//   cancel: { img: type, text: 'Товар отменён' },
-//   info: { img: null, text: type },
-// };

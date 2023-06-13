@@ -1,0 +1,12 @@
+.keyboard-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: var(--font-button-l);
+  border: none;
+  cursor: pointer;
+}
+
+.keyboard-button:active {
+  border: 3px solid var(--black-color);
+}

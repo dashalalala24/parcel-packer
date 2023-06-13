@@ -1,4 +1,5 @@
 import { CSSProperties, FC } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Navbar.css';
 import Button, { ButtonColors, ButtonSizes } from '../Button/Button';
 import IconImages from '../Icon/types';
@@ -25,10 +26,11 @@ interface INavbar {
   status: navbarStatuses;
 }
 const Navbar: FC<INavbar> = ({ status }) => {
-  return (
-    <nav
-      className='navbar'
-      style={navbarStyle(status)}>
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  return currentPath === '/start' ? null : (
+    <nav className='navbar' style={navbarStyle(status)}>
       <Button
         onClick={() => {
           console.log('Hello');

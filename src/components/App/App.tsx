@@ -17,13 +17,7 @@ import PackageCard from '../PackageCard/PackageCard';
 import ItemCard from '../ItemCard/ItemCard';
 import { package1, package2 } from '../../utils/orderExamples';
 import Keyboard from '../Keyboard/Keyboard';
-import KeyboardButton, {
-  KeyboardButtonColors,
-  KeyboardButtonIcons,
-  KeyboardButtonWidths,
-} from '../KeyboardButton/KeyboardButton';
 import Input from '../Input/Input';
-
 
 function App() {
   const count = useAppSelector(state => state.example.value);

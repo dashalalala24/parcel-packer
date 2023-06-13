@@ -50,7 +50,7 @@ interface IButtonProps {
   size?: ButtonSizes;
   icon?: IconImages;
   text?: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   type?: ButtonTypes;
 }
 
@@ -72,11 +72,7 @@ const Button: FC<IButtonProps> = ({
   ) : null;
 
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      className='button'
-      style={buttonStyles(size, color)}>
+    <button type={type} onClick={onClick} className='button' style={buttonStyles(size, color)}>
       {iconElement}
       {text}
     </button>

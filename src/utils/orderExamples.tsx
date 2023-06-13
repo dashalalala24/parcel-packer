@@ -19,7 +19,7 @@ export const package1: IItem[] = [
   },
   {
     id: '5',
-    name: 'Просто шаверма',
+    name: 'Умные часы Apple Watch Series 7 45 мм Aluminium Case, (PRODUCT)RED',
     pic: 'https://pngimg.com/uploads/kebab/kebab_PNG36.png',
     quantity: 1,
     barcode: 1234567890124,
@@ -31,7 +31,7 @@ export const package1: IItem[] = [
 export const package2: IItem[] = [
   {
     id: '1',
-    name: 'Брокколи, 1кг',
+    name: 'Шампунь для истонченных волос SYNERGETIC «Объем и укрепление» натуральный, бессульфатный, 750 мл',
     pic: 'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png',
     quantity: 1,
     barcode: 1234567890125,
@@ -45,17 +45,20 @@ export const package2: IItem[] = [
   },
   {
     id: '3',
-    name: 'Якорь',
+    name: 'Умные часы Apple Watch Series 7 45 мм Aluminium Case, (PRODUCT)RED',
     pic: 'https://pngimg.com/uploads/anchor/anchor_PNG5.png',
     quantity: 146,
     barcode: 1234567890127,
+    IMEI_required: true,
   },
   {
     id: '4',
-    name: 'Лимон',
+    name: 'Умная колонка Яндекс Станция Лайт, ультрафиолет',
     pic: 'https://pngimg.com/uploads/lemon/lemon_PNG25276.png',
     quantity: 1,
     barcode: 1234567890123,
+    qrCode_required: true,
+    cancel: true,
   },
   {
     id: '5',

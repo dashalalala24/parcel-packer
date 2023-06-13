@@ -5,6 +5,8 @@ import Navbar, { navbarStatuses } from '../../components/Navbar/Navbar';
 import './AppPage.css';
 import { Routes, Route, Outlet, Link } from 'react-router-dom';
 import ErrorPage from '../ErrorPage/Error-page';
+import StartPage from '../StartPage/StartPage';
+import PackageListPage from '../PackageListPage/PackageListPage';
 
 function Layout() {
   return (
@@ -21,7 +23,10 @@ function Layout() {
         <Header />
       </div>
 
-      <div style={{ flexGrow: 1, height: 'calc(100vh - 256px)', overflow: 'auto' }}>
+      <div
+        // style={{ display: 'flex', flexGrow: 1, height: 'calc(100vh - 256px)', overflow: 'auto' }}
+        style={{ display: 'flex', flexGrow: 1, overflow: 'auto' }}
+      >
         <Outlet />
       </div>
 
@@ -35,9 +40,23 @@ function Layout() {
 
 function DevNavigation() {
   return (
-    <div>
+    <div
+      style={{
+        padding: '140px 0',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <Link style={{ font: 'var(--font-m)' }} to={'/storybook'}>
         storybook
+      </Link>
+      <br />
+      <Link style={{ font: 'var(--font-m)' }} to={'/start'}>
+        start
+      </Link>
+      <br />
+      <Link style={{ font: 'var(--font-m)' }} to={'/package-list'}>
+        package list
       </Link>
       <br />
       <Link style={{ font: 'var(--font-m)' }} to={'/13423'}>
@@ -53,6 +72,8 @@ export const AppPage = () => {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<DevNavigation />} />
+          <Route path='/start' element={<StartPage />} />
+          <Route path='/package-list' element={<PackageListPage />} />
           <Route path='/storybook' element={<Storybook />} />
           <Route path='*' element={<ErrorPage />} />
         </Route>

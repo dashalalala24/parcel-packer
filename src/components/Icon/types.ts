@@ -1,5 +1,4 @@
 export enum IconImages {
-
   arrow = 'arrow',
   backArrow = 'backArrow',
   bag = 'bag',
@@ -16,6 +15,7 @@ export enum IconImages {
   keyboardDelete = 'keyboardDelete',
   market = 'market',
   qrCode = 'qrCode',
+  qrCodeDone = 'qrCodeDone',
   rocket = 'rocket',
   success = 'success',
   warningFilled = 'warningFilled',

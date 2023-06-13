@@ -8,7 +8,8 @@ import IconImages from '../../components/Icon/types';
 import ItemImage from '../../components/ItemImage/ItemImage';
 import Notification, { NotificationType } from '../../components/Notification/Notification';
 import PackageCard from '../../components/PackageCard/PackageCard';
-import Tag from '../../components/Tag/Tag';
+import Tag, { tagTypes } from '../../components/Tag/Tag';
+import ItemCard from '../../components/ItemCard/ItemCard';
 
 export interface IItem {
   id: string;
@@ -102,26 +103,26 @@ const Storybook = () => {
       <br />
       <Counter itemsScanned={10} itemsTotal={10} />
       <br />
-      <Tag type='info' value='5 товаров' />
+      <Tag type={tagTypes.info} value='5 товаров' />
       <br />
       <Tag
-        type='info'
+        type={tagTypes.info}
         value='Очень длинное название Очень длинное название Очень длинное название Очень длинное название'
       />
       <br />
-      <Tag type='YMA' />
+      <Tag type={tagTypes.box} value='YMA' />
       <br />
-      <Tag type='MYA' />
+      <Tag type={tagTypes.bag} value='MYA' />
       <br />
-      <Tag type='NONPACK' />
+      <Tag type={tagTypes.another} value='NONPACK' />
       <br />
-      <Tag type={1234567823432} />
+      <Tag type={tagTypes.barcode} value={1234567823432} />
       <br />
-      <Tag type='IMEI' />
+      <Tag type={tagTypes.IMEI} />
       <br />
-      <Tag type='chestnyy_znak' />
+      <Tag type={tagTypes.qrCode} />
       <br />
-      <Tag type='cancel' />
+      <Tag type={tagTypes.cancel} />
       <br />
       <Icon imgName={IconImages.burger} width={70} />
       <br />
@@ -197,28 +198,7 @@ const Storybook = () => {
       <br />
       <Notification
         message='Сканируйте IMEI товара'
-        child={
-          <div style={{ display: 'flex', gap: '20px', margin: '18px 0 0' }}>
-            <ItemImage
-              itemImg={'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png'}
-              itemName={'Ожидаемо брокколи'}
-            />
-            <div>
-              <p
-                style={{
-                  font: 'var(--font-2xs)',
-                  margin: '0 0 17px',
-                  maxHeight: 96,
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                }}
-              >
-                Умные часы Apple Watch Series 7 45 мм Aluminium Case, (PRODUCT)RED
-              </p>
-              <Tag type={1234567823432} />
-            </div>
-          </div>
-        }
+        child={<ItemCard item={package1[0]} hasCounter={false} />}
         type={NotificationType.warning}
       />
       <br />
@@ -243,12 +223,6 @@ const Storybook = () => {
         itemImg={'https://pngimg.com/uploads/anchor/anchor_PNG5.png'}
         itemName={'Длинная горизонтальная картинка'}
         itemQuantity={100}
-      />
-      <br />
-      <ItemImage
-        itemImg={'https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG21.png'}
-        itemName={'Кубик Рубика'}
-        deleted={true}
       />
       <br />
       <PackageCard items={package1} />

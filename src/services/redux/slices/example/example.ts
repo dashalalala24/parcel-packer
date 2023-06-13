@@ -56,20 +56,4 @@ export const exampleSlice = createSlice({
 
 export const { increment, decrement, incrementByAmount } = exampleSlice.actions;
 
-// // Приведенная ниже функция называется селектором и позволяет нам выбрать значение из
-// // стейта. Селекторы также могут быть определены внутри компонента React, где они и используются.
-// // Например:  `useSelector((state: RootState) => state.example.value)`
-// export const selectCount = (state: RootState) => state.example.value;
-
-// // Мы также можем написать thunks вручную, они могут содержать как синхронную, так и асинхронную логику.
-// // Вот пример условной отправки экшенов на основе текущего состояния.
-// export const incrementIfOdd =
-//   (amount: number): AppThunk =>
-//   (dispatch, getState) => {
-//     const currentValue = selectCount(getState());
-//     if (currentValue % 2 === 1) {
-//       dispatch(incrementByAmount(amount));
-//     }
-//   };
-
 export default exampleSlice.reducer;

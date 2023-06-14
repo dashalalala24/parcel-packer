@@ -7,6 +7,8 @@ import { Routes, Route, Outlet, Link } from 'react-router-dom';
 import ErrorPage from '../ErrorPage/Error-page';
 import StartPage from '../StartPage/StartPage';
 import PackageListPage from '../PackageListPage/PackageListPage';
+import InputPopup, { InputPopupTypes } from '../../components/InputPopup/InputPopup';
+import Preloader from '../../components/Preloader/Preloader';
 
 function Layout() {
   return (
@@ -31,7 +33,11 @@ function Layout() {
       </div>
 
       <div style={{ flexShrink: 0 }}>
-        <Navbar status={navbarStatuses.default} />
+        <Navbar
+          status={navbarStatuses.default}
+          // onOpenKeyboard={handleOpenKeyboard}
+          // isKeyboardOpened={isKeyboardOpened}
+        />
         <Footer />
       </div>
     </div>
@@ -59,6 +65,18 @@ function DevNavigation() {
         package list
       </Link>
       <br />
+      <Link style={{ font: 'var(--font-m)' }} to={'/letters-popup'}>
+        letters-popup
+      </Link>
+      <br />
+      <Link style={{ font: 'var(--font-m)' }} to={'/numbers-popup'}>
+        numbers-popup
+      </Link>
+      <br />
+      <Link style={{ font: 'var(--font-m)' }} to={'/preloader'}>
+        preloader
+      </Link>
+      <br />
       <Link style={{ font: 'var(--font-m)' }} to={'/13423'}>
         nomatch
       </Link>
@@ -75,6 +93,9 @@ export const AppPage = () => {
           <Route path='/start' element={<StartPage />} />
           <Route path='/package-list' element={<PackageListPage />} />
           <Route path='/storybook' element={<Storybook />} />
+          <Route path='/preloader' element={<Preloader />} />
+          <Route path='/letters-popup' element={<InputPopup type={InputPopupTypes.letters} />} />
+          <Route path='/numbers-popup' element={<InputPopup type={InputPopupTypes.numbers} />} />
           <Route path='*' element={<ErrorPage />} />
         </Route>
       </Routes>

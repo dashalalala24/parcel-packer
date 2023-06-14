@@ -26,30 +26,30 @@ function App() {
 
   console.log(count);
 
-  const [isKeyboardOpened, setIsKeyboardOpened] = useState<boolean>(false);
+  // const [isKeyboardOpened, setIsKeyboardOpened] = useState<boolean>(false);
 
-  function handleOpenKeyboard() {
-    setIsKeyboardOpened(!isKeyboardOpened);
-  }
+  // function handleOpenKeyboard() {
+  //   setIsKeyboardOpened(!isKeyboardOpened);
+  // }
 
-  useEffect(() => {
-    if (!isKeyboardOpened) return;
+  // useEffect(() => {
+  //   if (!isKeyboardOpened) return;
 
-    const closeByEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setIsKeyboardOpened(false);
-      }
-    };
+  //   const closeByEscape = (e: KeyboardEvent) => {
+  //     if (e.key === 'Escape') {
+  //       setIsKeyboardOpened(false);
+  //     }
+  //   };
 
-    document.addEventListener('keydown', closeByEscape);
+  //   document.addEventListener('keydown', closeByEscape);
 
-    return () => document.removeEventListener('keydown', closeByEscape);
-  }, [isKeyboardOpened]);
+  //   return () => document.removeEventListener('keydown', closeByEscape);
+  // }, [isKeyboardOpened]);
 
   return (
     <div className='app'>
       <Header />
-      <InputPopup type={InputPopupTypes.letters} isKeyboardOpened={isKeyboardOpened} />
+      {/* <InputPopup type={InputPopupTypes.letters} isKeyboardOpened={isKeyboardOpened} /> */}
       {/* <InputPopup type={InputPopupTypes.numbers} isKeyboardOpened={isKeyboardOpened} /> */}
       <br />
       <Button
@@ -181,8 +181,8 @@ function App() {
       <br />
       <Navbar
         status={navbarStatuses.default}
-        onOpenKeyboard={handleOpenKeyboard}
-        isKeyboardOpened={isKeyboardOpened}
+        // onOpenKeyboard={handleOpenKeyboard}
+        // isKeyboardOpened={isKeyboardOpened}
       />
       <Footer />
     </div>

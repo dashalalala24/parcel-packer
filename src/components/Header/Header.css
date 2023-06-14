@@ -29,7 +29,8 @@
 }
 
 .header__name {
-  font: var(--font-button-l);
+  font: var(--font-button-m);
+  font-feature-settings: var(--font-feature);
   margin: 0 auto;
   padding: 0;
   justify-self: center;

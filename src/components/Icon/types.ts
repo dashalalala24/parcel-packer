@@ -9,6 +9,7 @@ export enum IconImages {
   cross = 'cross',
   edit = 'edit',
   error = 'error',
+  errorImage = 'errorImage',
   info = 'info',
   kebab = 'kebab',
   keyboard = 'keyboard',

@@ -9,6 +9,7 @@
   outline: 8px var(--yellow-color) solid;
   border: none;
   box-sizing: border-box;
+  margin: 28px auto 48px;
 }
 
 .input__element:focus {

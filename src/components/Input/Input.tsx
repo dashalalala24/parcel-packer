@@ -1,22 +1,30 @@
 import { FC } from 'react';
 import './Input.css';
+import { InputPopupTypes } from '../InputPopup/InputPopup';
 
-const Input: FC = () => {
+// export enum inputTypes {
+//   numbers = 'numbers',
+//   letters = 'letters',
+// }
+
+export interface IInput {
+  type: InputPopupTypes;
+  value: string;
+  handleChange: any;
+}
+
+const Input: FC<IInput> = ({ type, value, handleChange }) => {
   return (
-    <form className='input'>
-      <input
-        className='input__element'
-        id='code-input'
-        type='code'
-        name='code'
-        autoComplete='off'
-        minLength={3}
-        maxLength={15}
-        // value={values.code || ''}
-        // onChange={handleChange}
-        required
-      />
-    </form>
+    <input
+      className='input__element'
+      id={`${type}-input`}
+      type={`${type}`}
+      name={`${type}-input`}
+      autoComplete='off'
+      value={value}
+      onChange={handleChange}
+      required
+    />
   );
 };
 

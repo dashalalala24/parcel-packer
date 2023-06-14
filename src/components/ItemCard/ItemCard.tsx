@@ -21,7 +21,6 @@ const ItemCard: FC<IItemCard> = ({ item, toDelete = false, hasCounter = true }) 
     <Tag type={tagTypes.qrCode} />
   ) : null;
 
-  console.log(Object.keys(item));
   return (
     <div className='item-card'>
       <ItemImage itemImg={item.pic} itemName={item.name} />

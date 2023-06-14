@@ -1,9 +1,15 @@
 .header {
   display: flex;
+  width: 100%;
   padding: 20px 24px;
   font-feature-settings: var(--font-feature);
   align-items: center;
   border-bottom: 1px solid var(--gray-color);
+  background-color: var(--white-color);
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .header__burger-nav {

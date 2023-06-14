@@ -16,6 +16,8 @@ import { increment, incrementAsync } from '../../services/redux/slices/example/e
 import PackageCard from '../PackageCard/PackageCard';
 import ItemCard from '../ItemCard/ItemCard';
 import { package1, package2 } from '../../utils/orderExamples';
+import Keyboard from '../Keyboard/Keyboard';
+import Input from '../Input/Input';
 import InputPopup, { InputPopupTypes } from '../InputPopup/InputPopup';
 
 function App() {

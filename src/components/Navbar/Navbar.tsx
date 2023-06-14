@@ -1,4 +1,5 @@
 import { CSSProperties, FC, MouseEventHandler } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Navbar.css';
 import Button, { ButtonColors, ButtonSizes } from '../Button/Button';
 import IconImages from '../Icon/types';
@@ -26,9 +27,11 @@ interface INavbar {
   onOpenKeyboard: MouseEventHandler<HTMLButtonElement>;
   isKeyboardOpened: boolean;
 }
-
 const Navbar: FC<INavbar> = ({ status, onOpenKeyboard, isKeyboardOpened }) => {
-  return (
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  return currentPath === '/start' ? null : (
     <nav className='navbar' style={navbarStyle(status)}>
       <Button
         onClick={

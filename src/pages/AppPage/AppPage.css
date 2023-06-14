@@ -1,6 +1,7 @@
 .app {
   background-color: var(--white-color);
   color: var(--black-color);
+  /* display: flex; */
   font-family: 'Yandex Sans Display', 'Arial', sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

@@ -3,13 +3,13 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: 'logo name userbar';
   width: 100%;
+  z-index: 1001;
   padding: 20px 24px;
   box-sizing: border-box;
   font-feature-settings: var(--font-feature);
   align-items: center;
   border-bottom: 1px solid var(--gray-color);
   background-color: var(--white-color);
-  z-index: 5;
   position: fixed;
   top: 0;
   left: 0;

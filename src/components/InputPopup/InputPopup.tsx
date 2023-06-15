@@ -10,13 +10,16 @@ export enum InputPopupTypes {
 
 interface IInputPopup {
   type: InputPopupTypes;
-  isKeyboardOpened: boolean;
+  // isKeyboardOpened: boolean;
 }
 
-const InputPopup: FC<IInputPopup> = ({ type, isKeyboardOpened }) => {
-  useEffect(() => {
-    setInput({ inputValue: '' });
-  }, [isKeyboardOpened]);
+const InputPopup: FC<IInputPopup> = ({
+  type,
+  // isKeyboardOpened
+}) => {
+  // useEffect(() => {
+  //   setInput({ inputValue: '' });
+  // }, [isKeyboardOpened]);
 
   interface IInputValue {
     inputValue: string;
@@ -45,7 +48,8 @@ const InputPopup: FC<IInputPopup> = ({ type, isKeyboardOpened }) => {
 
   console.log(input);
   return (
-    <div className={`input-popup ${isKeyboardOpened ? 'input-popup_opened' : ''}`}>
+    // <div className={`input-popup ${isKeyboardOpened ? 'input-popup_opened' : ''}`}>
+    <div className='input-popup input-popup_opened'>
       <h3 className='input-popup__title'>
         {type === 'letters' ? 'Введите код упаковки' : 'Введите или вставьте код'}
       </h3>

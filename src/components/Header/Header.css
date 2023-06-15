@@ -1,7 +1,10 @@
 .header {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 'logo name userbar';
   width: 100%;
   padding: 20px 24px;
+  box-sizing: border-box;
   font-feature-settings: var(--font-feature);
   align-items: center;
   border-bottom: 1px solid var(--gray-color);
@@ -17,6 +20,7 @@
   align-items: center;
   gap: 24px;
   margin: 0 auto 0 0;
+  grid-area: logo;
 }
 
 .header__logo {
@@ -27,8 +31,9 @@
 .header__name {
   font: var(--font-button-l);
   margin: 0 auto;
-  padding: 0 0 0 104px;
-  align-self: center;
+  padding: 0;
+  justify-self: center;
+  grid-area: name;
 }
 
 .header__kebab-nav {
@@ -36,6 +41,7 @@
   align-items: center;
   margin: 0 0 0 auto;
   gap: 16px;
+  grid-area: userbar;
 }
 
 .header__userbar {

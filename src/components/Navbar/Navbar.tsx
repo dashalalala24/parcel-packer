@@ -3,7 +3,6 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import Button, { ButtonColors, ButtonSizes } from '../Button/Button';
 import IconImages from '../Icon/types';
-
 export enum navbarStatuses {
   default = 'default',
   success = 'success',
@@ -38,7 +37,8 @@ const Navbar: FC<INavbar> = ({
   return currentPath === '/start' ||
     currentPath === '/13423' ||
     currentPath === '/packages-list' ||
-    currentPath === '/preloader' ? null : (
+    currentPath === '/preloader' ||
+    currentPath === '/done' ? null : (
     <nav className='navbar' style={navbarStyle(status)}>
       <Button
         // onClick={isKeyboardOpened ? onOpenKeyboard : navigate(-1)}
@@ -48,27 +48,28 @@ const Navbar: FC<INavbar> = ({
         color={status === 'default' ? ButtonColors.black : ButtonColors.white}
         size={ButtonSizes.m}
         text='Назад'
+        visible={currentPath === '/order-list' ? false : true}
       />
-      {/* {isKeyboardOpened ? null : ( */}
       <Button
         // onClick={onOpenKeyboard}
         size={ButtonSizes.s}
         color={status === 'default' ? ButtonColors.white : ButtonColors.transparent}
         text='Ввести с клавиатуры'
         icon={IconImages.keyboard}
+        visible={currentPath === '/problem' ? false : true}
       />
-      {/* )} */}
-      {/* {isKeyboardOpened ? null : ( */}
-      <Button
-        onClick={() => {
-          console.log('Hello');
-        }}
-        size={ButtonSizes.xs}
-        color={status === 'default' ? ButtonColors.white : ButtonColors.transparent}
-        text='Изменить состав'
-        icon={IconImages.edit}
-      />
-      {/* )} */}
+      {currentPath === '/order-list' ? null : (
+        <Button
+          onClick={() => {
+            console.log('Hello');
+          }}
+          size={ButtonSizes.xs}
+          color={status === 'default' ? ButtonColors.white : ButtonColors.transparent}
+          text='Изменить состав'
+          icon={IconImages.edit}
+          visible={currentPath === '/order-list' ? false : true}
+        />
+      )}
     </nav>
   );
 };

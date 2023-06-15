@@ -60,7 +60,7 @@ const useVisibility = (): IVisibilityList => {
           isRButtonVisible: true,
         });
         break;
-      case '/package-list':
+      case '/order-list':
         setIsVisible({
           isHeaderVisible: true,
           navbarVisibility: {
@@ -71,6 +71,58 @@ const useVisibility = (): IVisibilityList => {
           },
           isLButtonVisible: true,
           isRButtonVisible: true,
+        });
+        break;
+      case '/packageID-package-list':
+        setIsVisible({
+          isHeaderVisible: true,
+          navbarVisibility: {
+            isNavbarVisible: true,
+            isBackButtonVisible: false,
+            isManualInputButtonVisible: true,
+            isChangeItemsButtonVisible: false,
+          },
+          isLButtonVisible: true,
+          isRButtonVisible: true,
+        });
+        break;
+      case '/edit-itemslist':
+        setIsVisible({
+          isHeaderVisible: true,
+          navbarVisibility: {
+            isNavbarVisible: true,
+            isBackButtonVisible: true,
+            isManualInputButtonVisible: false,
+            isChangeItemsButtonVisible: false,
+          },
+          isLButtonVisible: true,
+          isRButtonVisible: true,
+        });
+        break;
+      case '/done':
+        setIsVisible({
+          isHeaderVisible: true,
+          navbarVisibility: {
+            isNavbarVisible: false,
+            isBackButtonVisible: false,
+            isManualInputButtonVisible: false,
+            isChangeItemsButtonVisible: false,
+          },
+          isLButtonVisible: false,
+          isRButtonVisible: true,
+        });
+        break;
+      case '/problem':
+        setIsVisible({
+          isHeaderVisible: true,
+          navbarVisibility: {
+            isNavbarVisible: true,
+            isBackButtonVisible: true,
+            isManualInputButtonVisible: false,
+            isChangeItemsButtonVisible: false,
+          },
+          isLButtonVisible: false,
+          isRButtonVisible: false,
         });
         break;
       default:

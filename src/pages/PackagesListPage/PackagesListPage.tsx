@@ -16,7 +16,7 @@ export default function PackagesListPage() {
                 {`Посылка 
                 ${packagesItem.packageId}`}
               </p>
-              <Link className='packages-list-page__package' to='/'>
+              <Link className='packages-list-page__package' to='/packageID-package-list'>
                 <PackageCard key={order1AfterML.orderId} items={packagesItem.items} />
               </Link>
             </div>

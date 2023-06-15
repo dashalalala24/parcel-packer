@@ -16,7 +16,9 @@ import useVisibility from '../../utils/hooks/useVisibility';
 import PackagesListPage from '../PackagesListPage/PackagesListPage';
 import { order1AfterML } from '../../utils/orderExamples';
 import PackagePage from '../PackagePage/PackagePage';
-
+import SuccessPage from '../SuccessPage/SuccessPage';
+import ProblemPage from '../ProblemPage/ProblemPage';
+import EditItemsListPage from '../EditItemsListPage/EditItemsListPage';
 
 function Layout() {
   const { LButtonState, RButtonState } = useRButtonsState();
@@ -108,6 +110,18 @@ function DevNavigation() {
         package list
       </Link>
       <br />
+      <Link style={{ font: 'var(--font-m)' }} to={'/edit-itemslist'}>
+        edit itemlist
+      </Link>
+      <br />
+      <Link style={{ font: 'var(--font-m)' }} to={'/done'}>
+        succes page
+      </Link>
+      <br />
+      <Link style={{ font: 'var(--font-m)' }} to={'/problem'}>
+        problem page
+      </Link>
+      <br />
       <Link style={{ font: 'var(--font-m)' }} to={'/letters-popup'}>
         letters-popup
       </Link>
@@ -135,7 +149,10 @@ export const AppPage = () => {
           <Route path='/order-list' element={<OrderListPage />} />
           <Route path='/packages-list' element={<PackagesListPage />} />
           <Route path='/packageID-package-list' element={<PackagePage />} />
+          <Route path='/done' element={<SuccessPage />} />
+          <Route path='/problem' element={<ProblemPage />} />
           <Route path='/storybook' element={<Storybook />} />
+          <Route path='/edit-itemslist' element={<EditItemsListPage />} />
           <Route path='/letters-popup' element={<InputPopup type={InputPopupTypes.letters} />} />
           <Route path='/numbers-popup' element={<InputPopup type={InputPopupTypes.numbers} />} />
           <Route path='*' element={<ErrorPage />} />

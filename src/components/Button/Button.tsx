@@ -24,6 +24,9 @@ export enum ButtonTypes {
   submit = 'submit',
   reset = 'reset',
 }
+export enum ButtonVisibility {
+  visible = 'visible',
+}
 
 const buttonStyles = (size: ButtonSizes, color?: ButtonColors): CSSProperties => ({
   backgroundColor: color ? `var(--${color}-color)` : 'transparent',
@@ -44,6 +47,12 @@ const buttonStyles = (size: ButtonSizes, color?: ButtonColors): CSSProperties =>
   height: size === ButtonSizes.xl ? 662 : size === ButtonSizes.l ? 94 : 72,
   flexDirection: size === ButtonSizes.xl ? 'column-reverse' : 'row',
   color: color === 'black' || color === 'transparent' ? 'white' : 'black',
+  position: size === ButtonSizes.xl ? 'fixed' : 'static',
+  top: size === ButtonSizes.xl ? '209px' : 'unset',
+  right: size === ButtonSizes.xl && color === ButtonColors.yellow ? '23px' : 'auto',
+  left: size === ButtonSizes.xl && color === ButtonColors.beige ? '23px' : 'auto',
+  maxWidth: color === ButtonColors.beige ? '296px' : 'none',
+  appearance: ButtonVisibility.visible ? 'auto' : 'none',
 });
 
 interface IButtonProps {
@@ -53,6 +62,7 @@ interface IButtonProps {
   text?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   type?: ButtonTypes;
+  visible?: boolean;
 }
 
 const Button: FC<IButtonProps> = ({

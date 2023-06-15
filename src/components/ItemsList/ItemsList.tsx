@@ -20,7 +20,7 @@ const ItemsList: FC<IItemsList> = ({ itemsPackage }) => {
             <ItemCard
               key={item.barcode}
               item={item}
-              toDelete={currentPath === '/edit-product-list' ? true : false}
+              toDelete={currentPath === '/edit-itemslist' ? true : false}
             />
           </li>
         );

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import Tag, { tagTypes } from '../Tag/Tag';
 import Header from '../Header/Header';
@@ -10,7 +11,6 @@ import Notification, { NotificationType } from '../Notification/Notification';
 import Navbar, { navbarStatuses } from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import Checkbox from '../Checkbox/Checkbox';
-import ItemImage from '../ItemImage/ItemImage';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks';
 import { increment, incrementAsync } from '../../services/redux/slices/example/example';
 import PackageCard from '../PackageCard/PackageCard';
@@ -18,6 +18,7 @@ import ItemCard from '../ItemCard/ItemCard';
 import { package1, package2 } from '../../utils/orderExamples';
 import Keyboard from '../Keyboard/Keyboard';
 import Input from '../Input/Input';
+import InputPopup, { InputPopupTypes } from '../InputPopup/InputPopup';
 
 function App() {
   const count = useAppSelector(state => state.example.value);
@@ -25,13 +26,31 @@ function App() {
 
   console.log(count);
 
+  // const [isKeyboardOpened, setIsKeyboardOpened] = useState<boolean>(false);
+
+  // function handleOpenKeyboard() {
+  //   setIsKeyboardOpened(!isKeyboardOpened);
+  // }
+
+  // useEffect(() => {
+  //   if (!isKeyboardOpened) return;
+
+  //   const closeByEscape = (e: KeyboardEvent) => {
+  //     if (e.key === 'Escape') {
+  //       setIsKeyboardOpened(false);
+  //     }
+  //   };
+
+  //   document.addEventListener('keydown', closeByEscape);
+
+  //   return () => document.removeEventListener('keydown', closeByEscape);
+  // }, [isKeyboardOpened]);
+
   return (
-    <div className='page'>
+    <div className='app'>
       <Header />
-      <br />
-      <Keyboard type='letters' />
-      <br />
-      <Keyboard type='numbers' />
+      {/* <InputPopup type={InputPopupTypes.letters} isKeyboardOpened={isKeyboardOpened} /> */}
+      {/* <InputPopup type={InputPopupTypes.numbers} isKeyboardOpened={isKeyboardOpened} /> */}
       <br />
       <Button
         onClick={() => {
@@ -41,8 +60,6 @@ function App() {
         size={ButtonSizes.m}
         text='Назад'
       />
-      <br />
-      <Input />
       <br />
       <Checkbox />
       <br />
@@ -147,29 +164,7 @@ function App() {
       <br />
       <Notification
         message='Сканируйте IMEI товара'
-        child={
-          // <div style={{ display: 'flex', gap: '20px', margin: '18px 0 0' }}>
-          //   <ItemImage
-          //     itemImg={'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png'}
-          //     itemName={'Ожидаемо брокколи'}
-          //   />
-          //   <div>
-          //     <p
-          //       style={{
-          //         font: 'var(--font-2xs)',
-          //         margin: '0 0 17px',
-          //         maxHeight: 96,
-          //         overflow: 'hidden',
-          //         textOverflow: 'ellipsis',
-          //       }}
-          //     >
-          //       Умные часы Apple Watch Series 7 45 мм Aluminium Case, (PRODUCT)RED
-          //     </p>
-          //     <Tag type={tagTypes.barcode} value={1234567823432} />
-          //   </div>
-          // </div>
-          <ItemCard item={package1[0]} hasCounter={false} />
-        }
+        child={<ItemCard item={package1[0]} hasCounter={false} />}
         type={NotificationType.warning}
       />
       <br />
@@ -179,49 +174,16 @@ function App() {
         type={NotificationType.systemError}
       />
       <br />
-      <ItemImage
-        itemImg={'https://pngimg.com/uploads/broccoli/broccoli_PNG72950.png'}
-        itemName={'Внезапно брокколи'}
-      />
-      <br />
-      <ItemImage
-        itemImg={'https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG21.png'}
-        itemName={'Кубик Рубика'}
-        itemQuantity={2}
-      />
-      <br />
-      <ItemImage
-        itemImg={'https://pngimg.com/uploads/anchor/anchor_PNG5.png'}
-        itemName={'Длинная горизонтальная картинка'}
-        itemQuantity={100}
-      />
-      {/* <br />
-      <ItemImage
-        itemImg={'https://pngimg.com/uploads/rubik_cube/rubik_cube_PNG21.png'}
-        itemName={'Кубик Рубика'}
-        deleted={true}
-      /> */}
-      <br />
       <PackageCard items={package1} />
-      <br />
-      <PackageCard items={package2} />
-      <br />
-      <ItemCard item={package1[1]} />
-      <br />
-      <br />
-      <br />
-      <ItemCard item={package1[0]} />
-      <br />
-      <br />
-      <br />
-      <ItemCard item={package2[1]} />
-      <br />
-      <br />
       <br />
       <ItemCard item={package2[0]} toDelete />
       {/* вместо toDelete в компоненте будет условие отрисовки в зависимости от роута */}
       <br />
-      <Navbar status={navbarStatuses.default} />
+      <Navbar
+        status={navbarStatuses.default}
+        // onOpenKeyboard={handleOpenKeyboard}
+        // isKeyboardOpened={isKeyboardOpened}
+      />
       <Footer />
     </div>
   );

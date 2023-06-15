@@ -39,7 +39,8 @@ const buttonStyles = (size: ButtonSizes, color?: ButtonColors): CSSProperties =>
       : size === ButtonSizes.s
       ? 'var(--font-button-s)'
       : 'var(--font-button-xs)',
-  minWidth: size === ButtonSizes.xl ? 296 : size === ButtonSizes.l ? 453 : 296,
+  minWidth:
+    size === ButtonSizes.xl ? 'calc(296 / 1920 * 100vw)' : size === ButtonSizes.l ? 453 : 296,
   height: size === ButtonSizes.xl ? 662 : size === ButtonSizes.l ? 94 : 72,
   flexDirection: size === ButtonSizes.xl ? 'column-reverse' : 'row',
   color: color === 'black' || color === 'transparent' ? 'white' : 'black',

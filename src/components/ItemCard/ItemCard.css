@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   max-width: 1112px;
+  min-width: 832px;
   padding: 24px 0;
   border-bottom: 1px solid var(--gray-color);
 }
@@ -20,7 +21,7 @@
   font: var(--font-2xs);
   margin: 0;
   padding: 0;
-  max-height: 96px;
+  /* max-height: 96px; */
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;

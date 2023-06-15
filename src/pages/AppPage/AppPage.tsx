@@ -6,7 +6,9 @@ import './AppPage.css';
 import { Routes, Route, Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import ErrorPage from '../ErrorPage/Error-page';
 import StartPage from '../StartPage/StartPage';
-import PackageListPage from '../PackageListPage/PackageListPage';
+import OrderListPage from '../OrderListPage/OrderListPage';
+import InputPopup, { InputPopupTypes } from '../../components/InputPopup/InputPopup';
+import Preloader from '../../components/Preloader/Preloader';
 
 function Layout() {
   return (
@@ -31,7 +33,11 @@ function Layout() {
       </div>
 
       <div style={{ flexShrink: 0 }}>
-        <Navbar status={navbarStatuses.default} />
+        <Navbar
+          status={navbarStatuses.default}
+          // onOpenKeyboard={handleOpenKeyboard}
+          // isKeyboardOpened={isKeyboardOpened}
+        />
         <Footer />
       </div>
     </div>
@@ -63,8 +69,20 @@ function DevNavigation() {
         start
       </Link>
       <br />
-      <Link style={{ font: 'var(--font-m)' }} to={'/package-list'}>
-        package list
+      <Link style={{ font: 'var(--font-m)' }} to={'/order-list'}>
+        order list
+      </Link>
+      <br />
+      <Link style={{ font: 'var(--font-m)' }} to={'/letters-popup'}>
+        letters-popup
+      </Link>
+      <br />
+      <Link style={{ font: 'var(--font-m)' }} to={'/numbers-popup'}>
+        numbers-popup
+      </Link>
+      <br />
+      <Link style={{ font: 'var(--font-m)' }} to={'/preloader'}>
+        preloader
       </Link>
       <br />
       <Link style={{ font: 'var(--font-m)' }} to={'/13423'}>
@@ -87,8 +105,11 @@ export const AppPage = () => {
         <Route path='/' element={<Layout />}>
           <Route index element={<DevNavigation />} />
           <Route path='/start' element={<StartPage />} />
-          <Route path='/package-list' element={<PackageListPage />} />
+          <Route path='/order-list' element={<OrderListPage />} />
           <Route path='/storybook' element={<Storybook />} />
+          <Route path='/preloader' element={<Preloader />} />
+          <Route path='/letters-popup' element={<InputPopup type={InputPopupTypes.letters} />} />
+          <Route path='/numbers-popup' element={<InputPopup type={InputPopupTypes.numbers} />} />
           <Route path='*' element={<ErrorPage />} />
         </Route>
       </Routes>

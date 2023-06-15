@@ -5,3 +5,10 @@
   max-width: 1112px;
   width: 100%;
 }
+
+.items-list__item {
+  border-bottom: 1px solid var(--gray-color);
+}
+.items-list__item:last-of-type {
+  border-bottom: none;
+}

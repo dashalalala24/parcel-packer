@@ -19,7 +19,7 @@ export interface IItem {
   barcode: number;
 }
 
-const package1: IItem[] = [
+const order1: IItem[] = [
   {
     id: '4',
     name: 'лимон',
@@ -36,7 +36,7 @@ const package1: IItem[] = [
   },
 ];
 
-const package2: IItem[] = [
+const order2: IItem[] = [
   {
     id: '1',
     name: 'брокколи',
@@ -198,7 +198,7 @@ const Storybook = () => {
       <br />
       <Notification
         message='Сканируйте IMEI товара'
-        child={<ItemCard item={package1[0]} hasCounter={false} />}
+        child={<ItemCard item={order1[0]} hasCounter={false} />}
         type={NotificationType.warning}
       />
       <br />
@@ -225,9 +225,9 @@ const Storybook = () => {
         itemQuantity={100}
       />
       <br />
-      <PackageCard items={package1} />
+      <PackageCard items={order1} />
       <br />
-      <PackageCard items={package2} />
+      <PackageCard items={order2} />
     </div>
   );
 };

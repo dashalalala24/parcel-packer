@@ -14,7 +14,7 @@ import Checkbox from '../Checkbox/Checkbox';
 import { increment, incrementAsync } from '../../services/redux/slices/example/example';
 import PackageCard from '../PackageCard/PackageCard';
 import ItemCard from '../ItemCard/ItemCard';
-import { package1, package2 } from '../../utils/orderExamples';
+import { order1, order2 } from '../../utils/orderExamples';
 import Keyboard from '../Keyboard/Keyboard';
 import Input from '../Input/Input';
 import InputPopup, { InputPopupTypes } from '../InputPopup/InputPopup';
@@ -164,7 +164,7 @@ function App() {
       <br />
       <Notification
         message='Сканируйте IMEI товара'
-        child={<ItemCard item={package1[0]} hasCounter={false} />}
+        child={<ItemCard item={order1[0]} hasCounter={false} />}
         type={NotificationType.warning}
       />
       <br />
@@ -174,9 +174,9 @@ function App() {
         type={NotificationType.systemError}
       />
       <br />
-      <PackageCard items={package1} />
+      <PackageCard items={order1} />
       <br />
-      <ItemCard item={package2[0]} toDelete />
+      <ItemCard item={order2[0]} toDelete />
       {/* вместо toDelete в компоненте будет условие отрисовки в зависимости от роута */}
       <br />
       <Navbar

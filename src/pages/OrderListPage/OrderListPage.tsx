@@ -2,7 +2,7 @@
 
 // import Button, { ButtonColors, ButtonSizes } from '../../components/Button/Button';
 import ItemsList from '../../components/ItemsList/ItemsList';
-import { package1, package2 } from '../../utils/orderExamples';
+import { order1, order2 } from '../../utils/orderExamples';
 
 import './OrderListPage.css';
 // import IconImages from '../../components/Icon/types';
@@ -20,7 +20,7 @@ export default function OrderListPage() {
           <p className='order-list-page__cell'>Ячейка B-09</p>
           <ul className='order-list-page__tags'>
             <li>
-              <Tag type={tagTypes.info} value={`${package2.length} товаров`} />
+              <Tag type={tagTypes.info} value={`${order2.length} товаров`} />
             </li>
             <li>
               <Tag type={tagTypes.info} value={'Перевозчик'} />
@@ -28,8 +28,8 @@ export default function OrderListPage() {
           </ul>
         </div>
       </div>
-      <ItemsList itemsPackage={package2} />
-      {/* {ItemsScanned === package2.length ? ( */}
+      <ItemsList itemsPackage={order2} />
+      {/* {ItemsScanned === order2.length ? ( */}
       {/* <Link className='order-list-page__link' to='/'>
         <Button
           size={ButtonSizes.xl}

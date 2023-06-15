@@ -9,6 +9,8 @@ interface IVisibilityList {
     isManualInputButtonVisible: boolean;
     isChangeItemsButtonVisible: boolean;
   };
+  isLButtonVisible: boolean;
+  isRButtonVisible: boolean;
 }
 
 const useVisibility = (): IVisibilityList => {
@@ -23,6 +25,8 @@ const useVisibility = (): IVisibilityList => {
         isManualInputButtonVisible: true,
         isChangeItemsButtonVisible: true,
       },
+      isLButtonVisible: false,
+      isRButtonVisible: false,
     };
   }, []);
 
@@ -39,6 +43,8 @@ const useVisibility = (): IVisibilityList => {
             isManualInputButtonVisible: true,
             isChangeItemsButtonVisible: true,
           },
+          isLButtonVisible: false,
+          isRButtonVisible: false,
         });
         break;
       case '/start':
@@ -50,6 +56,8 @@ const useVisibility = (): IVisibilityList => {
             isManualInputButtonVisible: false,
             isChangeItemsButtonVisible: false,
           },
+          isLButtonVisible: false,
+          isRButtonVisible: true,
         });
         break;
       case '/package-list':
@@ -61,6 +69,8 @@ const useVisibility = (): IVisibilityList => {
             isManualInputButtonVisible: true,
             isChangeItemsButtonVisible: false,
           },
+          isLButtonVisible: true,
+          isRButtonVisible: true,
         });
         break;
       default:

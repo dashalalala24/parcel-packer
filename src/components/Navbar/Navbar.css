@@ -5,7 +5,7 @@
   padding: 20px 12px 20px 24px;
   box-sizing: border-box;
   justify-content: space-between;
-  z-index: 5;
+  z-index: 999;
   position: fixed;
   bottom: 28px;
   left: 0;

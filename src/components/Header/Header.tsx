@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import './Header.css';
 import Icon from '../Icon/Icon';
 import IconImages from '../Icon/types';
+import { Link } from 'react-router-dom';
 
 const Header: FC = () => {
   const location = useLocation();
@@ -12,10 +13,10 @@ const Header: FC = () => {
     <header className='header'>
       <div className='header__burger-nav'>
         <Icon imgName={IconImages.burger} width={72} />
-        <div className='header__logo'>
+        <Link to={'/'} className='header__logo'>
           <Icon imgName={IconImages.yaLogo} width={92} height={44} />
           <Icon imgName={IconImages.yaLogoname} width={93} height={46} />
-        </div>
+        </Link>
       </div>
       <p className='header__name'>Упаковка</p>
       <div className='header__kebab-nav'>

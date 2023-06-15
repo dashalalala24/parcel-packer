@@ -237,7 +237,7 @@ export const order1AfterML: IOrderAfterML = {
     },
     {
       packageId: 3,
-      recommendedPacks: ['YMS', 'MYA', 'MYQ'],
+      recommendedPacks: ['YMS', 'MYA', 'STRETCH'],
       items: [
         {
           id: '10',

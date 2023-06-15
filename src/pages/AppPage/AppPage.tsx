@@ -11,6 +11,7 @@ import InputPopup, { InputPopupTypes } from '../../components/InputPopup/InputPo
 import Preloader from '../../components/Preloader/Preloader';
 import PackagesListPage from '../PackagesListPage/PackagesListPage';
 import { order1AfterML } from '../../utils/orderExamples';
+import PackagePage from '../PackagePage/PackagePage';
 
 function Layout() {
   return (
@@ -78,6 +79,10 @@ function DevNavigation() {
       <Link style={{ font: 'var(--font-m)' }} to={'/packages-list'}>
         packages list
       </Link>
+      <br />{' '}
+      <Link style={{ font: 'var(--font-m)' }} to={'/packageID-package-list'}>
+        package list
+      </Link>
       <br />
       <Link style={{ font: 'var(--font-m)' }} to={'/letters-popup'}>
         letters-popup
@@ -113,6 +118,7 @@ export const AppPage = () => {
           <Route path='/start' element={<StartPage />} />
           <Route path='/order-list' element={<OrderListPage />} />
           <Route path='/packages-list' element={<PackagesListPage />} />
+          <Route path='/packageID-package-list' element={<PackagePage />} />
           <Route path='/storybook' element={<Storybook />} />
           <Route path='/preloader' element={<Preloader />} />
           <Route path='/letters-popup' element={<InputPopup type={InputPopupTypes.letters} />} />

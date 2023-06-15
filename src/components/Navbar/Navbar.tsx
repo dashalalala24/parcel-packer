@@ -35,7 +35,9 @@ const Navbar: FC<INavbar> = ({
   const location = useLocation();
   const currentPath = location.pathname;
 
-  return currentPath === '/start' ? null : (
+  return currentPath === '/start' ||
+    currentPath === '/13423' ||
+    currentPath === '/preloader' ? null : (
     <nav className='navbar' style={navbarStyle(status)}>
       <Button
         // onClick={isKeyboardOpened ? onOpenKeyboard : navigate(-1)}

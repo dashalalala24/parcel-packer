@@ -1,24 +1,24 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
-import Button, { ButtonColors, ButtonSizes } from '../../components/Button/Button';
+// import Button, { ButtonColors, ButtonSizes } from '../../components/Button/Button';
 import ItemsList from '../../components/ItemsList/ItemsList';
 import { package1, package2 } from '../../utils/orderExamples';
 
-import './PackageListPage.css';
-import IconImages from '../../components/Icon/types';
+import './OrderListPage.css';
+// import IconImages from '../../components/Icon/types';
 import Tag, { tagTypes } from '../../components/Tag/Tag';
 
-export default function PackageListPage() {
+export default function OrderListPage() {
   return (
-    <main id='package-list-page' className='package-list-page'>
-      <Link className='package-list-page__link' to='/help'>
+    <main id='order-list-page' className='order-list-page'>
+      {/* <Link className='order-list-page__link' to='/help'>
         <Button size={ButtonSizes.xl} color={ButtonColors.beige} text={'Есть проблема'} />
-      </Link>
-      <div className='package-list-page__text'>
-        <h1 className='package-list-page__title'>Сканируйте товары</h1>
-        <div className='package-list-page__info'>
-          <p className='package-list-page__cell'>Ячейка B-09</p>
-          <ul className='package-list-page__tags'>
+      </Link> */}
+      <div className='order-list-page__text'>
+        <h1 className='order-list-page__title'>Сканируйте товары</h1>
+        <div className='order-list-page__info'>
+          <p className='order-list-page__cell'>Ячейка B-09</p>
+          <ul className='order-list-page__tags'>
             <li>
               <Tag type={tagTypes.info} value={`${package2.length} товаров`} />
             </li>
@@ -30,14 +30,14 @@ export default function PackageListPage() {
       </div>
       <ItemsList itemsPackage={package2} />
       {/* {ItemsScanned === package2.length ? ( */}
-      <Link className='package-list-page__link' to='/'>
+      {/* <Link className='order-list-page__link' to='/'>
         <Button
           size={ButtonSizes.xl}
           color={ButtonColors.yellow}
           text={'Готово'}
           icon={IconImages.qrCodeDone}
         />
-      </Link>
+      </Link> */}
       {/* ) : null} */}
     </main>
   );

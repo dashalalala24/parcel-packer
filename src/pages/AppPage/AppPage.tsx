@@ -4,9 +4,9 @@ import Header from '../../components/Header/Header';
 import Navbar, { navbarStatuses } from '../../components/Navbar/Navbar';
 import './AppPage.css';
 import { Routes, Route, Outlet, Link } from 'react-router-dom';
-import ErrorPage from '../ErrorPage/Error-page';
+import ErrorPage from '../ErrorPage/ErrorPage';
 import StartPage from '../StartPage/StartPage';
-import PackageListPage from '../PackageListPage/PackageListPage';
+import OrderListPage from '../OrderListPage/OrderListPage';
 import InputPopup, { InputPopupTypes } from '../../components/InputPopup/InputPopup';
 import Preloader from '../../components/Preloader/Preloader';
 
@@ -61,8 +61,8 @@ function DevNavigation() {
         start
       </Link>
       <br />
-      <Link style={{ font: 'var(--font-m)' }} to={'/package-list'}>
-        package list
+      <Link style={{ font: 'var(--font-m)' }} to={'/order-list'}>
+        order list
       </Link>
       <br />
       <Link style={{ font: 'var(--font-m)' }} to={'/letters-popup'}>
@@ -91,7 +91,7 @@ export const AppPage = () => {
         <Route path='/' element={<Layout />}>
           <Route index element={<DevNavigation />} />
           <Route path='/start' element={<StartPage />} />
-          <Route path='/package-list' element={<PackageListPage />} />
+          <Route path='/order-list' element={<OrderListPage />} />
           <Route path='/storybook' element={<Storybook />} />
           <Route path='/preloader' element={<Preloader />} />
           <Route path='/letters-popup' element={<InputPopup type={InputPopupTypes.letters} />} />

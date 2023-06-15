@@ -1,0 +1,36 @@
+.packages-list-page {
+  display: flex;
+  flex-direction: column;
+  padding: 142px 0;
+  margin: 0 auto;
+}
+
+.packages-list-page__title {
+  font: var(--font-button-xl);
+  font-feature-settings: var(--font-feature);
+  max-width: 506px;
+  text-align: center;
+  padding: 0 0 82px;
+  margin: 0 auto;
+}
+
+.packages-list-page__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  max-width: 1324px;
+}
+
+.packages-list-page__package-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.packages-list-page__package-title {
+  font: var(--font-m);
+  text-align: center;
+  padding: 0 0 22px;
+  margin: 0;
+}

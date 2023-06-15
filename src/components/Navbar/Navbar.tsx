@@ -37,6 +37,7 @@ const Navbar: FC<INavbar> = ({
 
   return currentPath === '/start' ||
     currentPath === '/13423' ||
+    currentPath === '/packages-list' ||
     currentPath === '/preloader' ? null : (
     <nav className='navbar' style={navbarStyle(status)}>
       <Button

@@ -1,6 +1,6 @@
 .start-page {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 28px);
   align-self: center;
   padding: 0 23px 28px;
   display: grid;

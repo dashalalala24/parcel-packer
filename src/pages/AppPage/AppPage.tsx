@@ -3,8 +3,8 @@ import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Navbar, { navbarStatuses } from '../../components/Navbar/Navbar';
 import './AppPage.css';
-import { Routes, Route, Outlet, Link } from 'react-router-dom';
-import ErrorPage from '../ErrorPage/ErrorPage';
+import { Routes, Route, Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
+import ErrorPage from '../ErrorPage/Error-page';
 import StartPage from '../StartPage/StartPage';
 import OrderListPage from '../OrderListPage/OrderListPage';
 import InputPopup, { InputPopupTypes } from '../../components/InputPopup/InputPopup';
@@ -45,6 +45,7 @@ function Layout() {
 }
 
 function DevNavigation() {
+  const location = useLocation();
   return (
     <div
       style={{
@@ -55,6 +56,13 @@ function DevNavigation() {
     >
       <Link style={{ font: 'var(--font-m)' }} to={'/storybook'}>
         storybook
+      </Link>
+      <Link
+        style={{ font: 'var(--font-m)' }}
+        to={'/modal'}
+        state={{ backgroundLocation: location }}
+      >
+        modal
       </Link>
       <br />
       <Link style={{ font: 'var(--font-m)' }} to={'/start'}>
@@ -85,9 +93,15 @@ function DevNavigation() {
 }
 
 export const AppPage = () => {
+  const location = useLocation();
+  const { state } = location;
+  const navigate = useNavigate();
+  const handleClose = () => {
+    navigate(-1);
+  };
   return (
     <div className='Page'>
-      <Routes>
+      <Routes location={state?.backgroundLocation || location}>
         <Route path='/' element={<Layout />}>
           <Route index element={<DevNavigation />} />
           <Route path='/start' element={<StartPage />} />
@@ -98,6 +112,10 @@ export const AppPage = () => {
           <Route path='/numbers-popup' element={<InputPopup type={InputPopupTypes.numbers} />} />
           <Route path='*' element={<ErrorPage />} />
         </Route>
+      </Routes>
+
+      <Routes>
+        <Route path='/modal' element={<p>Hello</p>} />
       </Routes>
     </div>
   );

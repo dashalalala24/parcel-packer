@@ -78,9 +78,9 @@ const useVisibility = (): IVisibilityList => {
           isHeaderVisible: true,
           navbarVisibility: {
             isNavbarVisible: true,
-            isBackButtonVisible: false,
+            isBackButtonVisible: true,
             isManualInputButtonVisible: true,
-            isChangeItemsButtonVisible: false,
+            isChangeItemsButtonVisible: true,
           },
           isLButtonVisible: true,
           isRButtonVisible: true,

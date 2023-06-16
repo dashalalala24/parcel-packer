@@ -1,7 +1,6 @@
 import ItemsList from '../../components/ItemsList/ItemsList';
 import Tag, { tagTypes } from '../../components/Tag/Tag';
 import { order1AfterML } from '../../utils/orderExamples';
-import { packNames } from '../../utils/constants';
 import { getItemsQuantity, infoTagDeclension } from '../../utils/utils';
 
 import './EditItemsListPage.css';

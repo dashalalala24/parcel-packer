@@ -10,3 +10,9 @@
   bottom: 28px;
   left: 0;
 }
+
+.navbar__button-container {
+  flex: 1 1 0;
+  display: flex;
+  width: 0;
+}

@@ -24,11 +24,12 @@ export enum ButtonTypes {
   submit = 'submit',
   reset = 'reset',
 }
-export enum ButtonVisibility {
-  visible = 'visible',
-}
 
-const buttonStyles = (size: ButtonSizes, color?: ButtonColors): CSSProperties => ({
+const buttonStyles = (
+  size: ButtonSizes,
+  visible: boolean,
+  color?: ButtonColors
+): CSSProperties => ({
   backgroundColor: color ? `var(--${color}-color)` : 'transparent',
   borderRadius:
     size === ButtonSizes.xl ? 24 : size === ButtonSizes.l ? 20 : size === ButtonSizes.m ? 24 : 24,
@@ -52,7 +53,7 @@ const buttonStyles = (size: ButtonSizes, color?: ButtonColors): CSSProperties =>
   right: size === ButtonSizes.xl && color === ButtonColors.yellow ? '23px' : 'auto',
   left: size === ButtonSizes.xl && color === ButtonColors.beige ? '23px' : 'auto',
   maxWidth: color === ButtonColors.beige ? '296px' : 'none',
-  appearance: ButtonVisibility.visible ? 'auto' : 'none',
+  display: visible ? undefined : 'none',
 });
 
 interface IButtonProps {
@@ -72,6 +73,7 @@ const Button: FC<IButtonProps> = ({
   icon,
   onClick,
   type = ButtonTypes.button,
+  visible = true,
 }) => {
   const iconElement = icon ? (
     <Icon
@@ -83,7 +85,12 @@ const Button: FC<IButtonProps> = ({
   ) : null;
 
   return (
-    <button type={type} onClick={onClick} className='button' style={buttonStyles(size, color)}>
+    <button
+      type={type}
+      onClick={onClick}
+      className='button'
+      style={buttonStyles(size, visible, color)}
+    >
       {iconElement}
       {text}
     </button>

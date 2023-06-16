@@ -3,14 +3,13 @@ import { FC, MouseEventHandler } from "react";
 import IconImages from "../Icon/types";
 import "./ActionButton.css";
 
-/** Варианты формы кнопки */
 export enum ActionButtonBorderRadius {
   square = 20,
   circle = 48,
 }
 
 export enum ActionButtonBackground {
-  beige = "--beige-color",
+  beige = "var(--beige-color)",
   transparent = 'transparent'
 }
 
@@ -22,7 +21,6 @@ interface IActionButtonProps {
   iconColor?: "white" | "black"
 }
 
-/** Кнопка с иконкой без текста */
 const ActionButton: FC<IActionButtonProps> = ({
   icon,
   onClick,

@@ -26,20 +26,66 @@ const useButtonsState = (): IButtonState => {
             text: 'Начать',
             isQR: false,
             callback: () => {
-              navigate('/package-list');
+              navigate('/order-list');
             },
           },
         });
         break;
-      case '/package-list':
+      case '/order-list':
         setButtonsState({
           RButtonState: {
             text: 'Готово',
             isQR: true,
+            callback: () => {
+              navigate('/packages-list');
+            },
           },
           LButtonState: {
             callback: () => {
-              alert('Решай её сам! :)');
+              navigate('/problem');
+            },
+          },
+        });
+        break;
+      case '/packageID-package-list':
+        setButtonsState({
+          RButtonState: {
+            text: 'Готово',
+            isQR: true,
+            callback: () => {
+              navigate('/done');
+            },
+          },
+          LButtonState: {
+            callback: () => {
+              navigate('/problem');
+            },
+          },
+        });
+        break;
+      case '/edit-itemslist':
+        setButtonsState({
+          RButtonState: {
+            text: 'Выбрать',
+            isQR: false,
+            callback: () => {
+              navigate('/packageID-package-list');
+            },
+          },
+          LButtonState: {
+            callback: () => {
+              navigate('/problem');
+            },
+          },
+        });
+        break;
+      case '/done':
+        setButtonsState({
+          RButtonState: {
+            text: 'Готово',
+            isQR: true,
+            callback: () => {
+              navigate('/start');
             },
           },
         });

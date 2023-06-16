@@ -1,0 +1,15 @@
+.success-page {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 300px 0 0;
+}
+.success-page__title {
+  font: var(--font-button-xl);
+  font-feature-settings: var(--font-feature);
+  letter-spacing: var(--letter-spacing-m);
+  text-align: center;
+  max-width: 607px;
+  margin: 0;
+  padding: 54px 0 0;
+}

@@ -1,30 +1,26 @@
-import { ChangeEvent, FC, useEffect, useState } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 import './InputPopup.css';
 import Input from '../Input/Input';
 import Keyboard from '../Keyboard/Keyboard';
+import { useAppDispatch } from '../../utils/hooks/redux';
+import { setSystemError } from '../../services/redux/slices/notification/notification';
 
 export enum InputPopupTypes {
   numbers = 'numbers',
   letters = 'letters',
 }
 
-interface IInputPopup {
-  type: InputPopupTypes;
-  // isKeyboardOpened: boolean;
+interface IInputValue {
+  inputValue: string;
+  slice?: any;
 }
 
-const InputPopup: FC<IInputPopup> = ({
-  type,
-  // isKeyboardOpened
-}) => {
-  // useEffect(() => {
-  //   setInput({ inputValue: '' });
-  // }, [isKeyboardOpened]);
+interface IInputPopup {
+  type: InputPopupTypes;
+}
 
-  interface IInputValue {
-    inputValue: string;
-    slice?: any;
-  }
+const InputPopup: FC<IInputPopup> = ({ type }) => {
+  const dispatch = useAppDispatch();
 
   const [input, setInput] = useState<IInputValue>({ inputValue: '' });
 
@@ -46,7 +42,15 @@ const InputPopup: FC<IInputPopup> = ({
     setInput({ inputValue: '' });
   };
 
-  console.log(input);
+  const onDbClick = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      setInput({ inputValue: text });
+    } catch (err: any) {
+      dispatch(setSystemError({ message: err.code, messageDetails: err.message }));
+    }
+  };
+
   return (
     // <div className={`input-popup ${isKeyboardOpened ? 'input-popup_opened' : ''}`}>
     <div className='input-popup input-popup_opened'>
@@ -54,7 +58,12 @@ const InputPopup: FC<IInputPopup> = ({
         {type === 'letters' ? 'Введите код упаковки' : 'Введите или вставьте код'}
       </h3>
       <form className='input-popup__form' onSubmit={handleSubmit}>
-        <Input type={type} value={input.inputValue} handleChange={handleChange} />
+        <Input
+          onDbClick={onDbClick}
+          type={type}
+          value={input.inputValue}
+          handleChange={handleChange}
+        />
         <Keyboard
           type={type}
           handleInputAddSign={handleInputAddSign}

@@ -11,11 +11,13 @@ export interface IInput {
   type: InputPopupTypes;
   value: string;
   handleChange: any;
+  onDbClick: React.MouseEventHandler<HTMLInputElement>
 }
 
-const Input: FC<IInput> = ({ type, value, handleChange }) => {
+const Input: FC<IInput> = ({ type, value, handleChange, onDbClick }) => {
   return (
     <input
+      onDoubleClick={onDbClick}
       className='input__element'
       id={`${type}-input`}
       type={`${type}`}

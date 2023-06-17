@@ -20,7 +20,7 @@ const useButtonsState = (): IButtonState => {
 
   useEffect(() => {
     switch (currentPath) {
-      case '/start':
+      case '/':
         setButtonsState({
           RButtonState: {
             text: 'Начать',
@@ -85,7 +85,7 @@ const useButtonsState = (): IButtonState => {
             text: 'Готово',
             isQR: true,
             callback: () => {
-              navigate('/start');
+              navigate('/');
             },
           },
         });

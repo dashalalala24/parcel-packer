@@ -44,7 +44,7 @@ const useVisibility = (): IVisibilityList => {
           isRButtonVisible: false,
         });
         break;
-      case '/start':
+      case '/':
         setIsVisible({
           isHeaderVisible: false,
           navbarVisibility: {
@@ -122,10 +122,36 @@ const useVisibility = (): IVisibilityList => {
           isRButtonVisible: false,
         });
         break;
+      case '/keyboard/digits':
+        setIsVisible({
+          isHeaderVisible: true,
+          navbarVisibility: {
+            isNavbarVisible: true,
+            isBackButtonVisible: true,
+            isManualInputButtonVisible: false,
+            isChangeItemsButtonVisible: false,
+          },
+          isLButtonVisible: false,
+          isRButtonVisible: false,
+        });
+        break;
+      case '/keyboard/letters':
+        setIsVisible({
+          isHeaderVisible: true,
+          navbarVisibility: {
+            isNavbarVisible: true,
+            isBackButtonVisible: true,
+            isManualInputButtonVisible: false,
+            isChangeItemsButtonVisible: false,
+          },
+          isLButtonVisible: false,
+          isRButtonVisible: false,
+        });
+        break;
       default:
         setIsVisible(defaultState);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPath]);
 
   return isVisible;

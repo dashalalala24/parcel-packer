@@ -1,5 +1,4 @@
 import ItemsList from '../../components/ItemsList/ItemsList';
-
 import './PackagePage.css';
 import Tag, { tagTypes } from '../../components/Tag/Tag';
 import { order1AfterML } from '../../utils/orderExamples';

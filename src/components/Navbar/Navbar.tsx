@@ -27,6 +27,7 @@ const navbarStyle = (status: TNnavbarStatus): CSSProperties => ({
 
 const Navbar: FC = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const { navbarVisibility } = useVisibility();
   const {
     isBackButtonVisible,
@@ -51,13 +52,27 @@ const Navbar: FC = () => {
       : 'success';
   }, [currentPath, isNotificationVisible, notificationType]);
 
+  const onBackButtonClick = () => {
+    navigate(-1);
+  };
+
+  const onKeyboardButtonClick = () => {
+    if (pathname === '/order-list') {
+      navigate('/keyboard/digits');
+    } else if (pathname.includes('package-list')) {
+      navigate('/keyboard/letters');
+    }
+  };
+
+  const onChangeOrderClick = () => {
+    navigate('/edit-itemslist');
+  };
+
   return isNavbarVisible ? (
     <nav className='navbar' style={navbarStyle(status)}>
       <div style={{ justifyContent: 'start' }} className='navbar__button-container'>
         <Button
-          onClick={() => {
-            navigate(-1);
-          }}
+          onClick={onBackButtonClick}
           color={status === 'default' ? ButtonColors.black : ButtonColors.white}
           size={ButtonSizes.m}
           text='Назад'
@@ -68,6 +83,7 @@ const Navbar: FC = () => {
       <div style={{ justifyContent: 'center' }} className='navbar__button-container'>
         <Button
           size={ButtonSizes.s}
+          onClick={onKeyboardButtonClick}
           color={status === 'default' ? ButtonColors.white : ButtonColors.transparent}
           text='Ввести с клавиатуры'
           icon={IconImages.keyboard}
@@ -77,9 +93,7 @@ const Navbar: FC = () => {
 
       <div style={{ justifyContent: 'end' }} className='navbar__button-container'>
         <Button
-          onClick={() => {
-            console.log('Hello');
-          }}
+          onClick={onChangeOrderClick}
           size={ButtonSizes.xs}
           color={status === 'default' ? ButtonColors.white : ButtonColors.transparent}
           text='Изменить состав'

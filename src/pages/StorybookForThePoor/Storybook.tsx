@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router';
 import ActionButton, { ActionButtonBackground } from '../../components/ActionButton/ActionButton';
 import Button, { ButtonColors, ButtonSizes } from '../../components/Button/Button';
 import Checkbox from '../../components/Checkbox/Checkbox';

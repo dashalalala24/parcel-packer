@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import { store } from './services/redux/store';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Layout } from './components/Layout/Layout';
-import DevNavigation from './pages/DevNavigation/DevNavigation';
 import StartPage from './pages/StartPage/StartPage';
 import OrderListPage from './pages/OrderListPage/OrderListPage';
 import PackagesListPage from './pages/PackagesListPage/PackagesListPage';
@@ -21,13 +20,12 @@ import Preloader from './components/Preloader/Preloader';
 const Root: FC = () => {
   const location = useLocation();
   const { state } = location;
-  
+
   return (
     <div className='Page'>
       <Routes location={state?.backgroundLocation || location}>
         <Route path='/' element={<Layout />}>
-          <Route index element={<DevNavigation />} />
-          <Route path='/start' element={<StartPage />} />
+          <Route index element={<StartPage />} />
           <Route path='/order-list' element={<OrderListPage />} />
           <Route path='/packages-list' element={<PackagesListPage />} />
           <Route path='/packageID-package-list' element={<PackagePage />} />
@@ -35,14 +33,14 @@ const Root: FC = () => {
           <Route path='/problem' element={<ProblemPage />} />
           <Route path='/storybook' element={<Storybook />} />
           <Route path='/edit-itemslist' element={<EditItemsListPage />} />
-          <Route path='/letters-popup' element={<InputPopup type={InputPopupTypes.letters} />} />
-          <Route path='/numbers-popup' element={<InputPopup type={InputPopupTypes.numbers} />} />
           <Route path='*' element={<ErrorPage />} />
         </Route>
       </Routes>
 
       <Routes>
-        <Route path='/modal' element={<Preloader />} />
+        <Route path='/loading' element={<Preloader />} />
+        <Route path='/keyboard/letters' element={<InputPopup type={InputPopupTypes.letters} />} />
+        <Route path='/keyboard/digits' element={<InputPopup type={InputPopupTypes.numbers} />} />
       </Routes>
     </div>
   );

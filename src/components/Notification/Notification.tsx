@@ -80,7 +80,7 @@ const Notification: FC = () => {
     if (type !== 'systemError') {
       timeout = setTimeout(() => {
         dispatch(closeNotification());
-      }, 10000);
+      }, 6000);
     }
     return () => {
       clearTimeout(timeout);

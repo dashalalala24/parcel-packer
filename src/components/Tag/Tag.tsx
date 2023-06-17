@@ -2,6 +2,8 @@ import { FC } from 'react';
 import Icon from '../Icon/Icon';
 import IconImages from '../Icon/types';
 import './Tag.css';
+import { useAppDispatch } from '../../utils/hooks/redux';
+import { setSuccess, setSystemError } from '../../services/redux/slices/notification/notification';
 
 export enum tagTypes {
   box = 'box',
@@ -20,6 +22,7 @@ interface ITag {
 }
 
 const Tag: FC<ITag> = ({ type, value = '' }) => {
+  const dispatch = useAppDispatch();
   const tagText: string | number =
     type === 'cancel'
       ? 'Товар отменён'
@@ -32,6 +35,19 @@ const Tag: FC<ITag> = ({ type, value = '' }) => {
   const iconName = type === 'IMEI' ? IconImages.barcode : (type as unknown as IconImages);
 
   const iconWidth = type === 'bag' || type === 'box' ? 38 : 32;
+
+  const onBarcodeClick = () => {
+    if (type === tagTypes.barcode) {
+      navigator.clipboard
+        .writeText(String(value))
+        .then(() => {
+          dispatch(setSuccess({ message: 'Штрихкод скопирован' }));
+        })
+        .catch(err => {
+          dispatch(setSystemError({ message: err.code, messageDetails: err.message }));
+        });
+    }
+  };
 
   const tagClassName = (className: string): string => {
     return type === 'IMEI' || type === 'qrCode'
@@ -50,7 +66,11 @@ const Tag: FC<ITag> = ({ type, value = '' }) => {
   };
 
   return (
-    <div className={tagClassName('tag')}>
+    <div
+      onClick={onBarcodeClick}
+      className={tagClassName('tag')}
+      style={{ cursor: type === tagTypes.barcode ? 'pointer' : 'initial' }}
+    >
       {type === 'another' || type === 'info' ? null : <Icon imgName={iconName} width={iconWidth} />}
       <p className={tagTextClassName('tag__text')}>{tagText}</p>
     </div>

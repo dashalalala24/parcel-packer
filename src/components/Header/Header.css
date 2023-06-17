@@ -1,5 +1,6 @@
 .header {
   display: grid;
+  flex-shrink: 0;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: 'logo name userbar';
   width: 100%;

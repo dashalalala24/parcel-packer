@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 
 interface IVisibilityList {
@@ -15,20 +15,17 @@ interface IVisibilityList {
 
 const useVisibility = (): IVisibilityList => {
   const currentPath = useLocation().pathname;
-
-  const defaultState: IVisibilityList = useMemo(() => {
-    return {
-      isHeaderVisible: false,
-      navbarVisibility: {
-        isNavbarVisible: false,
-        isBackButtonVisible: true,
-        isManualInputButtonVisible: true,
-        isChangeItemsButtonVisible: true,
-      },
-      isLButtonVisible: false,
-      isRButtonVisible: false,
-    };
-  }, []);
+  const defaultState: IVisibilityList = {
+    isHeaderVisible: false,
+    navbarVisibility: {
+      isNavbarVisible: false,
+      isBackButtonVisible: true,
+      isManualInputButtonVisible: true,
+      isChangeItemsButtonVisible: true,
+    },
+    isLButtonVisible: false,
+    isRButtonVisible: false,
+  };
 
   const [isVisible, setIsVisible] = useState<IVisibilityList>(defaultState);
 
@@ -47,7 +44,7 @@ const useVisibility = (): IVisibilityList => {
           isRButtonVisible: false,
         });
         break;
-      case '/start':
+      case '/':
         setIsVisible({
           isHeaderVisible: false,
           navbarVisibility: {
@@ -125,10 +122,37 @@ const useVisibility = (): IVisibilityList => {
           isRButtonVisible: false,
         });
         break;
+      case '/keyboard/digits':
+        setIsVisible({
+          isHeaderVisible: true,
+          navbarVisibility: {
+            isNavbarVisible: true,
+            isBackButtonVisible: true,
+            isManualInputButtonVisible: false,
+            isChangeItemsButtonVisible: false,
+          },
+          isLButtonVisible: false,
+          isRButtonVisible: false,
+        });
+        break;
+      case '/keyboard/letters':
+        setIsVisible({
+          isHeaderVisible: true,
+          navbarVisibility: {
+            isNavbarVisible: true,
+            isBackButtonVisible: true,
+            isManualInputButtonVisible: false,
+            isChangeItemsButtonVisible: false,
+          },
+          isLButtonVisible: false,
+          isRButtonVisible: false,
+        });
+        break;
       default:
         setIsVisible(defaultState);
     }
-  }, [currentPath, defaultState]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPath]);
 
   return isVisible;
 };

@@ -1,15 +1,13 @@
 import { FC } from 'react';
-import { useLocation } from 'react-router-dom';
 import './Header.css';
 import Icon from '../Icon/Icon';
 import IconImages from '../Icon/types';
 import { Link } from 'react-router-dom';
+import useVisibility from '../../utils/hooks/useVisibility';
 
 const Header: FC = () => {
-  const location = useLocation();
-  const currentPath = location.pathname;
-
-  return currentPath === '/start' ? null : (
+  const { isHeaderVisible } = useVisibility();
+  return isHeaderVisible ? (
     <header className='header'>
       <div className='header__burger-nav'>
         <Icon imgName={IconImages.burger} width={72} />
@@ -30,7 +28,7 @@ const Header: FC = () => {
         <Icon imgName={IconImages.kebab} width={72} />
       </div>
     </header>
-  );
+  ) : null;
 };
 
 export default Header;

@@ -1,8 +1,12 @@
 .notification {
   display: flex;
   position: relative;
+  position: fixed;
+  top: 2vh;
+  right: 1vw;
   flex-direction: column;
   min-height: 112px;
+  z-index: 2000;
   border: 4px solid;
   padding: 36px;
   box-sizing: border-box;
@@ -12,7 +16,7 @@
 .notification__message-container {
   display: flex;
   align-items: center;
-  font: var(--font-button-s)
+  font: var(--font-button-s);
 }
 
 .notification__message {

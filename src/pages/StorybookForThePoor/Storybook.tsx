@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router';
 import ActionButton, { ActionButtonBackground } from '../../components/ActionButton/ActionButton';
 import Button, { ButtonColors, ButtonSizes } from '../../components/Button/Button';
 import Checkbox from '../../components/Checkbox/Checkbox';
@@ -6,10 +5,16 @@ import Counter from '../../components/Counter/Counter';
 import Icon from '../../components/Icon/Icon';
 import IconImages from '../../components/Icon/types';
 import ItemImage from '../../components/ItemImage/ItemImage';
-import Notification, { NotificationType } from '../../components/Notification/Notification';
 import PackageCard from '../../components/PackageCard/PackageCard';
 import Tag, { tagTypes } from '../../components/Tag/Tag';
-import ItemCard from '../../components/ItemCard/ItemCard';
+import { useAppDispatch } from '../../utils/hooks/redux';
+import {
+  setSystemError,
+  setFault,
+  setWarning,
+  setInfo,
+  setSuccess,
+} from '../../services/redux/slices/notification/notification';
 
 export interface IItem {
   id: string;
@@ -82,17 +87,83 @@ const order2: IItem[] = [
 ];
 
 const Storybook = () => {
-  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
   return (
     <div>
       <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <Button
         onClick={() => {
-          navigate(-1);
+          dispatch(
+            setSystemError({
+              message: 404,
+              messageDetails: 'Сломалося...',
+            })
+          );
         }}
         color={ButtonColors.black}
         size={ButtonSizes.m}
-        text='На главную'
+        text='Тест системной ошибки'
+      />
+      <br />
+      <Button
+        onClick={() => {
+          dispatch(
+            setFault({
+              message: 'Сломалося...',
+            })
+          );
+        }}
+        color={ButtonColors.black}
+        size={ButtonSizes.m}
+        text='Тест ошибки сценария'
+      />
+      <br />
+      <Button
+        onClick={() => {
+          dispatch(
+            setWarning({
+              message: 'Сперва введи IMEI',
+              item: order1[0],
+            })
+          );
+        }}
+        color={ButtonColors.black}
+        size={ButtonSizes.m}
+        text='Тест предупреждения'
+      />
+      <br />
+      <Button
+        onClick={() => {
+          dispatch(
+            setInfo({
+              message: 'Вроде работает...',
+            })
+          );
+        }}
+        color={ButtonColors.black}
+        size={ButtonSizes.m}
+        text='Тест информационного сообщения'
+      />
+      <br />
+      <Button
+        onClick={() => {
+          dispatch(
+            setSuccess({
+              message: 'Работает!',
+            })
+          );
+        }}
+        color={ButtonColors.black}
+        size={ButtonSizes.m}
+        text='Тест сообщения об успешном действии'
       />
       <br />
       <Checkbox />
@@ -188,24 +259,6 @@ const Storybook = () => {
         onClick={() => {
           console.log('Hello');
         }}
-      />
-      <br />
-      <Notification message='Бригадир скоро подойдёт' type={NotificationType.info} />
-      <br />
-      <Notification message='Штрихкод скопирован' type={NotificationType.success} />
-      <br />
-      <Notification message='Товар не найден' type={NotificationType.fault} />
-      <br />
-      <Notification
-        message='Сканируйте IMEI товара'
-        child={<ItemCard item={order1[0]} hasCounter={false} />}
-        type={NotificationType.warning}
-      />
-      <br />
-      <Notification
-        message='Ошибка 505'
-        messageDetails='Сервер не смог обработать полученный запрос'
-        type={NotificationType.systemError}
       />
       <br />
       <ItemImage

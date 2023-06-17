@@ -1,31 +1,31 @@
-import { CSSProperties, FC } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { CSSProperties, FC, useMemo } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import Button, { ButtonColors, ButtonSizes } from '../Button/Button';
 import IconImages from '../Icon/types';
 import useVisibility from '../../utils/hooks/useVisibility';
-export enum navbarStatuses {
-  default = 'default',
-  success = 'success',
-  error = 'error',
-  anomaly = 'anomaly',
+import { useAppSelector } from '../../utils/hooks/redux';
+export enum navbarColors {
+  default = 'var(--white-color)',
+  success = 'var(--green-color)',
+  warning = 'var(--orange-color)',
+  error = 'var(--red-color)',
 }
 
-const navbarStyle = (status: navbarStatuses): CSSProperties => ({
+type TNnavbarStatus = 'default' | 'success' | 'warning' | 'error';
+
+const navbarStyle = (status: TNnavbarStatus): CSSProperties => ({
   backgroundColor:
-    status === navbarStatuses.success
-      ? 'var(--green-color)'
-      : status === navbarStatuses.error
-      ? 'var(--red-color)'
-      : status === navbarStatuses.anomaly
-      ? 'var(--orange-color)'
-      : 'var(--white-color)',
+    status === 'success'
+      ? navbarColors.success
+      : status === 'error'
+      ? navbarColors.error
+      : status === 'warning'
+      ? navbarColors.warning
+      : navbarColors.default,
 });
 
-interface INavbar {
-  status: navbarStatuses;
-}
-const Navbar: FC<INavbar> = ({ status }) => {
+const Navbar: FC = () => {
   const navigate = useNavigate();
   const { navbarVisibility } = useVisibility();
   const {
@@ -34,6 +34,22 @@ const Navbar: FC<INavbar> = ({ status }) => {
     isManualInputButtonVisible,
     isNavbarVisible,
   } = navbarVisibility;
+  const isNotificationVisible = useAppSelector(state => state.notification.isVisible);
+  const notificationType = useAppSelector(state => state.notification.type);
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  const status: TNnavbarStatus = useMemo(() => {
+    return currentPath === '/problem'
+      ? 'warning'
+      : !isNotificationVisible || notificationType === 'info'
+      ? 'default'
+      : notificationType === 'fault' || notificationType === 'systemError'
+      ? 'error'
+      : notificationType === 'warning'
+      ? 'warning'
+      : 'success';
+  }, [currentPath, isNotificationVisible, notificationType]);
 
   return isNavbarVisible ? (
     <nav className='navbar' style={navbarStyle(status)}>

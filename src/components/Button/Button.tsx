@@ -54,6 +54,8 @@ const buttonStyles = (
   left: size === ButtonSizes.xl && color === ButtonColors.beige ? '23px' : 'auto',
   maxWidth: color === ButtonColors.beige ? '296px' : 'none',
   display: visible ? undefined : 'none',
+  padding:
+    size === ButtonSizes.s || size === ButtonSizes.m || size === ButtonSizes.l ? '0 18px' : 0,
 });
 
 interface IButtonProps {

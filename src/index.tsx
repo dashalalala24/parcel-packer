@@ -21,6 +21,7 @@ import Preloader from './components/Preloader/Preloader';
 const Root: FC = () => {
   const location = useLocation();
   const { state } = location;
+  
   return (
     <div className='Page'>
       <Routes location={state?.backgroundLocation || location}>

@@ -1,16 +1,13 @@
-import { CSSProperties, FC, ReactElement } from 'react';
+import { CSSProperties, FC, useEffect } from 'react';
 import './Notification.css';
 import Icon from '../Icon/Icon';
+import ReactDOM from 'react-dom';
 import IconImages from '../Icon/types';
 import ActionButton from '../ActionButton/ActionButton';
-
-export enum NotificationType {
-  success = 'success',
-  fault = 'fault',
-  systemError = 'systemError',
-  warning = 'warning',
-  info = 'info',
-}
+import { useAppDispatch, useAppSelector } from '../../utils/hooks/redux';
+import { closeNotification } from '../../services/redux/slices/notification/notification';
+import ItemCard from '../ItemCard/ItemCard';
+import { IItem } from '../../utils/orderExamples';
 
 enum BorderColors {
   info = 'var(--popup-blue-border)',
@@ -28,56 +25,48 @@ enum BackgroundColors {
   systemError = 'var(--popup-red-background)',
 }
 
-interface INotificationProps {
-  type: NotificationType;
-  message: string;
-  messageDetails?: string;
-  child?: ReactElement;
-}
+const Notification: FC = () => {
+  const dispatch = useAppDispatch();
+  const notificationState = useAppSelector(state => state.notification);
+  const { message, messageDetails, type, isVisible, item } = notificationState;
 
-const Notification: FC<INotificationProps> = ({
-  type,
-  message,
-  messageDetails,
-  child,
-}) => {
   const notificationStyles: CSSProperties = {
     backgroundColor:
-      type === NotificationType.info
+      type === 'info'
         ? BackgroundColors.info
-        : type === NotificationType.fault
+        : type === 'fault'
         ? BackgroundColors.fault
-        : type === NotificationType.success
+        : type === 'success'
         ? BackgroundColors.success
-        : type === NotificationType.warning
+        : type === 'warning'
         ? BackgroundColors.warning
-        : type === NotificationType.systemError
+        : type === 'systemError'
         ? BackgroundColors.systemError
         : 'initial',
     borderColor:
-      type === NotificationType.info
+      type === 'info'
         ? BorderColors.info
-        : type === NotificationType.fault
+        : type === 'fault'
         ? BorderColors.fault
-        : type === NotificationType.success
+        : type === 'success'
         ? BorderColors.success
-        : type === NotificationType.warning
+        : type === 'warning'
         ? BorderColors.warning
-        : type === NotificationType.systemError
+        : type === 'systemError'
         ? BorderColors.systemError
         : 'initial',
-    width: type === NotificationType.systemError ? 419 : 492,
-    color: type === NotificationType.systemError ? 'white' : 'black',
+    width: type === 'systemError' ? 419 : 492,
+    color: type === 'systemError' ? 'white' : 'black',
   };
 
   const iconComponent = (
     <Icon
       imgName={
-        type === NotificationType.info
+        type === 'info'
           ? IconImages.info
-          : type === NotificationType.fault
+          : type === 'fault'
           ? IconImages.error
-          : type === NotificationType.success
+          : type === 'success'
           ? IconImages.success
           : IconImages.warningFilled
       }
@@ -86,34 +75,50 @@ const Notification: FC<INotificationProps> = ({
     />
   );
 
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    if (type !== 'systemError') {
+      timeout = setTimeout(() => {
+        dispatch(closeNotification());
+      }, 10000);
+    }
+    return () => {
+      clearTimeout(timeout);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [notificationState]);
+
   const onClose = () => {
-    alert('Hello');
+    dispatch(closeNotification());
   };
 
-  return (
-    <div className='notification' style={notificationStyles}>
-      <div className='notification__message-container'>
-        {type === NotificationType.systemError ? null : iconComponent}
-        <p className='notification__message'>{message}</p>
-      </div>
+  const container = document.getElementById('react-notifications');
 
-      {messageDetails ? (
-        <p className='notification__message-details'>{messageDetails}</p>
-      ) : null}
+  return isVisible && container
+    ? ReactDOM.createPortal(
+        <div className='notification' style={notificationStyles}>
+          <div className='notification__message-container'>
+            {type === 'systemError' ? null : iconComponent}
+            <p className='notification__message'>
+              {type === 'systemError' ? `Ошибка ${message}` : message}
+            </p>
+          </div>
 
-      {child}
+          {messageDetails ? (
+            <p className='notification__message-details'>{messageDetails}</p>
+          ) : null}
 
-      {type === NotificationType.systemError ? (
-        <div className='notification__close-button-container'>
-          <ActionButton
-            icon={IconImages.cross}
-            iconColor='white'
-            onClick={onClose}
-          />
-        </div>
-      ) : null}
-    </div>
-  );
+          {type === 'warning' && <ItemCard item={item as IItem} hasCounter={false} />}
+
+          {type === 'systemError' ? (
+            <div className='notification__close-button-container'>
+              <ActionButton icon={IconImages.cross} iconColor='white' onClick={onClose} />
+            </div>
+          ) : null}
+        </div>,
+        container
+      )
+    : null;
 };
 
 export default Notification;

@@ -13,27 +13,27 @@ interface IItemCard {
 }
 
 const ItemCard: FC<IItemCard> = ({ item, toDelete = false, hasCounter = true }) => {
-  const additionalTags = item.cancel ? (
+  const additionalTags = item?.cancel ? (
     <Tag type={tagTypes.cancel} />
-  ) : item.IMEI_required ? (
+  ) : item?.IMEI_required ? (
     <Tag type={tagTypes.IMEI} />
-  ) : item.qrCode_required ? (
+  ) : item?.qrCode_required ? (
     <Tag type={tagTypes.qrCode} />
   ) : null;
 
   return (
     <div className='item-card'>
-      <ItemImage itemImg={item.pic} itemName={item.name} />
+      <ItemImage itemImg={item?.pic} itemName={item?.name} />
       <div className='item-card__main-info'>
-        <p className='item-card__name'>{item.name}</p>
+        <p className='item-card__name'>{item?.name}</p>
         <div className='item-card__tags'>
-          <Tag type={tagTypes.barcode} value={item.barcode} />
-          {additionalTags}
+          <Tag type={tagTypes.barcode} value={item?.barcode} />
+          {hasCounter ? additionalTags : null}
         </div>
       </div>
       {hasCounter ? (
         <div className='item-card__actions'>
-          <Counter itemsTotal={item.quantity} itemsScanned={0} />
+          <Counter itemsTotal={item?.quantity} itemsScanned={0} />
           {toDelete ? <Checkbox /> : null}
         </div>
       ) : null}

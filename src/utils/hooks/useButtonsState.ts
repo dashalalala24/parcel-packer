@@ -1,5 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState, MouseEventHandler } from 'react';
+import { setInfo } from '../../services/redux/slices/notification/notification';
+import { useAppDispatch } from './redux';
 
 interface IButtonState {
   LButtonState?: {
@@ -14,9 +16,10 @@ interface IButtonState {
 }
 
 const useButtonsState = (): IButtonState => {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const currentPath = useLocation().pathname;
   const [buttonsState, setButtonsState] = useState<IButtonState>({});
-  const navigate = useNavigate();
 
   useEffect(() => {
     switch (currentPath) {
@@ -69,12 +72,12 @@ const useButtonsState = (): IButtonState => {
             text: 'Выбрать',
             isQR: false,
             callback: () => {
-              navigate('/packageID-package-list');
-            },
-          },
-          LButtonState: {
-            callback: () => {
-              navigate('/problem');
+              navigate('/scan-badge');
+              dispatch(
+                setInfo({
+                  message: 'Бригадир скоро подойдет',
+                })
+              );
             },
           },
         });
@@ -86,6 +89,28 @@ const useButtonsState = (): IButtonState => {
             isQR: true,
             callback: () => {
               navigate('/');
+            },
+          },
+        });
+        break;
+      case '/broken-items':
+        setButtonsState({
+          RButtonState: {
+            text: 'Готово',
+            isQR: true,
+            callback: () => {
+              navigate('/container');
+            },
+          },
+        });
+        break;
+      case '/container':
+        setButtonsState({
+          RButtonState: {
+            text: 'Готово',
+            isQR: true,
+            callback: () => {
+              navigate('/packages-list');
             },
           },
         });

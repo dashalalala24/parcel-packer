@@ -3,7 +3,12 @@
   align-items: center;
   max-width: 1112px;
   min-width: 832px;
-  padding: 24px 0;
+  /* padding: 24px 0; */
+}
+
+.item-card_size_small {
+  min-width: 428px;
+  padding: 18px 0 0;
 }
 
 .item-card__main-info {

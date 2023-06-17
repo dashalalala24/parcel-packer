@@ -22,7 +22,7 @@ const ItemCard: FC<IItemCard> = ({ item, toDelete = false, hasCounter = true }) 
   ) : null;
 
   return (
-    <div className='item-card'>
+    <div className={`item-card ${hasCounter ? '' : 'item-card_size_small'}`}>
       <ItemImage itemImg={item?.pic} itemName={item?.name} />
       <div className='item-card__main-info'>
         <p className='item-card__name'>{item?.name}</p>

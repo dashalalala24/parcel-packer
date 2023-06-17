@@ -41,7 +41,10 @@ const Navbar: FC = () => {
   const currentPath = location.pathname;
 
   const status: TNnavbarStatus = useMemo(() => {
-    return currentPath === '/problem'
+    return currentPath === '/problem' ||
+      currentPath === '/broken-items' ||
+      currentPath === '/edit-itemslist' ||
+      currentPath === '/scan-badge'
       ? 'warning'
       : !isNotificationVisible || notificationType === 'info'
       ? 'default'

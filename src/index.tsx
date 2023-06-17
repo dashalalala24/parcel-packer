@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { Provider } from 'react-redux';
 import { store } from './services/redux/store';
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Layout } from './components/Layout/Layout';
 import StartPage from './pages/StartPage/StartPage';
 import OrderListPage from './pages/OrderListPage/OrderListPage';
@@ -16,13 +16,16 @@ import EditItemsListPage from './pages/EditItemsListPage/EditItemsListPage';
 import InputPopup, { InputPopupTypes } from './components/InputPopup/InputPopup';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import Preloader from './components/Preloader/Preloader';
+import BrokenItemPage from './pages/BrokenItemPage/BrokenItemPage';
+import ContainerPage from './pages/ContainerPage/ContainerPage';
+import ScanBadgePage from './pages/ScanBadgePage/ScanBadgePage';
 
 const Root: FC = () => {
   const location = useLocation();
   const { state } = location;
 
   return (
-    <div className='Page'>
+    <div className='page'>
       <Routes location={state?.backgroundLocation || location}>
         <Route path='/' element={<Layout />}>
           <Route index element={<StartPage />} />
@@ -31,8 +34,11 @@ const Root: FC = () => {
           <Route path='/packageID-package-list' element={<PackagePage />} />
           <Route path='/done' element={<SuccessPage />} />
           <Route path='/problem' element={<ProblemPage />} />
-          <Route path='/storybook' element={<Storybook />} />
           <Route path='/edit-itemslist' element={<EditItemsListPage />} />
+          <Route path='/scan-badge' element={<ScanBadgePage />} />
+          <Route path='/broken-items' element={<BrokenItemPage />} />
+          <Route path='/container' element={<ContainerPage />} />
+          <Route path='/storybook' element={<Storybook />} />
           <Route path='*' element={<ErrorPage />} />
         </Route>
       </Routes>
@@ -50,9 +56,9 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <HashRouter>
         <Root />
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   </React.StrictMode>
 );

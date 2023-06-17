@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/parcel-packer/static/css/main.ac1a9169.css",
+    "main.css": "/parcel-packer/static/css/main.6834511a.css",
     "main.js": "/parcel-packer/static/js/main.c9fe66c6.js",
     "static/media/YS Text-Regular.ttf": "/parcel-packer/static/media/YS Text-Regular.d30d692a0a77b7bc1037.ttf",
     "static/media/YS Display-Bold.ttf": "/parcel-packer/static/media/YS Display-Bold.59a50f3530d3a18999aa.ttf",
@@ -39,11 +39,11 @@
     "static/media/cross.svg": "/parcel-packer/static/media/cross.42723cba3695535754f6.svg",
     "static/media/arrow.svg": "/parcel-packer/static/media/arrow.f334a1675d96c996dd5e.svg",
     "static/media/wrapArrow.svg": "/parcel-packer/static/media/wrapArrow.5a1be1597f89bba9e218.svg",
-    "main.ac1a9169.css.map": "/parcel-packer/static/css/main.ac1a9169.css.map",
+    "main.6834511a.css.map": "/parcel-packer/static/css/main.6834511a.css.map",
     "main.c9fe66c6.js.map": "/parcel-packer/static/js/main.c9fe66c6.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac1a9169.css",
+    "static/css/main.6834511a.css",
     "static/js/main.c9fe66c6.js"
   ]
 }

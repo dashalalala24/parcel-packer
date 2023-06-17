@@ -1,5 +1,5 @@
 # Упаковщик
-**[Здесь будет ссылка на gh-pages](https://dashalalala24.github.io/parcel-packer)**
+**✨ [Ссылка на gh-pages](https://dashalalala24.github.io/parcel-packer/#/) ✨**
 
 
 
@@ -15,8 +15,7 @@
 * [Дарья Лазарчук](https://github.com/dashalalala24) 
 
 
- > Бэкэнд-разработчики  
-* Констанин Васильев
+ > Бэкэнд-разработчик  
 * [Дмитрий Лифанов](https://github.com/Dimalright)
 
  > Дата-аналитики  
@@ -49,7 +48,4 @@ npm start
 
 ## Ключевые точки для media queries
 
-1920px
-
-
-
+Приложение сверстано под единственный размер экрана: 1920px x 1080px

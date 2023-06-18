@@ -31,6 +31,6 @@
 
 .notification__close-button-container {
   position: absolute;
-  top: 0.36vw;
-  right: 0.36vw;
+  top: 1vw;
+  right: 1vw;
 }

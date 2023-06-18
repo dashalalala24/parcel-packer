@@ -86,7 +86,7 @@ export const order2: IItem[] = [
     id: '3',
     name: 'Умные часы Apple Watch Series 7 45 мм Aluminium Case, (PRODUCT)RED',
     pic: 'https://pngimg.com/uploads/anchor/anchor_PNG5.png',
-    quantity: 146,
+    quantity: 14,
     barcode: 1234567890127,
     IMEI_required: true,
   },

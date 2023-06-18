@@ -7,6 +7,7 @@
   padding: 0.4vh 1.5vw;
   width: 100%;
   width: -webkit-fill-available; 
+  box-sizing: border-box;
   position: fixed;
   bottom: 0px;
   left: 0;

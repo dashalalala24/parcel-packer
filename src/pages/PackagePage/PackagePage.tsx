@@ -24,7 +24,7 @@ export default function PackagePage() {
           </div>
         </div>
         <div className='package-list-page__info'>
-          <p className='package-list-page__cell'>Ячейка B-09</p>
+          <p className='package-list-page__cell'>Посылка 1</p>
           <ul className='package-list-page__tags'>
             <li>
               <Tag
@@ -40,7 +40,7 @@ export default function PackagePage() {
           </ul>
         </div>
       </div>
-      <ItemsList itemsPackage={order1AfterML.packages[2].items} />
+      <ItemsList itemsPackage={order1AfterML.packages[2].items} hasAdditionalTags={false} />
     </main>
   );
 }

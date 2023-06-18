@@ -16,15 +16,15 @@ interface IVisibilityList {
 const useVisibility = (): IVisibilityList => {
   const currentPath = useLocation().pathname;
   const defaultState: IVisibilityList = {
-    isHeaderVisible: false,
+    isHeaderVisible: true,
     navbarVisibility: {
       isNavbarVisible: false,
-      isBackButtonVisible: true,
-      isManualInputButtonVisible: true,
-      isChangeItemsButtonVisible: true,
+      isBackButtonVisible: false,
+      isManualInputButtonVisible: false,
+      isChangeItemsButtonVisible: false,
     },
     isLButtonVisible: false,
-    isRButtonVisible: false,
+    isRButtonVisible: true,
   };
 
   const [isVisible, setIsVisible] = useState<IVisibilityList>(defaultState);
@@ -83,6 +83,19 @@ const useVisibility = (): IVisibilityList => {
           isRButtonVisible: true,
         });
         break;
+      case '/packages-list':
+        setIsVisible({
+          isHeaderVisible: true,
+          navbarVisibility: {
+            isNavbarVisible: false,
+            isBackButtonVisible: false,
+            isManualInputButtonVisible: false,
+            isChangeItemsButtonVisible: false,
+          },
+          isLButtonVisible: false,
+          isRButtonVisible: false,
+        });
+        break;
       case '/edit-itemslist':
         setIsVisible({
           isHeaderVisible: true,
@@ -92,8 +105,21 @@ const useVisibility = (): IVisibilityList => {
             isManualInputButtonVisible: false,
             isChangeItemsButtonVisible: false,
           },
-          isLButtonVisible: true,
+          isLButtonVisible: false,
           isRButtonVisible: true,
+        });
+        break;
+      case '/scan-badge':
+        setIsVisible({
+          isHeaderVisible: true,
+          navbarVisibility: {
+            isNavbarVisible: true,
+            isBackButtonVisible: false,
+            isManualInputButtonVisible: false,
+            isChangeItemsButtonVisible: false,
+          },
+          isLButtonVisible: false,
+          isRButtonVisible: false,
         });
         break;
       case '/done':
@@ -120,6 +146,32 @@ const useVisibility = (): IVisibilityList => {
           },
           isLButtonVisible: false,
           isRButtonVisible: false,
+        });
+        break;
+      case '/broken-items':
+        setIsVisible({
+          isHeaderVisible: true,
+          navbarVisibility: {
+            isNavbarVisible: true,
+            isBackButtonVisible: true,
+            isManualInputButtonVisible: true,
+            isChangeItemsButtonVisible: false,
+          },
+          isLButtonVisible: false,
+          isRButtonVisible: true,
+        });
+        break;
+      case '/container':
+        setIsVisible({
+          isHeaderVisible: true,
+          navbarVisibility: {
+            isNavbarVisible: false,
+            isBackButtonVisible: false,
+            isManualInputButtonVisible: false,
+            isChangeItemsButtonVisible: false,
+          },
+          isLButtonVisible: false,
+          isRButtonVisible: true,
         });
         break;
       case '/keyboard/digits':

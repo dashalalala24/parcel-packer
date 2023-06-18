@@ -3,6 +3,7 @@
   align-items: center;
   gap: 0.32vw;
   padding: 0.83vh 1.25vw;
+  box-sizing: border-box;
   max-width: fit-content;
   border-radius: var(--border-radius-2xl);
 }

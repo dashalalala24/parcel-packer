@@ -75,7 +75,7 @@
 }
 
 .header__efficiency-percentage {
-  font: var(--font-button-s);
+  font: var(--font-button-xs);
   color: var(--white-color);
   text-align: center;
   margin: 0;

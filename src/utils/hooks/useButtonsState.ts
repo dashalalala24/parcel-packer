@@ -116,7 +116,15 @@ const useButtonsState = (): IButtonState => {
         });
         break;
       default:
-        setButtonsState({});
+        setButtonsState({
+          RButtonState: {
+            text: 'Назад',
+            isQR: false,
+            callback: () => {
+              navigate(-1);
+            },
+          },
+        });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPath]);

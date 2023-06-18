@@ -27,7 +27,7 @@ export default function EditItemsListPage() {
           </ul>
         </div>
       </div>
-      <ItemsList itemsPackage={order1AfterML.packages[2].items} />
+      <ItemsList itemsPackage={order1AfterML.packages[2].items} hasAdditionalTags={false} />
     </main>
   );
 }

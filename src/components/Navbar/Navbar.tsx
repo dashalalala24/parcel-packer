@@ -60,7 +60,7 @@ const Navbar: FC = () => {
   };
 
   const onKeyboardButtonClick = () => {
-    if (pathname === '/order-list') {
+    if (pathname === '/order-list' || pathname === '/broken-items') {
       navigate('/keyboard/digits');
     } else if (pathname.includes('package-list')) {
       navigate('/keyboard/letters');

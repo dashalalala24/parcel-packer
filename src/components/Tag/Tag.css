@@ -3,6 +3,8 @@
   align-items: center;
   gap: 8px;
   padding: 9px 24px;
+  box-sizing: border-box;
+  max-height: 48px;
   max-width: fit-content;
   border-radius: var(--border-radius-2xl);
 }

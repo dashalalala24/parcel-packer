@@ -10,9 +10,15 @@ interface IItemCard {
   item: IItem;
   toDelete?: boolean;
   hasCounter?: boolean;
+  hasAdditionalTags?: boolean;
 }
 
-const ItemCard: FC<IItemCard> = ({ item, toDelete = false, hasCounter = true }) => {
+const ItemCard: FC<IItemCard> = ({
+  item,
+  toDelete = false,
+  hasCounter = true,
+  hasAdditionalTags = true,
+}) => {
   const additionalTags = item?.cancel ? (
     <Tag type={tagTypes.cancel} />
   ) : item?.IMEI_required ? (
@@ -28,7 +34,7 @@ const ItemCard: FC<IItemCard> = ({ item, toDelete = false, hasCounter = true }) 
         <p className='item-card__name'>{item?.name}</p>
         <div className='item-card__tags'>
           <Tag type={tagTypes.barcode} value={item?.barcode} />
-          {hasCounter ? additionalTags : null}
+          {hasAdditionalTags ? additionalTags : null}
         </div>
       </div>
       {hasCounter ? (

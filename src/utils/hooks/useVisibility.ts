@@ -16,15 +16,15 @@ interface IVisibilityList {
 const useVisibility = (): IVisibilityList => {
   const currentPath = useLocation().pathname;
   const defaultState: IVisibilityList = {
-    isHeaderVisible: false,
+    isHeaderVisible: true,
     navbarVisibility: {
       isNavbarVisible: false,
-      isBackButtonVisible: true,
-      isManualInputButtonVisible: true,
-      isChangeItemsButtonVisible: true,
+      isBackButtonVisible: false,
+      isManualInputButtonVisible: false,
+      isChangeItemsButtonVisible: false,
     },
     isLButtonVisible: false,
-    isRButtonVisible: false,
+    isRButtonVisible: true,
   };
 
   const [isVisible, setIsVisible] = useState<IVisibilityList>(defaultState);
@@ -81,6 +81,19 @@ const useVisibility = (): IVisibilityList => {
           },
           isLButtonVisible: true,
           isRButtonVisible: true,
+        });
+        break;
+      case '/packages-list':
+        setIsVisible({
+          isHeaderVisible: true,
+          navbarVisibility: {
+            isNavbarVisible: false,
+            isBackButtonVisible: false,
+            isManualInputButtonVisible: false,
+            isChangeItemsButtonVisible: false,
+          },
+          isLButtonVisible: false,
+          isRButtonVisible: false,
         });
         break;
       case '/edit-itemslist':

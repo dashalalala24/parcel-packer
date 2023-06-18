@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { Provider } from 'react-redux';
 import { store } from './services/redux/store';
-import { BrowserRouter, HashRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { HashRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Layout } from './components/Layout/Layout';
 import StartPage from './pages/StartPage/StartPage';
 import OrderListPage from './pages/OrderListPage/OrderListPage';

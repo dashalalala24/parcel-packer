@@ -10,7 +10,7 @@
   font: var(--font-button-xl);
   font-feature-settings: var(--font-feature);
   letter-spacing: var(--letter-spacing-m);
-  max-width: 880px;
+  max-width: 700px;
   margin: 0;
   padding: 0;
 }

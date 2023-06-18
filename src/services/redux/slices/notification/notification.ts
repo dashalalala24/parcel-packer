@@ -23,7 +23,7 @@ export const notificationSlice = createSlice({
   name: 'notification',
   initialState,
   reducers: {
-    setSystemError: (state, action: PayloadAction<{ message: number; messageDetails: string }>) => {
+    setSystemError: (state, action: PayloadAction<{ message: number | string; messageDetails: string }>) => {
       state.message = action.payload.message;
       state.messageDetails = action.payload.messageDetails;
       state.type = 'systemError';

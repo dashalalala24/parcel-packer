@@ -47,7 +47,7 @@ const InputPopup: FC<IInputPopup> = ({ type }) => {
       const text = await navigator.clipboard.readText();
       setInput({ inputValue: text });
     } catch (err: any) {
-      dispatch(setSystemError({ message: err.code, messageDetails: err.message }));
+      dispatch(setSystemError({ message: '', messageDetails: err.message }));
     }
   };
 

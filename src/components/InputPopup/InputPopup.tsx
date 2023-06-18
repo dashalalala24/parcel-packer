@@ -42,12 +42,12 @@ const InputPopup: FC<IInputPopup> = ({ type }) => {
     setInput({ inputValue: '' });
   };
 
-  const onDbClick = async () => {
+  const onClick = async () => {
     try {
       const text = await navigator.clipboard.readText();
       setInput({ inputValue: text });
-    } catch (err: any) {
-      dispatch(setSystemError({ message: '', messageDetails: err.message }));
+    } catch (_) {
+      dispatch(setSystemError({ message: '', messageDetails: 'Нет доступа к буферу обмена' }));
     }
   };
 
@@ -58,12 +58,7 @@ const InputPopup: FC<IInputPopup> = ({ type }) => {
         {type === 'letters' ? 'Введите код упаковки' : 'Введите или вставьте код'}
       </h3>
       <form className='input-popup__form' onSubmit={handleSubmit}>
-        <Input
-          onDbClick={onDbClick}
-          type={type}
-          value={input.inputValue}
-          handleChange={handleChange}
-        />
+        <Input onClick={onClick} type={type} value={input.inputValue} handleChange={handleChange} />
         <Keyboard
           type={type}
           handleInputAddSign={handleInputAddSign}

@@ -1,6 +1,7 @@
 import { Action, Middleware, PayloadAction } from '@reduxjs/toolkit';
 
-export interface TActionWithAsyncDispatch<T> extends PayloadAction<T> {
+export interface TActionWithAsyncDispatch<P = void, T extends string = string>
+  extends PayloadAction<P, T> {
   asyncDispatch: (asyncAction: Action) => void;
 }
 

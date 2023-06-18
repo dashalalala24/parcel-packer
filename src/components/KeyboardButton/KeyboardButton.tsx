@@ -9,9 +9,9 @@ export enum KeyboardButtonColors {
   yellow = 'yellow',
 }
 export enum KeyboardButtonWidths {
-  numberWidth = 184,
-  letterWidth = 96,
-  letterActionWidth = 150,
+  numberWidth = '9.58vw',
+  letterWidth = '4.99vw',
+  letterActionWidth = '7.8vw',
 }
 export enum KeyboardButtonIcons {
   delete = IconImages.keyboardDelete,
@@ -50,15 +50,15 @@ const KeyboardButton: FC<IKeyboardButton> = ({
       className={keyboardButtonClassname}
       style={{
         width: width,
-        height: width === KeyboardButtonWidths.numberWidth ? 94 : 92,
+        height: width === KeyboardButtonWidths.numberWidth ? '4.9vw' : '4.89vw',
         borderRadius:
           width === KeyboardButtonWidths.numberWidth ? 'var(--border-radius-s)' : undefined,
       }}
     >
       {icon === KeyboardButtonIcons.delete ? (
-        <Icon imgName={IconImages.keyboardDelete} width={40} />
+        <Icon imgName={IconImages.keyboardDelete} width={'2.08vw'} />
       ) : icon === KeyboardButtonIcons.enter ? (
-        <Icon imgName={IconImages.arrow} width={40} />
+        <Icon imgName={IconImages.arrow} width={'2.08vw'} />
       ) : sign ? (
         sign
       ) : null}

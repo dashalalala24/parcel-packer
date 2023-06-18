@@ -2,25 +2,25 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  padding: 433px 0 0;
+  padding: 40.1vh 0 0;
 }
 
 .error-page__status {
-  transform: translateY(-140px) translateX(5px) skew(7deg);
+  transform: translateY(-7.3vw) translateX(0.26vw) skew(7deg);
   font: var(--font-2xl);
   font-weight: 700;
-  font-size: 112px;
-  line-height: 65px;
+  font-size: 5.83vw;
+  line-height: 3.38vw;
   text-align: center;
   color: #f9f7f3;
-  -webkit-text-stroke: 4px #212121;
-  text-stroke: 4px #212121;
+  -webkit-text-stroke: 0.2vw #212121;
+  text-stroke: 0.2vw #212121;
 }
 
 .error-page__message {
   font: var(--font-button-xl);
   font-feature-settings: var(--font-feature);
-  padding: 42px 0 0;
+  padding: 3.88vh 0 0;
   margin: 0;
   text-align: center;
 }

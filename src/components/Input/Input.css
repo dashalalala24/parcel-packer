@@ -1,15 +1,15 @@
 .input__element {
   font: var(--font-button-l);
   border-radius: var(--border-radius-m);
-  width: 596px;
-  height: 124p;
-  padding: 36px;
+  width: 31vw;
+  height: 11.4vh;
+  padding: 1.87vw;
   text-align: center;
   text-transform: uppercase;
-  outline: 8px var(--yellow-color) solid;
+  outline: 0.4vw var(--yellow-color) solid;
   border: none;
   box-sizing: border-box;
-  margin: 28px auto 48px;
+  margin: 2.6vh auto 4.4vh;
 }
 
 .input__element:focus {

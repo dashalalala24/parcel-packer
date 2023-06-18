@@ -34,7 +34,7 @@ const Tag: FC<ITag> = ({ type, value = '' }) => {
 
   const iconName = type === 'IMEI' ? IconImages.barcode : (type as unknown as IconImages);
 
-  const iconWidth = type === 'bag' || type === 'box' ? 38 : 32;
+  const iconWidth = type === 'bag' || type === 'box' ? '1.97vw' : '1.66vw';
 
   const onBarcodeClick = () => {
     if (type === tagTypes.barcode) {

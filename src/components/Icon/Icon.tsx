@@ -5,14 +5,14 @@ import IconImages from "./types";
 interface IIconProps {
   imgName: IconImages;
   color?: "black" | "white";
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
   style?: CSSProperties;
 }
 
 const Icon: FC<IIconProps> = ({
   imgName,
-  width = 20,
+  width = '1.04vw',
   height = width,
   color = "black",
   style,

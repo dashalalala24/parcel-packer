@@ -1,10 +1,9 @@
 .tag {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 24px;
+  gap: 0.32vw;
+  padding: 0.83vh 1.25vw;
   box-sizing: border-box;
-  max-height: 48px;
   max-width: fit-content;
   border-radius: var(--border-radius-2xl);
 }
@@ -19,30 +18,30 @@
 
 .tag_type_another {
   background-color: var(--violet-color);
-  padding: 13px 24px;
+  padding: 1.2vh 1.5vw;
 }
 
 .tag_type_cancel {
-  gap: 4px;
+  gap: 0.16vw;
   padding: 0;
 }
 
 .tag_type_barcode {
-  gap: 12px;
+  gap: 0.5vw;
   padding: 0;
 }
 
 .tag_type_additional-code {
   background-color: var(--yellowish-color);
   border-radius: var(--border-radius-2xs);
-  padding: 9px 16px;
+  padding: 0.83vh 0.83vw;
 }
 
 .tag_type_info {
   background-color: var(--gray-color-2);
-  padding: 13px 24px;
+  padding: 1.2vh 1.25vw;
   width: fit-content;
-  max-width: 390px;
+  max-width: 20vw;
 }
 
 .tag__text {

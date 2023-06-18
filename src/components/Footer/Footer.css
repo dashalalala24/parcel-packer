@@ -4,8 +4,9 @@
   font-feature-settings: var(--font-feature);
   color: var(--dark-gray-color);
   display: flex;
-  padding: 4px 24px;
+  padding: 0.4vh 1.5vw;
   width: 100%;
+  width: -webkit-fill-available; 
   box-sizing: border-box;
   position: fixed;
   bottom: 0px;

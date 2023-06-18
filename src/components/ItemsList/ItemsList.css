@@ -7,8 +7,14 @@
 }
 
 .items-list__item {
+  padding: 24px 0;
   border-bottom: 1px solid var(--gray-color);
 }
+
+.items-list__item:first-of-type {
+  padding: 0 0 24px;
+}
+
 .items-list__item:last-of-type {
   border-bottom: none;
 }

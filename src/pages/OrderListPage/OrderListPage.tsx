@@ -1,8 +1,9 @@
 import ItemsList from '../../components/ItemsList/ItemsList';
-import { order1, order2 } from '../../utils/orderExamples';
+import { order2 } from '../../utils/orderExamples';
 import Tag, { tagTypes } from '../../components/Tag/Tag';
 
 import './OrderListPage.css';
+import { getItemsQuantity, infoTagDeclension } from '../../utils/utils';
 
 export default function OrderListPage() {
   return (
@@ -13,7 +14,10 @@ export default function OrderListPage() {
           <p className='order-list-page__cell'>Ячейка B-09</p>
           <ul className='order-list-page__tags'>
             <li>
-              <Tag type={tagTypes.info} value={`${order2.length} товаров`} />
+              <Tag
+                type={tagTypes.info}
+                value={`${getItemsQuantity(order2)} ${infoTagDeclension(getItemsQuantity(order2))}`}
+              />
             </li>
             <li>
               <Tag type={tagTypes.info} value={'Почта России'} />

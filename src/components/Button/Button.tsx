@@ -2,6 +2,7 @@ import { CSSProperties, FC, MouseEventHandler } from 'react';
 import './Button.css';
 import Icon from '../Icon/Icon';
 import { IconImages } from '../Icon/types';
+import { keyboard } from '@testing-library/user-event/dist/keyboard';
 
 export enum ButtonColors {
   yellow = 'yellow',
@@ -81,7 +82,7 @@ const Button: FC<IButtonProps> = ({
     <Icon
       imgName={icon}
       color={color === 'black' || color === 'transparent' ? 'white' : 'black'}
-      width={size === ButtonSizes.xl ? 200 : 32}
+      width={size === ButtonSizes.xl ? 200 : icon === 'keyboard' || icon === 'edit' ? 48 : 32}
       style={{ margin: size === ButtonSizes.xl ? '40px 0 0' : '0 18px 0 0' }}
     />
   ) : null;

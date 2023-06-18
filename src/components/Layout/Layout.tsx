@@ -13,7 +13,7 @@ import Notification from '../Notification/Notification';
 export const Layout: FC = () => {
   const { LButtonState, RButtonState } = useButtonsState();
   const { isLButtonVisible, isRButtonVisible } = useVisibility();
-  
+
   return (
     <div className='layout'>
       <Header />

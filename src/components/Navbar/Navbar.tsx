@@ -41,7 +41,10 @@ const Navbar: FC = () => {
   const currentPath = location.pathname;
 
   const status: TNnavbarStatus = useMemo(() => {
-    return currentPath === '/problem'
+    return currentPath === '/problem' ||
+      currentPath === '/broken-items' ||
+      currentPath === '/edit-itemslist' ||
+      currentPath === '/scan-badge'
       ? 'warning'
       : !isNotificationVisible || notificationType === 'info'
       ? 'default'
@@ -57,7 +60,7 @@ const Navbar: FC = () => {
   };
 
   const onKeyboardButtonClick = () => {
-    if (pathname === '/order-list') {
+    if (pathname === '/order-list' || pathname === '/broken-items') {
       navigate('/keyboard/digits');
     } else if (pathname.includes('package-list')) {
       navigate('/keyboard/letters');

@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from '../../utils/hooks/redux';
 import { closeNotification } from '../../services/redux/slices/notification/notification';
 import ItemCard from '../ItemCard/ItemCard';
 import { IItem } from '../../utils/orderExamples';
+import { useLocation } from 'react-router-dom';
 
 enum BorderColors {
   info = 'var(--popup-blue-border)',
@@ -26,6 +27,9 @@ enum BackgroundColors {
 }
 
 const Notification: FC = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   const dispatch = useAppDispatch();
   const notificationState = useAppSelector(state => state.notification);
   const { message, messageDetails, type, isVisible, item } = notificationState;
@@ -75,9 +79,16 @@ const Notification: FC = () => {
     />
   );
 
+  // вопросики по уместности этого эффекта
+  useEffect(() => {
+    if (currentPath === '/') {
+      dispatch(closeNotification());
+    }
+  }, [currentPath]);
+
   useEffect(() => {
     let timeout: NodeJS.Timeout;
-    if (type !== 'systemError') {
+    if (type !== 'systemError' && type !== 'info') {
       timeout = setTimeout(() => {
         dispatch(closeNotification());
       }, 6000);
@@ -108,7 +119,9 @@ const Notification: FC = () => {
             <p className='notification__message-details'>{messageDetails}</p>
           ) : null}
 
-          {type === 'warning' && <ItemCard item={item as IItem} hasCounter={false} />}
+          {type === 'warning' && (
+            <ItemCard item={item as IItem} hasCounter={false} hasAdditionalTags={false} />
+          )}
 
           {type === 'systemError' ? (
             <div className='notification__close-button-container'>

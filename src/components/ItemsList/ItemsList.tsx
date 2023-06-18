@@ -6,9 +6,10 @@ import './ItemsList.css';
 
 interface IItemsList {
   itemsPackage: IItem[];
+  hasAdditionalTags?: boolean;
 }
 
-const ItemsList: FC<IItemsList> = ({ itemsPackage }) => {
+const ItemsList: FC<IItemsList> = ({ itemsPackage, hasAdditionalTags = true }) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -21,6 +22,7 @@ const ItemsList: FC<IItemsList> = ({ itemsPackage }) => {
               key={item.barcode}
               item={item}
               toDelete={currentPath === '/edit-itemslist' ? true : false}
+              hasAdditionalTags={hasAdditionalTags}
             />
           </li>
         );

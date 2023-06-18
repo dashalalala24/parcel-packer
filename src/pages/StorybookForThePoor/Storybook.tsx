@@ -27,7 +27,7 @@ export interface IItem {
 const order1: IItem[] = [
   {
     id: '4',
-    name: 'лимон',
+    name: 'Гель для душа SYNERGETIC «Кокос и масло макадамии», увлажняющий, натуральный, 750 мл',
     pic: 'https://pngimg.com/uploads/lemon/lemon_PNG25276.png',
     quantity: 3,
     barcode: 1234567890123,
@@ -130,7 +130,7 @@ const Storybook = () => {
         onClick={() => {
           dispatch(
             setWarning({
-              message: 'Сперва введи IMEI',
+              message: 'Сканируйте IMEI товара',
               item: order1[0],
             })
           );

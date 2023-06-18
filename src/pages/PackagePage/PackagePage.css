@@ -44,6 +44,7 @@
 .package-list-page__cell {
   font: var(--font-2xl);
   font-feature-settings: var(--font-feature);
+  text-align: end;
   padding: 0;
   margin: 0;
 }

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/parcel-packer/static/css/main.6834511a.css",
-    "main.js": "/parcel-packer/static/js/main.c9fe66c6.js",
+    "main.js": "/parcel-packer/static/js/main.7cd82073.js",
     "static/media/YS Text-Regular.ttf": "/parcel-packer/static/media/YS Text-Regular.d30d692a0a77b7bc1037.ttf",
     "static/media/YS Display-Bold.ttf": "/parcel-packer/static/media/YS Display-Bold.59a50f3530d3a18999aa.ttf",
     "static/media/YS Display-Regular.ttf": "/parcel-packer/static/media/YS Display-Regular.f7b0cd2fb662aa10f1b2.ttf",
@@ -40,10 +40,10 @@
     "static/media/arrow.svg": "/parcel-packer/static/media/arrow.f334a1675d96c996dd5e.svg",
     "static/media/wrapArrow.svg": "/parcel-packer/static/media/wrapArrow.5a1be1597f89bba9e218.svg",
     "main.6834511a.css.map": "/parcel-packer/static/css/main.6834511a.css.map",
-    "main.c9fe66c6.js.map": "/parcel-packer/static/js/main.c9fe66c6.js.map"
+    "main.7cd82073.js.map": "/parcel-packer/static/js/main.7cd82073.js.map"
   },
   "entrypoints": [
     "static/css/main.6834511a.css",
-    "static/js/main.c9fe66c6.js"
+    "static/js/main.7cd82073.js"
   ]
 }

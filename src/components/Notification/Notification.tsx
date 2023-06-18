@@ -55,7 +55,7 @@ const Notification: FC = () => {
         : type === 'systemError'
         ? BorderColors.systemError
         : 'initial',
-    width: type === 'systemError' ? 419 : 492,
+    width: type === 'systemError' ? '21.8vw' : '25.62vw',
     color: type === 'systemError' ? 'white' : 'black',
   };
 
@@ -70,8 +70,8 @@ const Notification: FC = () => {
           ? IconImages.success
           : IconImages.warningFilled
       }
-      width={40}
-      style={{ marginRight: 20 }}
+      width={'2.08vw'}
+      style={{ marginRight: '1.04vw' }}
     />
   );
 

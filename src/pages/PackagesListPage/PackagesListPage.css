@@ -1,25 +1,25 @@
 .packages-list-page {
   display: flex;
   flex-direction: column;
-  padding: 142px 0;
+  padding: 13.1vh 0;
   margin: 0 auto;
 }
 
 .packages-list-page__title {
   font: var(--font-button-xl);
   font-feature-settings: var(--font-feature);
-  max-width: 506px;
+  max-width: 26.3vw;
   text-align: center;
-  padding: 0 0 82px;
+  padding: 0 0 7.6vh;
   margin: 0 auto;
 }
 
 .packages-list-page__list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1vw;
 
-  max-width: 1324px;
+  max-width: 69vw;
 }
 
 .packages-list-page__package-container {
@@ -31,6 +31,6 @@
 .packages-list-page__package-title {
   font: var(--font-m);
   text-align: center;
-  padding: 0 0 22px;
+  padding: 0 0 2vh;
   margin: 0;
 }

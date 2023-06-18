@@ -8,7 +8,7 @@ const DevNavigation: FC = () => {
   return (
     <div
       style={{
-        padding: '140px 0',
+        padding: '13vh 0',
         display: 'flex',
         flexDirection: 'column',
       }}

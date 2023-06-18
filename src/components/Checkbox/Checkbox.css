@@ -4,8 +4,8 @@
 
 .checkbox__input[type='checkbox'] {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: 0.05vw;
+  height: 0.05vw;
   overflow: hidden;
   outline: none;
   clip-path: inset(0 0 0 0);
@@ -13,9 +13,9 @@
 }
 
 .checkbox__appearance {
-  width: 80px;
-  height: 80px;
-  border: 4px solid var(--gray-color);
+  width: 4.16vw;
+  height: 4.16vw;
+  border: 0.2vw solid var(--gray-color);
   border-radius: var(--border-radius-s);
   cursor: pointer;
   box-sizing: border-box;
@@ -28,6 +28,6 @@
   background-image: url(../Icon/images/checkmark.svg);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 36px;
+  background-size: 1.87vw;
   transition: background-color 0.3s, background-image 0.3s;
 }

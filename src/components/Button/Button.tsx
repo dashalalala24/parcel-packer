@@ -32,7 +32,7 @@ const buttonStyles = (
 ): CSSProperties => ({
   backgroundColor: color ? `var(--${color}-color)` : 'transparent',
   borderRadius:
-    size === ButtonSizes.xl ? 24 : size === ButtonSizes.l ? 20 : size === ButtonSizes.m ? 24 : 24,
+    size === ButtonSizes.xl ? 'calc(1vw + 1vh)' : size === ButtonSizes.l ? '1.04vw' : size === ButtonSizes.m ? '1.25vw' : '1.25vw',
   font:
     size === ButtonSizes.xl
       ? 'var(--font-button-xl)'
@@ -43,19 +43,18 @@ const buttonStyles = (
       : size === ButtonSizes.s
       ? 'var(--font-button-s)'
       : 'var(--font-button-xs)',
-  minWidth:
-    size === ButtonSizes.xl ? 'calc(296 / 1920 * 100vw)' : size === ButtonSizes.l ? 453 : 296,
-  height: size === ButtonSizes.xl ? 662 : size === ButtonSizes.l ? 94 : 72,
+  minWidth: size === ButtonSizes.xl ? '15.5vw' : size === ButtonSizes.l ? '23.5vw' : '15.4vw',
+  height: size === ButtonSizes.xl ? '61.5vh' : size === ButtonSizes.l ? '8.7vh' : '6.8vh',
   flexDirection: size === ButtonSizes.xl ? 'column-reverse' : 'row',
   color: color === 'black' || color === 'transparent' ? 'white' : 'black',
   position: size === ButtonSizes.xl ? 'fixed' : 'static',
-  top: size === ButtonSizes.xl ? '209px' : 'unset',
-  right: size === ButtonSizes.xl && color === ButtonColors.yellow ? '23px' : 'auto',
-  left: size === ButtonSizes.xl && color === ButtonColors.beige ? '23px' : 'auto',
-  maxWidth: color === ButtonColors.beige ? '296px' : 'none',
+  top: size === ButtonSizes.xl ? '19vh' : 'unset',
+  right: size === ButtonSizes.xl && color === ButtonColors.yellow ? '1vw' : 'auto',
+  left: size === ButtonSizes.xl && color === ButtonColors.beige ? '1vw' : 'auto',
+  width: size === ButtonSizes.xl ? '15vw' : undefined,
   display: visible ? undefined : 'none',
   padding:
-    size === ButtonSizes.s || size === ButtonSizes.m || size === ButtonSizes.l ? '0 18px' : 0,
+    size === ButtonSizes.s || size === ButtonSizes.m || size === ButtonSizes.l ? '0 0.9vw' : 0,
 });
 
 interface IButtonProps {
@@ -81,8 +80,8 @@ const Button: FC<IButtonProps> = ({
     <Icon
       imgName={icon}
       color={color === 'black' || color === 'transparent' ? 'white' : 'black'}
-      width={size === ButtonSizes.xl ? 200 : 32}
-      style={{ margin: size === ButtonSizes.xl ? '40px 0 0' : '0 18px 0 0' }}
+      width={size === ButtonSizes.xl ? '15vh' : '2.5vw'}
+      style={{ margin: size === ButtonSizes.xl ? '5vh 0 0' : '0 0.6vw 0 0' }}
     />
   ) : null;
 

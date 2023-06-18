@@ -1,10 +1,10 @@
 .package-card {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  width: 316px;
-  height: 316px;
-  padding: 12px;
+  gap: 0.62vw;
+  width: 16.45vw;
+  height: 16.45vw;
+  padding: 0.6vw;
   box-sizing: border-box;
   border-radius: var(--border-radius-s);
   background-color: var(--gray-color);
@@ -16,8 +16,8 @@
   font: var(--font-l);
   letter-spacing: var(--letter-spacing-m);
   text-align: center;
-  width: 140px;
-  height: 140px;
-  padding: 52px 0 0;
+  width: 7.3vw;
+  height: 7.3vw;
+  padding: 4.8vh 0 0;
   box-sizing: border-box;
 }

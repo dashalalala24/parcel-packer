@@ -195,7 +195,7 @@ const Storybook = () => {
       <br />
       <Tag type={tagTypes.cancel} />
       <br />
-      <Icon imgName={IconImages.burger} width={70} />
+      <Icon imgName={IconImages.burger} width={'3.6vw'} />
       <br />
       <Button
         onClick={() => {

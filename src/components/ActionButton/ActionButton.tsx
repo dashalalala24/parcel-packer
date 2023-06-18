@@ -4,8 +4,8 @@ import IconImages from "../Icon/types";
 import "./ActionButton.css";
 
 export enum ActionButtonBorderRadius {
-  square = 20,
-  circle = 48,
+  square = '1.04vw',
+  circle = '2.5vw',
 }
 
 export enum ActionButtonBackground {
@@ -28,7 +28,7 @@ const ActionButton: FC<IActionButtonProps> = ({
   backgroundColor = ActionButtonBackground.transparent,
   iconColor = "black"
 }) => {
-  const iconElement = <Icon imgName={icon} width={30} color={iconColor} />;
+  const iconElement = <Icon imgName={icon} width={'1.56vw'} color={iconColor} />;
 
   return (
     <button

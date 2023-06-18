@@ -1,7 +1,7 @@
 .counter {
   border-radius: var(--border-radius-2xl);
-  max-height: 80px;
-  width: 134px;
+  /* max-height: 80px; */
+  width: 7vw;
   background: linear-gradient(to right, #c4e4c2 50%, var(--beige-color) 50%);
   background-repeat: no-repeat;
   transition: background-position 0.4s, color 0.4s;
@@ -19,7 +19,7 @@
   font: var(--font-2xs);
   font-feature-settings: var(--font-feature);
   text-align: center;
-  padding: 24px 0;
+  padding: 1.2vw 0;
   margin: 0;
 }
 

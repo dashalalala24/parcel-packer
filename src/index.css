@@ -2,6 +2,14 @@
 @import url(./vendor/fonts/fonts.css);
 @import url(./vendor/variables.css);
 
+#root{
+  height: -webkit-fill-available;
+}
+
+.Page {
+  height: 100%;
+}
+
 .app {
   background-color: var(--white-color);
   color: var(--black-color);

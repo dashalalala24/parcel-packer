@@ -12,7 +12,7 @@
 }
 
 .items-list__item:first-of-type {
-  padding: 0 0 24px;
+  padding: 0 0 2vh;
 }
 
 .items-list__item:last-of-type {

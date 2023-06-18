@@ -1,16 +1,17 @@
 .scan-badge-page {
-  min-height: calc(100vh - 112px * 2 - 28px);
+  min-height: calc(100vh - 10.37vh * 2 - 2.6vh);
+  width: calc((1112 / 1920) * 100%);
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: 0 auto;
-  padding: 140px 0;
+  padding: 12.96vh 0;
 }
 .scan-badge-page__title {
   font: var(--font-button-xl);
   font-feature-settings: var(--font-feature);
   letter-spacing: var(--letter-spacing-m);
-  max-width: 700px;
+  max-width: 36.46vw;
   margin: 0;
   padding: 0;
 }

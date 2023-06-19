@@ -21,3 +21,21 @@ export function infoTagDeclension(number: number): string {
     ? 'товарa'
     : 'товаров';
 }
+
+export function compareArraysAndDeleteUnique(a: number[], b: number[]) {
+  let newArray: number[] = [];
+  a.forEach(barcode => {
+    if (b.indexOf(barcode) === -1) {
+      newArray.push(barcode);
+    }
+  });
+  return newArray;
+}
+
+export function compareArrays(a: number[], b: number[]) {
+  if (a.length !== b.length) return false;
+
+  for (var i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
+
+  return true;
+}

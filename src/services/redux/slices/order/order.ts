@@ -1,20 +1,24 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getOrder } from './orderApi';
+import { compareArrays, compareArraysAndDeleteUnique } from '../../../../utils/utils';
 // import { fetchCount } from './exampleAPI';
 
-export interface ExapmleState {
+export interface OrderState {
   order: {};
   status: 'loading' | 'success' | 'failed' | null;
   barcodes: number[];
   deletedItems: number[];
+  // scannedItems: number[];
+  error: string;
 }
 
-const initialState: ExapmleState = {
+const initialState: OrderState = {
   order: {},
   status: null,
   barcodes: [],
-  // error: ''
   deletedItems: [],
+  // scannedItems: [],
+  error: '',
 };
 
 // Приведенная ниже функция называется thunk и позволяет нам выполнять асинхронную логику: `dispatch(incrementAsync(10))`.
@@ -35,20 +39,23 @@ export const exampleSlice = createSlice({
   initialState,
   // Поле "reducers" позволяет нам определять редьюсеры и генерировать связанные с ними экшены
   reducers: {
-    deleteItemFromList: (state, action: PayloadAction<number[]>) => {
-      const barcodes = { ...state.barcodes };
-      barcodes.map(i => console.log(i));
-      const newOrder = { 1: 1, 2: 2 };
-      const deletedItemsList = [1, 2];
-      state.order = newOrder;
+    deleteItemsFromList: (state, action: PayloadAction<number[]>) => {
+      const barcodes = state.barcodes;
+      let newOrder: number[] = [];
+      let deletedItemsList: number[] = [];
+      deletedItemsList.concat(action.payload);
       state.deletedItems = deletedItemsList;
+
+      newOrder = compareArraysAndDeleteUnique(barcodes, deletedItemsList);
+      state.order = newOrder;
     },
-    decrement: state => {
-      state.value -= 1;
-    },
-    // Используй тип PayloadAction для объявления содержимого `action.payload`
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    scanAllItems: (state, action: PayloadAction<number[]>) => {
+      const barcodes = state.barcodes;
+      let scannedItems: number[] = [];
+      scannedItems.concat(action.payload);
+      // state.scannedItems = scannedItems;
+
+      compareArrays(barcodes, scannedItems);
     },
   },
   // Поле `extraReducers` позволяет слайсу обрабатывать экшены, определенные в другом месте,
@@ -60,7 +67,7 @@ export const exampleSlice = createSlice({
       })
       .addCase(getOrders.fulfilled, (state, action) => {
         state.status = 'success';
-        state.order = action.payload;
+        // state.order = action.payload;
       })
       .addCase(getOrders.rejected, state => {
         state.status = 'failed';
@@ -68,6 +75,6 @@ export const exampleSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount } = exampleSlice.actions;
+export const { deleteItemsFromList } = exampleSlice.actions;
 
 export default exampleSlice.reducer;

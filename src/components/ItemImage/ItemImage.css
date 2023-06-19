@@ -1,0 +1,32 @@
+.item-image {
+  position: relative;
+  background-color: var(--beige-color);
+  border-radius: var(--border-radius-xs);
+  width: 7.3vw;
+  height: 7.3vw;
+  /* max-width: 140px;
+  max-height: 140px; */
+}
+
+.item-image__pic {
+  width: 5.2vw;
+  height: 5.2vw;
+  object-fit: contain;
+  margin: 1.1vw;
+}
+
+.item-image__label {
+  position: absolute;
+  top: 0.4vw;
+  left: 0.4vw;
+  font: var(--font-button-xs);
+  font-feature-settings: var(--font-feature);
+  border-radius: var(--border-radius-2xl);
+  background-color: var(--green-color);
+  color: var(--white-color);
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0.26vw;
+  min-width: 2.13vw;
+  min-height: 2.08vw;
+}

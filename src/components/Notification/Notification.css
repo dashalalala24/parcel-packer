@@ -1,0 +1,36 @@
+.notification {
+  display: flex;
+  position: relative;
+  position: fixed;
+  top: 2vh;
+  right: 1vw;
+  flex-direction: column;
+  min-height: 10.3vh;
+  z-index: 2000;
+  border: 0.2vw solid;
+  padding: 1.87vw;
+  box-sizing: border-box;
+  border-radius: var(--border-radius-l);
+}
+
+.notification__message-container {
+  display: flex;
+  align-items: center;
+  font: var(--font-button-s);
+}
+
+.notification__message {
+  margin: 0;
+}
+
+.notification__message-details {
+  margin: 0;
+  margin: 0.25vw 0 0;
+  font: var(--font-2xs);
+}
+
+.notification__close-button-container {
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+}

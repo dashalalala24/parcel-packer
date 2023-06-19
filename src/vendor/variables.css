@@ -1,0 +1,80 @@
+:root {
+  --black-color: #212121;
+  --dark-beige-color: #eee9df;
+  --beige-color: #f3f0e9;
+  --dark-gray-color: #7e7e7e;
+  --dark-gray-color-2: #808080;
+  --gray-color: #dedede;
+  --gray-color-2: #ebebeb;
+  --white-color: #fff;
+  --orange-color: #ffa200;
+  --dark-yellow-color: #f5c400;
+  --yellow-color: #fed42b;
+  --yellowish-color: #ffeccc;
+  --green-color: #2aad2e;
+  --red-color: #f00;
+  --blue-color: #04e;
+
+  --popup-blue-border: #7195f1;
+  --popup-green-border: #68bb7c;
+  --popup-red-border: #ff6a6a;
+  --popup-yellow-border: #fdc25c;
+
+  --popup-blue-background: #e7eefa;
+  --popup-green-background: #f1f9f4;
+  --popup-light-red-background: #ffeded;
+  --popup-yellow-background: #fff8ed;
+  --popup-red-background: #ff0000;
+
+  --light-blue-color: #25add6;
+  --bluish-color: #e0eeff;
+  --violet-color: #8a35b3;
+
+  /* --font-2xl: 400 72px/90px 'YS Display', 'Arial', sans-serif; */
+  --font-2xl: 400 3.7vw/ 4.6vw 'YS Display', 'Arial', sans-serif;
+
+  /* --font-l: 700 40px/36px 'YS Display', 'Arial', sans-serif; */
+  --font-l: 700 2vw / 1.8vw 'YS Display', 'Arial', sans-serif;
+
+  /* --font-m: 400 40px/44px 'YS Display', 'Arial', sans-serif; */
+  --font-m: 400 2vw / 2.3vw 'YS Display', 'Arial', sans-serif;
+
+  /* --font-xs: 400 28px/35px 'YS Display', 'Arial', sans-serif; */
+  --font-xs: 400 1.45vw / 1.8vw 'YS Display', 'Arial', sans-serif;
+
+  /* --font-2xs: 400 24px/32px 'YS Display', 'Arial', sans-serif; */
+  --font-2xs: 400 1.25vw / 1.4vw 'YS Display', 'Arial', sans-serif;
+
+  /* --font-3xs: 400 14px/20px 'YS Display', 'Arial', sans-serif; */
+  --font-3xs: 400 0.75vw / 1vw 'YS Display', 'Arial', sans-serif;
+
+  /* --font-4xs: 400 20px/26px 'YS Text', 'Arial', sans-serif; */
+  --font-4xs: 400 1vw / 1.4vw 'YS Text', 'Arial', sans-serif;
+
+  /* --font-button-xl: 700 48px/60px 'YS Display', 'Arial', sans-serif; */
+  --font-button-xl: 700 2.5vw / 3.1vw 'YS Display', 'Arial', sans-serif;
+
+  /* --font-button-l: 400 40px/44px 'YS Display', 'Arial', sans-serif; */
+  --font-button-l: 2vw / 2.3vw 'YS Display', 'Arial', sans-serif;
+
+  /* --font-button-m: 700 32px/40px 'YS Display', 'Arial', sans-serif; */
+  --font-button-m: 700 1.7vw / 2vw 'YS Display', 'Arial', sans-serif;
+
+  /* --font-button-s: 700 28px/35px 'YS Display', 'Arial', sans-serif; */
+  --font-button-s: 700 1.5vw / 1.7vw 'YS Display', 'Arial', sans-serif;
+
+  /* --font-button-xs: 700 24px/30px 'YS Display', 'Arial', sans-serif; */
+  --font-button-xs: 700 1.3vw / 1.5vw 'YS Display', 'Arial', sans-serif;
+
+  --letter-spacing-s: -0.01em;
+  --letter-spacing-m: -0.02em;
+  --font-feature: 'pnum' on, 'lnum' on;
+
+  --border-radius-2xs: 0.62vw;
+  --border-radius-xs: 1vw;
+  --border-radius-s: 1.04vw;
+  --border-radius-m: 1.2vw;
+  --border-radius-l: 2.08vw;
+  --border-radius-xl: 2.5vw;
+  --border-radius-2xl: 2vw;
+}

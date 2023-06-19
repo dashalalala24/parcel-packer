@@ -1,0 +1,70 @@
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 0.32vw;
+  padding: 0.83vh 1.25vw;
+  box-sizing: border-box;
+  max-width: fit-content;
+  border-radius: var(--border-radius-2xl);
+}
+
+.tag_type_box {
+  background-color: var(--yellow-color);
+}
+
+.tag_type_bag {
+  background-color: var(--light-blue-color);
+}
+
+.tag_type_another {
+  background-color: var(--violet-color);
+  padding: 1.2vh 1.5vw;
+}
+
+.tag_type_cancel {
+  gap: 0.16vw;
+  padding: 0;
+}
+
+.tag_type_barcode {
+  gap: 0.5vw;
+  padding: 0;
+}
+
+.tag_type_additional-code {
+  background-color: var(--yellowish-color);
+  border-radius: var(--border-radius-2xs);
+  padding: 0.83vh 0.83vw;
+}
+
+.tag_type_info {
+  background-color: var(--gray-color-2);
+  padding: 1.2vh 1.25vw;
+  width: fit-content;
+  max-width: 20vw;
+}
+
+.tag__text {
+  font: var(--font-button-xs);
+  font-feature-settings: var(--font-feature);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tag__text_color_white {
+  color: var(--white-color);
+}
+
+.tag__text_color_blue {
+  font: var(--font-2xs);
+  color: var(--blue-color);
+}
+
+.tag__text_color_red {
+  font: var(--font-2xs);
+  color: var(--red-color);
+}

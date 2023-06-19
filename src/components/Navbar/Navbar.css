@@ -1,0 +1,19 @@
+.navbar {
+  display: flex;
+  width: 100%;
+  min-height: 10.37vh;
+  box-shadow: 0 0.26vw 2.4vw rgba(0, 0, 0, 0.12), 0 0.36vw 0.78vw rgba(0, 0, 0, 0.12);
+  padding: 1vw 2vh;
+  box-sizing: border-box;
+  justify-content: space-between;
+  z-index: 999;
+  position: fixed;
+  bottom: calc(0.8vh + 0.75vw);
+  left: 0;
+}
+
+sans-serif .navbar__button-container {
+  flex: 1 1 0;
+  display: flex;
+  width: 0;
+}

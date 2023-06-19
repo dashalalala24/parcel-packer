@@ -1,0 +1,17 @@
+.broken-item-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10.3vh 0 12.96vh;
+  width: calc((1112 / 1920) * 100%);
+  margin: 0 auto;
+  position: relative;
+}
+
+.broken-item-page__title {
+  font: var(--font-button-xl);
+  font-feature-settings: var(--font-feature);
+  max-width: 25vw;
+  padding: 2.6vh 0 0;
+  margin: 0;
+}

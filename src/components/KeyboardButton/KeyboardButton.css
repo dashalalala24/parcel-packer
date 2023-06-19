@@ -1,0 +1,28 @@
+.keyboard-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: var(--font-button-l);
+  border: none;
+  cursor: pointer;
+  background-color: var(--white-color);
+}
+
+.keyboard-button:active {
+  background-color: var(--beige-color);
+}
+
+.keyboard-button_color_beige {
+  background-color: var(--beige-color);
+}
+
+.keyboard-button_color_beige:active {
+  background-color: var(--dark-beige-color);
+}
+.keyboard-button_color_yellow {
+  background-color: var(--yellow-color);
+}
+
+.keyboard-button_color_yellow:active {
+  background-color: var(--dark-yellow-color);
+}

@@ -1,0 +1,28 @@
+.start-page {
+  width: 100%;
+  height: calc(100vh - 2.6vh);
+  align-self: center;
+  padding: 0 1.2vw 2.6vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: '. logo button';
+}
+
+.start-page__logo-container {
+  display: flex;
+  gap: 1.6vw;
+  align-items: center;
+  grid-area: logo;
+  justify-self: center;
+}
+
+.start-page__title {
+  font: var(--font-button-xl);
+}
+
+.start-page__link {
+  text-decoration: none;
+  grid-area: button;
+  justify-self: end;
+  align-self: center;
+}

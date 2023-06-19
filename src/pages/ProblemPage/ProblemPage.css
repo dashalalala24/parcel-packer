@@ -1,0 +1,8 @@
+.problem-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.66vw;
+  margin: 0 auto;
+}

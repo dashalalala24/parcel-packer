@@ -1,0 +1,30 @@
+.footer {
+  background-color: var(--black-color);
+  font: var(--font-3xs);
+  font-feature-settings: var(--font-feature);
+  color: var(--dark-gray-color);
+  display: flex;
+  padding: 0.4vh 1.5vw;
+  width: 100%;
+  width: -webkit-fill-available; 
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  z-index: 1001;
+}
+
+.footer__secret {
+  padding: 0;
+  margin: 0 auto 0 0;
+}
+
+.footer__number {
+  padding: 0;
+  margin: 0 auto 0 0;
+}
+
+.footer__copyright {
+  padding: 0;
+  margin: 0 0 0 auto;
+}

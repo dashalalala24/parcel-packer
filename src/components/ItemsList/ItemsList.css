@@ -1,0 +1,20 @@
+.items-list {
+  list-style-type: none;
+  padding: 4vh 0 0;
+  margin: 0 auto;
+  /* max-width: 1112px; */
+  width: 100%;
+}
+
+.items-list__item {
+  padding: 2.2vh 0;
+  border-bottom: 0.05vw solid var(--gray-color);
+}
+
+.items-list__item:first-of-type {
+  padding: 0 0 2vh;
+}
+
+.items-list__item:last-of-type {
+  border-bottom: none;
+}

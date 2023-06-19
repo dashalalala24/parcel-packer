@@ -1,0 +1,23 @@
+.package-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.62vw;
+  width: 16.45vw;
+  height: 16.45vw;
+  padding: 0.6vw;
+  box-sizing: border-box;
+  border-radius: var(--border-radius-s);
+  background-color: var(--gray-color);
+}
+
+.package-card__left {
+  background-color: var(--beige-color);
+  border-radius: var(--border-radius-xs);
+  font: var(--font-l);
+  letter-spacing: var(--letter-spacing-m);
+  text-align: center;
+  width: 7.3vw;
+  height: 7.3vw;
+  padding: 4.8vh 0 0;
+  box-sizing: border-box;
+}

@@ -1,0 +1,58 @@
+.order-list-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10.5vh 0 13vh;
+  width: 58vw;
+  height: fit-content;
+  margin: 0 auto;
+  position: relative;
+}
+
+.order-list-page__link {
+  text-decoration: none;
+  align-self: center;
+  position: fixed;
+  top: 19.3vh;
+}
+
+.order-list-page__link:first-of-type {
+  left: 1.2vw;
+}
+
+.order-list-page__link:nth-of-type(2) {
+  right: 1.2vw;
+}
+
+.order-list-page__text {
+  display: flex;
+  max-width: 58vw;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.6vh 0 0;
+  justify-content: space-between;
+}
+
+.order-list-page__title {
+  font: var(--font-button-xl);
+  font-feature-settings: var(--font-feature);
+  max-width: 23.4vw;
+  padding: 0;
+  margin: 0;
+}
+
+.order-list-page__cell {
+  font: var(--font-2xl);
+  font-feature-settings: var(--font-feature);
+  padding: 0;
+  margin: 0;
+}
+
+.order-list-page__tags {
+  list-style-type: none;
+  display: flex;
+  gap: 0.62vw;
+  padding: 1.48vh 0 0;
+  margin: 0;
+  justify-content: flex-end;
+}

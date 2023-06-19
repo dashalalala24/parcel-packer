@@ -1,0 +1,36 @@
+.input-popup {
+  background-color: var(--white-color);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 7vh;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-content: center;
+  z-index: 3;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity ease 0.3s;
+}
+
+.input-popup_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.input-popup__title {
+  padding: 3.7vh 0 0;
+  margin: 0;
+  font: var(--font-2xl);
+  font-feature-settings: var(--font-feature);
+  text-align: center;
+}
+
+.input-popup__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}

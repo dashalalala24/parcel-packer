@@ -1,0 +1,13 @@
+.actionButton {
+  border: none;
+  width: 4,16vw;
+  height: 4,16vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.actionButton:hover {
+  filter: brightness(95%);
+}

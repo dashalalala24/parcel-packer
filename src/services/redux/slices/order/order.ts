@@ -1,23 +1,28 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getOrder } from './orderApi';
-import { compareArrays, compareArraysAndDeleteUnique } from '../../../../utils/utils';
-// import { fetchCount } from './exampleAPI';
+import { checkResponse } from '../../../../utils/utils';
+import type { IItem } from '../../../../utils/orderExamples';
+
+interface IOrder {
+  orderId: string | null;
+  items: IItem[];
+}
 
 export interface OrderState {
-  order: {};
+  order: IOrder;
   status: 'loading' | 'success' | 'failed' | null;
-  barcodes: number[];
-  deletedItems: number[];
-  // scannedItems: number[];
+  deletedItems: IItem[];
+  scannedItems: number[];
   error: string;
 }
 
 const initialState: OrderState = {
-  order: {},
+  order: {
+    orderId: null,
+    items: [],
+  },
   status: null,
-  barcodes: [],
   deletedItems: [],
-  // scannedItems: [],
+  scannedItems: [],
   error: '',
 };
 
@@ -25,37 +30,38 @@ const initialState: OrderState = {
 // Обычно используется для выполнения асинхронных запросов.
 // это асинхронный экшн
 export const getOrders = createAsyncThunk('order/getOrder', async () => {
-  //
   try {
-    const response = await getOrder();
-    return response.data;
-  } catch (err) {
-    return err;
+    const res = await fetch('http://127.0.0.1:8000/api/v1/orders/', {
+      method: 'GET'
+    });
+    const data = await checkResponse(res);
+    return data;
+  } catch (err: any) {
+    const error = await err.json();
+    return Promise.reject(error.message);
   }
 });
 
 export const exampleSlice = createSlice({
   name: 'order',
   initialState,
-  // Поле "reducers" позволяет нам определять редьюсеры и генерировать связанные с ними экшены
   reducers: {
-    deleteItemsFromList: (state, action: PayloadAction<number[]>) => {
-      const barcodes = state.barcodes;
-      let newOrder: number[] = [];
-      let deletedItemsList: number[] = [];
-      deletedItemsList.concat(action.payload);
-      state.deletedItems = deletedItemsList;
-
-      newOrder = compareArraysAndDeleteUnique(barcodes, deletedItemsList);
-      state.order = newOrder;
+    deleteItems: (state, action: PayloadAction<number[]>) => {
+      let newDeletedItems: IItem[] = [];
+      let newItems: IItem[] = [];
+      const items = { ...state.order.items };
+      items.forEach(item => {
+        if (action.payload.includes(item.barcode)) {
+          newDeletedItems.push(item);
+        } else {
+          newItems.push(item);
+        }
+      });
+      state.order.items = newItems;
+      state.deletedItems = newDeletedItems;
     },
-    scanAllItems: (state, action: PayloadAction<number[]>) => {
-      const barcodes = state.barcodes;
-      let scannedItems: number[] = [];
-      scannedItems.concat(action.payload);
-      // state.scannedItems = scannedItems;
-
-      compareArrays(barcodes, scannedItems);
+    scanItems: (state, action: PayloadAction<number>) => {
+      state.scannedItems.push(action.payload);
     },
   },
   // Поле `extraReducers` позволяет слайсу обрабатывать экшены, определенные в другом месте,
@@ -64,17 +70,19 @@ export const exampleSlice = createSlice({
     builder
       .addCase(getOrders.pending, state => {
         state.status = 'loading';
+        console.log('loading');
       })
       .addCase(getOrders.fulfilled, (state, action) => {
         state.status = 'success';
-        // state.order = action.payload;
+        console.log('success', action.payload);
       })
-      .addCase(getOrders.rejected, state => {
+      .addCase(getOrders.rejected, (state, action) => {
         state.status = 'failed';
+        // console.log('failed', action.payload);
       });
   },
 });
 
-export const { deleteItemsFromList } = exampleSlice.actions;
+export const { deleteItems, scanItems } = exampleSlice.actions;
 
 export default exampleSlice.reducer;

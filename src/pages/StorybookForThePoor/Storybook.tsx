@@ -15,6 +15,7 @@ import {
   setInfo,
   setSuccess,
 } from '../../services/redux/slices/notification/notification';
+import { getOrders } from '../../services/redux/slices/order/order';
 
 export interface IItem {
   id: string;
@@ -101,12 +102,7 @@ const Storybook = () => {
       <br />
       <Button
         onClick={() => {
-          dispatch(
-            setSystemError({
-              message: 404,
-              messageDetails: 'Сломалося...',
-            })
-          );
+          dispatch(getOrders());
         }}
         color={ButtonColors.black}
         size={ButtonSizes.m}

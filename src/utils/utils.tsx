@@ -39,3 +39,11 @@ export function compareArrays(a: number[], b: number[]) {
 
   return true;
 }
+
+export const checkResponse = async (res: Response) => {
+  if (res.ok) {
+    return await res.json();
+  }
+  const error = await res.json();
+  return Promise.reject(error.message);
+};

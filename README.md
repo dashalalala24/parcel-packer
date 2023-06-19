@@ -19,9 +19,9 @@
 * [Дмитрий Лифанов](https://github.com/Dimalright)
 
  > Дата-аналитики  
-* Ярослав Князев
-* Станислав Мокров
-* Владислав Вододохов 
+* [Ярослав Князев](https://github.com/Yaroslav-Kn)
+* [Станислав Мокров](https://github.com/GreyGreyWolf)
+* [Владислав Вододохов](https://github.com/uladzislau21) 
 
 
  > Дизайнеры  

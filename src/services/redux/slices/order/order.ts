@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { checkResponse } from '../../../../utils/utils';
 import type { IItem } from '../../../../utils/orderExamples';
+import OrderService from './orderApi';
 
 interface IOrder {
   orderId: string | null;
@@ -31,14 +32,11 @@ const initialState: OrderState = {
 // это асинхронный экшн
 export const getOrders = createAsyncThunk('order/getOrder', async () => {
   try {
-    const res = await fetch('http://127.0.0.1:8000/api/v1/orders/', {
-      method: 'GET'
-    });
-    const data = await checkResponse(res);
-    return data;
+    const service = new OrderService();
+    const res = await service.getAll();
+    return res.data;
   } catch (err: any) {
-    const error = await err.json();
-    return Promise.reject(error.message);
+    return err.messsage;
   }
 });
 
@@ -63,6 +61,16 @@ export const exampleSlice = createSlice({
     scanItems: (state, action: PayloadAction<number>) => {
       state.scannedItems.push(action.payload);
     },
+    // getOrderRequest: state => {
+    //   console.log('request');
+    // },
+    // getOrderSuccess: (state, action: PayloadAction<IOrder>) => {
+    //   console.log('success');
+    //   state.order = action.payload;
+    // },
+    // getOrderFailed: (state, action) => {
+    //   console.log('failed', action.payload);
+    // },
   },
   // Поле `extraReducers` позволяет слайсу обрабатывать экшены, определенные в другом месте,
   // включая экшены, сгенерированные createAsyncThunk или в других слайсах.
@@ -74,15 +82,16 @@ export const exampleSlice = createSlice({
       })
       .addCase(getOrders.fulfilled, (state, action) => {
         state.status = 'success';
-        console.log('success', action.payload);
+        console.info('success', action.payload);
       })
       .addCase(getOrders.rejected, (state, action) => {
         state.status = 'failed';
-        // console.log('failed', action.payload);
+        console.info('failed', action.payload);
       });
   },
 });
 
-export const { deleteItems, scanItems } = exampleSlice.actions;
+export const { deleteItems, scanItems } =
+  exampleSlice.actions;
 
 export default exampleSlice.reducer;

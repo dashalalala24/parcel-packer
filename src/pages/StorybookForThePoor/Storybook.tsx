@@ -102,6 +102,7 @@ const Storybook = () => {
       <br />
       <Button
         onClick={() => {
+          //@ts-ignore
           dispatch(getOrders());
         }}
         color={ButtonColors.black}

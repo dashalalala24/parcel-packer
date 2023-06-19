@@ -1,4 +1,33 @@
-// A mock function to mimic making an async request for data
-export function getOrder(amount = 1) {
-  return new Promise<{ data: number }>(resolve => setTimeout(() => resolve({ data: amount }), 500));
+import http from '../../../../utils/http-common';
+
+class TutorialDataService {
+  getAll() {
+    return http.get('/orders');
+  }
+
+  // get(id) {
+  //   return http.get(`/tutorials/${id}`);
+  // }
+
+  // create(data) {
+  //   return http.post('/tutorials', data);
+  // }
+
+  // update(id, data) {
+  //   return http.put(`/tutorials/${id}`, data);
+  // }
+
+  // delete(id) {
+  //   return http.delete(`/tutorials/${id}`);
+  // }
+
+  // deleteAll() {
+  //   return http.delete(`/tutorials`);
+  // }
+
+  // findByTitle(title) {
+  //   return http.get(`/tutorials?title=${title}`);
+  // }
 }
+
+export default TutorialDataService;

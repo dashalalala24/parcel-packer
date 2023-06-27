@@ -1,11 +1,16 @@
+import { useSelector } from 'react-redux';
+
 import ItemsList from '../../components/ItemsList/ItemsList';
-import { order2 } from '../../utils/orderExamples';
 import Tag, { tagTypes } from '../../components/Tag/Tag';
 
 import './OrderListPage.css';
-import { getItemsQuantity, infoTagDeclension } from '../../utils/utils';
+import { getTotalItemsQuantity, infoTagDeclension } from '../../utils/utils';
+import { selectOrder } from '../../services/redux/slices/order/order';
+import { IItemOfOrder } from '../../utils/utils';
 
 export default function OrderListPage() {
+  const { order } = useSelector(selectOrder);
+
   return (
     <main id='order-list-page' className='order-list-page'>
       <div className='order-list-page__text'>
@@ -16,7 +21,9 @@ export default function OrderListPage() {
             <li>
               <Tag
                 type={tagTypes.info}
-                value={`${getItemsQuantity(order2)} ${infoTagDeclension(getItemsQuantity(order2))}`}
+                value={`${getTotalItemsQuantity(order.items)} ${infoTagDeclension(
+                  order.items.length
+                )}`}
               />
             </li>
             <li>
@@ -25,7 +32,7 @@ export default function OrderListPage() {
           </ul>
         </div>
       </div>
-      <ItemsList itemsPackage={order2} />
+      <ItemsList itemsPackage={order.items} />
     </main>
   );
 }

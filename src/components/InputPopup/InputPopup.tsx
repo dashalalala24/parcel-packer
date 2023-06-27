@@ -4,6 +4,8 @@ import Input from '../Input/Input';
 import Keyboard from '../Keyboard/Keyboard';
 import { useAppDispatch } from '../../utils/hooks/redux';
 import { setSystemError } from '../../services/redux/slices/notification/notification';
+import { setScannedData } from '../../services/redux/slices/scannedData/scannedData';
+import { useNavigate } from 'react-router-dom';
 
 export enum InputPopupTypes {
   numbers = 'numbers',
@@ -19,8 +21,20 @@ interface IInputPopup {
   type: InputPopupTypes;
 }
 
+interface IEnteredDataState {
+  concat(input: IInputValue): string | number[];
+  enteredData: number[] | string[];
+}
+
+// export const useEnteredDataState = (): IEnteredDataState => {
+//   const [enteredDataState, setEnteredDataState] = useState<IEnteredDataState>({ enteredData: [] });
+
+//   return enteredDataState;
+// };
+
 const InputPopup: FC<IInputPopup> = ({ type }) => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const [input, setInput] = useState<IInputValue>({ inputValue: '' });
 
@@ -38,7 +52,8 @@ const InputPopup: FC<IInputPopup> = ({ type }) => {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log('SUBMITTED');
+    dispatch(setScannedData(input.inputValue));
+    navigate(-1);
     setInput({ inputValue: '' });
   };
 

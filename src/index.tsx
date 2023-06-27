@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import { Provider } from 'react-redux';
-import { store } from './services/redux/store';
 import { HashRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+
+import { persistor, store } from './services/redux/store';
 import { Layout } from './components/Layout/Layout';
 import StartPage from './pages/StartPage/StartPage';
 import OrderListPage from './pages/OrderListPage/OrderListPage';
@@ -20,6 +21,8 @@ import BrokenItemPage from './pages/BrokenItemPage/BrokenItemPage';
 import ContainerPage from './pages/ContainerPage/ContainerPage';
 import ScanBadgePage from './pages/ScanBadgePage/ScanBadgePage';
 
+import './index.css';
+
 const Root: FC = () => {
   const location = useLocation();
   const { state } = location;
@@ -31,7 +34,7 @@ const Root: FC = () => {
           <Route index element={<StartPage />} />
           <Route path='/order-list' element={<OrderListPage />} />
           <Route path='/packages-list' element={<PackagesListPage />} />
-          <Route path='/packageID-package-list' element={<PackagePage />} />
+          <Route path='/package-list/:packageId' element={<PackagePage />} />
           <Route path='/done' element={<SuccessPage />} />
           <Route path='/problem' element={<ProblemPage />} />
           <Route path='/edit-itemslist' element={<EditItemsListPage />} />
@@ -56,9 +59,11 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter>
-        <Root />
-      </HashRouter>
+      <PersistGate loading={null} persistor={persistor}>
+        <HashRouter>
+          <Root />
+        </HashRouter>
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );

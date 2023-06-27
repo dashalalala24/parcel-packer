@@ -18,7 +18,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1vw;
-
+  align-self: center;
   max-width: 69vw;
 }
 

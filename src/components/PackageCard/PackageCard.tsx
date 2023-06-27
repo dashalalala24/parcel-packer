@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import './PackageCard.css';
 import ItemImage from '../ItemImage/ItemImage';
-import { IItem } from '../../utils/orderExamples';
+import { IItemOfOrder, IItemOfPackage } from '../../utils/utils';
 
 interface IPackageCard {
-  items: IItem[];
+  items: IItemOfPackage[];
 }
 
 const PackageCard: FC<IPackageCard> = ({ items }) => {
@@ -13,20 +13,20 @@ const PackageCard: FC<IPackageCard> = ({ items }) => {
       {items.length < 5 ? (
         items.map(item => (
           <ItemImage
-            key={item.id}
+            key={item.barcode}
             itemImg={item.pic}
             itemName={item.name}
-            itemQuantity={item.quantity}
+            itemQuantity={item.count ? item.count : 1}
           />
         ))
       ) : (
         <>
           {items.slice(0, 3).map(item => (
             <ItemImage
-              key={item.id}
+              key={item.barcode}
               itemImg={item.pic}
               itemName={item.name}
-              itemQuantity={item.quantity}
+              itemQuantity={item.count ? item.count : 1}
             />
           ))}
           <div className='package-card__left'>+{items.length - 3}</div>

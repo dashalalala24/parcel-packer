@@ -1,6 +1,16 @@
-// A mock function to mimic making an async request for data
-export function fetchCount(amount = 1) {
-  return new Promise<{ data: number }>((resolve) =>
-    setTimeout(() => resolve({ data: amount }), 500)
-  );
+export function fetchGetOrder() {
+  return fetch(`http://127.0.0.1:3000/api/v1/orders/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(checkRes);
+}
+
+function checkRes(res: any) {
+  if (res.ok) {
+    return res.json();
+  } else {
+    return Promise.reject(res);
+  }
 }

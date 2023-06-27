@@ -16,7 +16,7 @@ import {
   setSuccess,
 } from '../../services/redux/slices/notification/notification';
 
-export interface IItem {
+export interface IItemOfOrder {
   id: string;
   name: string;
   pic: string;
@@ -24,7 +24,7 @@ export interface IItem {
   barcode: number;
 }
 
-const order1: IItem[] = [
+const order1: IItemOfOrder[] = [
   {
     id: '4',
     name: 'Гель для душа SYNERGETIC «Кокос и масло макадамии», увлажняющий, натуральный, 750 мл',
@@ -41,7 +41,7 @@ const order1: IItem[] = [
   },
 ];
 
-const order2: IItem[] = [
+const order2: IItemOfOrder[] = [
   {
     id: '1',
     name: 'брокколи',
@@ -126,7 +126,7 @@ const Storybook = () => {
         text='Тест ошибки сценария'
       />
       <br />
-      <Button
+      {/* <Button
         onClick={() => {
           dispatch(
             setWarning({
@@ -138,7 +138,7 @@ const Storybook = () => {
         color={ButtonColors.black}
         size={ButtonSizes.m}
         text='Тест предупреждения'
-      />
+      /> */}
       <br />
       <Button
         onClick={() => {
@@ -278,9 +278,9 @@ const Storybook = () => {
         itemQuantity={100}
       />
       <br />
-      <PackageCard items={order1} />
+      {/* <PackageCard items={order1} />
       <br />
-      <PackageCard items={order2} />
+      <PackageCard items={order2} /> */}
     </div>
   );
 };

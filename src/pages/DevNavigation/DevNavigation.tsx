@@ -36,7 +36,7 @@ const DevNavigation: FC = () => {
         packages list
       </Link>
       <br />{' '}
-      <Link style={{ font: 'var(--font-m)' }} to={'/packageID-package-list'}>
+      <Link style={{ font: 'var(--font-m)' }} to={'/ackage-list/:packageId'}>
         package list
       </Link>
       <br />

@@ -1,11 +1,16 @@
+import { useSelector } from 'react-redux';
 import ItemsList from '../../components/ItemsList/ItemsList';
 import Tag, { tagTypes } from '../../components/Tag/Tag';
-import { order1AfterML } from '../../utils/orderExamples';
-import { getItemsQuantity, infoTagDeclension } from '../../utils/utils';
+// import { order1AfterML } from '../../utils/utils';
+// import { getItemsQuantity, infoTagDeclension } from '../../utils/utils';
 
 import './EditItemsListPage.css';
+import { selectOrder } from '../../services/redux/slices/order/order';
+import { getTotalItemsQuantity, infoTagDeclension } from '../../utils/utils';
 
 export default function EditItemsListPage() {
+  const { order } = useSelector(selectOrder);
+
   return (
     <main id='edit-itemslist-page' className='edit-itemslist-page'>
       <div className='edit-itemslist-page__text'>
@@ -16,8 +21,8 @@ export default function EditItemsListPage() {
             <li>
               <Tag
                 type={tagTypes.info}
-                value={`${getItemsQuantity(order1AfterML.packages[2].items)} ${infoTagDeclension(
-                  getItemsQuantity(order1AfterML.packages[2].items)
+                value={`${getTotalItemsQuantity(order.items)} ${infoTagDeclension(
+                  order.items.length
                 )}`}
               />
             </li>
@@ -27,7 +32,7 @@ export default function EditItemsListPage() {
           </ul>
         </div>
       </div>
-      <ItemsList itemsPackage={order1AfterML.packages[2].items} hasAdditionalTags={false} />
+      <ItemsList itemsPackage={order.items} hasAdditionalTags={false} />
     </main>
   );
 }

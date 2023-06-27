@@ -1,14 +1,14 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { IItem } from '../../../../utils/orderExamples';
+import { IItemOfOrder } from '../../../../utils/utils';
 
 export type TNotification = 'success' | 'fault' | 'systemError' | 'warning' | 'info';
 
 export interface NotificationState {
   message: string | number;
-  messageDetails: string;
+  messageDetails: string | undefined;
   type: TNotification;
   isVisible: boolean;
-  item: IItem | null;
+  item: IItemOfOrder | null;
 }
 
 const initialState: NotificationState = {
@@ -20,10 +20,13 @@ const initialState: NotificationState = {
 };
 
 export const notificationSlice = createSlice({
-  name: 'notification',
+  name: '@@notification',
   initialState,
   reducers: {
-    setSystemError: (state, action: PayloadAction<{ message: number | string; messageDetails: string }>) => {
+    setSystemError: (
+      state,
+      action: PayloadAction<{ message: number | string; messageDetails: string | undefined }>
+    ) => {
       state.message = action.payload.message;
       state.messageDetails = action.payload.messageDetails;
       state.type = 'systemError';
@@ -46,16 +49,14 @@ export const notificationSlice = createSlice({
       state.type = 'fault';
       state.isVisible = true;
     },
-    setWarning: (state, action: PayloadAction<{ message: string; item: IItem }>) => {
+    setWarning: (state, action: PayloadAction<{ message: string; item: IItemOfOrder }>) => {
       state.message = action.payload.message;
       state.messageDetails = '';
       state.item = action.payload.item;
       state.type = 'warning';
       state.isVisible = true;
     },
-    closeNotification: state => {
-      state.isVisible = false;
-    },
+    closeNotification: () => initialState,
   },
 });
 

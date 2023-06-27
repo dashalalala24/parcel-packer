@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import './Counter.css';
+import { useLocation, useParams } from 'react-router-dom';
 
 interface ICounter {
   itemsTotal: number;
@@ -7,8 +8,12 @@ interface ICounter {
 }
 
 const Counter: FC<ICounter> = ({ itemsTotal, itemsScanned }) => {
+  const location = useLocation();
+  const currentPath = location.pathname;
   const counterClassName = (className: string): string => {
-    return itemsTotal === itemsScanned ? `${className} ${className}_full` : className;
+    return itemsTotal === itemsScanned || currentPath.startsWith(`/package-list`)
+      ? `${className} ${className}_full`
+      : className;
   };
 
   const counterStyle: React.CSSProperties | undefined =
@@ -22,9 +27,7 @@ const Counter: FC<ICounter> = ({ itemsTotal, itemsScanned }) => {
       : `${itemsTotal} шт.`;
 
   return (
-    <div
-      className={counterClassName('counter')}
-      style={counterStyle}>
+    <div className={counterClassName('counter')} style={counterStyle}>
       <p className={counterClassName('counter__text')}>{counterText}</p>
     </div>
   );

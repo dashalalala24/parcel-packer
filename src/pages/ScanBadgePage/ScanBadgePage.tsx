@@ -1,5 +1,5 @@
 import ItemsList from '../../components/ItemsList/ItemsList';
-import { order1 } from '../../utils/orderExamples';
+// import { order1 } from '../../utils/utils';
 import './ScanBadgePage.css';
 
 export default function ScanBadgePage() {
@@ -11,7 +11,7 @@ export default function ScanBadgePage() {
         }`} */}
         Отсканируйте бейдж бригадира для подтверждения
       </h1>
-      <ItemsList itemsPackage={order1} />;
+      {/* <ItemsList itemsPackage={order1} />; */}
     </main>
   );
 }

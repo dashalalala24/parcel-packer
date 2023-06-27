@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { useLocation } from 'react-router-dom';
 import ItemCard from '../ItemCard/ItemCard';
-import { IItem } from '../../utils/orderExamples';
+import { IItemOfOrder } from '../../utils/utils';
 import './ItemsList.css';
 
 interface IItemsList {
-  itemsPackage: IItem[];
+  itemsPackage: IItemOfOrder[];
   hasAdditionalTags?: boolean;
 }
 
@@ -15,11 +15,10 @@ const ItemsList: FC<IItemsList> = ({ itemsPackage, hasAdditionalTags = true }) =
 
   return (
     <ul className='items-list'>
-      {itemsPackage.map((item: IItem) => {
+      {itemsPackage.map((item: IItemOfOrder) => {
         return (
-          <li className='items-list__item'>
+          <li className='items-list__item' key={item.barcode}>
             <ItemCard
-              key={item.barcode}
               item={item}
               toDelete={currentPath === '/edit-itemslist' ? true : false}
               hasAdditionalTags={hasAdditionalTags}

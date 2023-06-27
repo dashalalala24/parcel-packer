@@ -7,7 +7,7 @@ import ActionButton from '../ActionButton/ActionButton';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/redux';
 import { closeNotification } from '../../services/redux/slices/notification/notification';
 import ItemCard from '../ItemCard/ItemCard';
-import { IItem } from '../../utils/orderExamples';
+import { IItemOfOrder } from '../../utils/utils';
 import { useLocation } from 'react-router-dom';
 
 enum BorderColors {
@@ -79,12 +79,12 @@ const Notification: FC = () => {
     />
   );
 
-  // вопросики по уместности этого эффекта
-  useEffect(() => {
-    if (currentPath === '/') {
-      dispatch(closeNotification());
-    }
-  }, [currentPath]);
+  // // вопросики по уместности этого эффекта
+  // useEffect(() => {
+  //   if (currentPath === '/') {
+  //     dispatch(closeNotification());
+  //   }
+  // }, [currentPath]);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -120,7 +120,7 @@ const Notification: FC = () => {
           ) : null}
 
           {type === 'warning' && (
-            <ItemCard item={item as IItem} hasCounter={false} hasAdditionalTags={false} />
+            <ItemCard item={item as IItemOfOrder} hasCounter={false} hasAdditionalTags={false} />
           )}
 
           {type === 'systemError' ? (

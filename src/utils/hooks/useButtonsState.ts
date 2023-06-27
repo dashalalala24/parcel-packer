@@ -1,7 +1,11 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState, MouseEventHandler } from 'react';
-import { setInfo } from '../../services/redux/slices/notification/notification';
+import { setInfo, setSystemError } from '../../services/redux/slices/notification/notification';
 import { useAppDispatch } from './redux';
+import { getInitialOrder, resetOrder, selectOrder } from '../../services/redux/slices/order/order';
+import { resetScannedData } from '../../services/redux/slices/scannedData/scannedData';
+import { getInitialPackages, resetPackages } from '../../services/redux/slices/packages/packages';
+import { useSelector } from 'react-redux';
 
 interface IButtonState {
   LButtonState?: {
@@ -20,6 +24,26 @@ const useButtonsState = (): IButtonState => {
   const dispatch = useAppDispatch();
   const currentPath = useLocation().pathname;
   const [buttonsState, setButtonsState] = useState<IButtonState>({});
+  const { order } = useSelector(selectOrder);
+  const { packageId } = useParams();
+
+  const handleStart = () => {
+    dispatch(getInitialOrder())
+      .unwrap()
+      .then(res => {
+        console.log(res);
+        navigate('/order-list');
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch(
+          setSystemError({
+            message: '',
+            messageDetails: err.stack,
+          })
+        );
+      });
+  };
 
   useEffect(() => {
     switch (currentPath) {
@@ -28,9 +52,12 @@ const useButtonsState = (): IButtonState => {
           RButtonState: {
             text: 'Начать',
             isQR: false,
-            callback: () => {
-              navigate('/order-list');
-            },
+            // callback: () => {
+            //   // dispatch(getInitialOrder());
+
+            //   navigate('/order-list');
+            // },
+            callback: () => handleStart(),
           },
         });
         break;
@@ -40,6 +67,7 @@ const useButtonsState = (): IButtonState => {
             text: 'Готово',
             isQR: true,
             callback: () => {
+              dispatch(getInitialPackages(order.orderId));
               navigate('/packages-list');
             },
           },
@@ -50,7 +78,7 @@ const useButtonsState = (): IButtonState => {
           },
         });
         break;
-      case '/packageID-package-list':
+      case `/package-list/${packageId}`:
         setButtonsState({
           RButtonState: {
             text: 'Готово',
@@ -88,6 +116,8 @@ const useButtonsState = (): IButtonState => {
             text: 'Готово',
             isQR: true,
             callback: () => {
+              dispatch(resetOrder());
+              dispatch(resetPackages());
               navigate('/');
             },
           },
@@ -99,6 +129,7 @@ const useButtonsState = (): IButtonState => {
             text: 'Готово',
             isQR: true,
             callback: () => {
+              dispatch(resetScannedData());
               navigate('/container');
             },
           },

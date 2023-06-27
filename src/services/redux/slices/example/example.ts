@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchCount } from './exampleAPI';
+import { fetchGetOrder } from './exampleAPI';
 
 export interface ExapmleState {
   value: number;
@@ -13,8 +13,8 @@ const initialState: ExapmleState = {
 
 // Приведенная ниже функция называется thunk и позволяет нам выполнять асинхронную логику: `dispatch(incrementAsync(10))`.
 // Обычно используется для выполнения асинхронных запросов.
-export const incrementAsync = createAsyncThunk('example/fetchCount', async (amount: number) => {
-  const response = await fetchCount(amount);
+export const getOrder = createAsyncThunk('order/fetchGetOrder', async () => {
+  const response = await fetchGetOrder();
   return response.data;
 });
 
@@ -41,14 +41,14 @@ export const exampleSlice = createSlice({
   // включая экшены, сгенерированные createAsyncThunk или в других слайсах.
   extraReducers: builder => {
     builder
-      .addCase(incrementAsync.pending, state => {
+      .addCase(getOrder.pending, state => {
         state.status = 'loading';
       })
-      .addCase(incrementAsync.fulfilled, (state, action) => {
+      .addCase(getOrder.fulfilled, (state, action) => {
         state.status = 'success';
         state.value += action.payload;
       })
-      .addCase(incrementAsync.rejected, state => {
+      .addCase(getOrder.rejected, state => {
         state.status = 'failed';
       });
   },

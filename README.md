@@ -1,4 +1,4 @@
-# Упаковщик. Команда № 4 – АльПАКи
+# Упаковщик
 **✨ [Ссылка на gh-pages](https://dashalalala24.github.io/parcel-packer/#/) ✨**
 
 
